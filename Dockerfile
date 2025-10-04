@@ -1,0 +1,1 @@
+FROM haskell:slim-bookworm
