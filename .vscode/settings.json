@@ -1,0 +1,17 @@
+{
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+  },
+  // 抑止設定
+  "markdownlint.config": {
+    "MD010": false, // タブ
+    "MD013": false // 長い行
+  },
+  "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell",
+    "editor.formatOnSave": true
+  },
+  "haskell.formattingProvider": "ormolu",
+  "haskell.ghcupExecutablePath": "~/.ghcup/bin/ghcup"
+}
