@@ -13,7 +13,8 @@
 過去自分が参加した[AtCoder](https://info.atcoder.jp/)のコンテストの解答管理用リポジトリ。
 問題文は[AtCorderの知的財産権](https://atcoder.jp/tos)に属するため、ここには記載しない。
 
-> [!WARNING] 本リポジトリには、**コンテスト期間外**に復習のため作成した生成AI使用のコードが含まれています。コンテスト期間においては生成AIを使用せず、参加しています。
+> [!WARNING] 
+> 本リポジトリには、**コンテスト期間外**に復習のため作成した生成AI使用のコードが含まれています。コンテスト期間においては生成AIを使用せず、参加しています。
 
 ---
 
@@ -77,6 +78,6 @@ runghc <file_name>.hs
 ```
 
 ```shell
-# Formatter
+# Formatter(CLIで実行したい場合)
 ormolu --mode inplace $(find . -type f -name "*.hs")
 ```
