@@ -10,4 +10,4 @@ main = do
   let centerIdx = (len + 1) `div` 2 -- 中置きするためにバッククォートで囲む
 
   -- 真ん中の文字を削除して出力する
-  putStrLn (removeAt (centerIdx - 1) s)
+  putStrLn (removeAt (centerIdx - 1) s) -- printにすると"ABDE"のように`"`が含まれて出力されてしまい、WAになる。
