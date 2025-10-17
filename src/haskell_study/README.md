@@ -11,3 +11,4 @@
 - [data.hs](./data.hs): カスタムデータ型の定義と使用方法
 - [data_record.hs](./data_record.hs): レコード構文を使ったデータ型の定義と使用方法
 - [recursive_type.hs](./recursive_type.hs): 再帰型の定義と使用方法
+- [function_composition.hs](./function_composition.hs): 関数合成の基本と使用例
