@@ -4,7 +4,7 @@ import Data.Ord (comparing)
 -- 可能性のある文字列サイズkの文字列tの組み合わせを求める(オーバーラップあり)
 substrings :: Int -> String -> [String]
 substrings k s
-  | length s < k = [] -- 文字列が長過ぎる場合には空リストを返す。
+  | length s < k = [] -- kが文字列よりも大きい場合には空リストを返して再帰を終了する
   | otherwise = take k s : substrings k (tail s) -- tailは文字列の先頭要素を除いた文字列を返すため、再帰的にすべてのtの組み合わせのリストを返せる
 
 -- tが出現する回数を求める(オーバーラップあり)
@@ -21,8 +21,8 @@ main = do
   s <- getLine
   let subList = nub (substrings k s)
   let occurrenceList = map (\t -> (t, countSubOverlap t s)) subList
-  let maxCount = maximum (map snd occurrenceList)
+  let maxCount = maximum (map snd occurrenceList) -- sndはタプルの2個目を拾う
   print maxCount
   -- let maxStrings = sort [str | (str, count) <- occurrenceList, count == maxCount] -- occurrenceListをstrとcountに分けて、strでソートし、countの回数でフィルターしている
-  let maxStrings = sort $ map fst $ filter (\(_, count) -> count == maxCount) occurrenceList
+  let maxStrings = sort $ map fst $ filter (\(_, count) -> count == maxCount) occurrenceList -- fstはタプルの1個目を拾う
   putStrLn (unwords maxStrings)
