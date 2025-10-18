@@ -1,0 +1,9 @@
+-- main :: IO ()
+-- main = do
+--   -- 縦列の入力を取得する
+--   -- 1 2
+--   -- 2 3
+--   -- 3 4
+--   -- 0 0
+--   input <- getContents -- すべての入力を取得
+--   let xyPairs = map ((\[a, b] -> (a, b)) . map read . words) (lines input) :: [(Int, Int)]

@@ -13,7 +13,7 @@
 過去自分が参加した[AtCoder](https://info.atcoder.jp/)のコンテストの解答管理用リポジトリ。
 問題文は[AtCorderの知的財産権](https://atcoder.jp/tos)に属するため、ここには記載しない。
 
-> [!WARNING] 
+> [!WARNING]
 > 本リポジトリには、**コンテスト期間外**に復習のため作成した生成AI使用のコードが含まれています。コンテスト期間においては生成AIを使用せず、参加しています。
 
 ---
@@ -75,6 +75,15 @@ ghc <file_name>.hs
 ```shell
 # インタプリタで実行する
 runghc <file_name>.hs
+```
+
+```shell
+# 対話形式で実行する
+ghci
+ghci> putStrLn "Hello, World!"
+Hello, World!
+ghci> :q
+Leaving GHCi.
 ```
 
 ```shell

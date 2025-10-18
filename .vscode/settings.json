@@ -13,5 +13,8 @@
     "editor.formatOnSave": true
   },
   "haskell.formattingProvider": "ormolu",
-  "haskell.ghcupExecutablePath": "~/.ghcup/bin/ghcup"
+  "haskell.ghcupExecutablePath": "~/.ghcup/bin/ghcup",
+  "github.copilot.enable": {
+    "haskell": false
+  },
 }
