@@ -78,6 +78,11 @@ runghc <file_name>.hs
 ```
 
 ```shell
+# 入力データをtxtファイルから受け取って実行する(これが一番競技プログラミングに向いてそう?)
+runghc <file_name>.hs < input.txt
+```
+
+```shell
 # 対話形式で実行する
 ghci
 ghci> putStrLn "Hello, World!"
