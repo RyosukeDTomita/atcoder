@@ -1,6 +1,6 @@
 # Haskell 基礎文法用
 
-## PROGRAM
+## INDEX
 
 - [bind.hs](./bind.hs): bind(束縛)を試す
 - [list.hs](./list.hs): リスト操作の基本（cons演算子、スライスなど）
@@ -22,4 +22,7 @@
 - [filter.hs](./filter.hs): 高階関数filterによるリストのフィルタリング
 - [map.hs](./map.hs): 高階関数mapによるリストの変換
 - [zipWith.hs](./zipWith.hs): 高階関数zipWithによるリストの結合
+- [zip.hs](./zip.hs): zip関数によるリストの結合
+- [foldr](./foldr.hs): 高階関数foldrによるリストの畳み込み
+- [scanr.hs](./scanr.hs): 高階関数scanrによるリストのスキャン
 - [show_read.hs](./show_read.hs): show/read関数による型変換

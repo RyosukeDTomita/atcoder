@@ -8,4 +8,4 @@ main = do
   print $ zip' [1, 2] [3, 4, 5]
   let names = ["Alice", "Bob", "Charlie"]
   let scores = [80, 90, 75]
-  print $ zip names scores
+  print $ zip names scores -- [("Alice",80),("Bob",90),("Charlie",75)]
