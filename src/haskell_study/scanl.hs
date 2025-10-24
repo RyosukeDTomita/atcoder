@@ -1,4 +1,4 @@
--- scanrを自分で書いてみる
+-- scanlを自分で書いてみる
 scanl' :: (b -> a -> b) -> b -> [a] -> [b]
 scanl' _ q [] = [q]
 scanl' f q (x : xs) = q : scanl' f (f q x) xs

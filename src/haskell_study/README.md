@@ -24,5 +24,7 @@
 - [zipWith.hs](./zipWith.hs): 高階関数zipWithによるリストの結合
 - [zip.hs](./zip.hs): zip関数によるリストの結合
 - [foldr](./foldr.hs): 高階関数foldrによるリストの畳み込み
-- [scanr.hs](./scanr.hs): 高階関数scanrによるリストのスキャン
+- [scanl.hs](./scanl.hs): 高階関数scanlによるリストのスキャン
+- [infinityList.hs](./infinityList.hs): 無限リストの生成と操作
 - [show_read.hs](./show_read.hs): show/read関数による型変換
+- [fmap.hs](./fmap.hs): 高階関数fmapによる関数適用
