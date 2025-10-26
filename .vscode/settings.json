@@ -17,4 +17,10 @@
   "github.copilot.enable": {
     "haskell": false
   },
+  "cSpell.words": [
+    "foldl",
+    "foldr",
+    "scanl",
+    "zipWith"
+  ]
 }

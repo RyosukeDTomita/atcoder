@@ -18,5 +18,10 @@ main :: IO ()
 main = do
   print $ Fork 1 (Leaf 2) (Leaf 3)
   -- print dtree -- 無限に二分木が表示される
-  print $ right dtree
-  print $ (element . right) dtree -- 遅延評価により、dtreeの定義通り、dtree' 0をwhereに適用した際の
+  print $ (element . right) dtree
+-- = element (right dtree)
+-- = element (right (Fork {element = 0, left = dtree' 1, right = dtree' 1}))
+-- = element (dtree' 1)  -- rightフィールドを取得
+-- = element (Fork {element = 1, left = dtree' 2, right = dtree' 2})
+-- = 1  -- elementフィールドだけを取り出す
+-- dtree' 2 以降は評価されない！（遅延評価）
