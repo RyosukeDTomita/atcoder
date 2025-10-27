@@ -1,3 +1,4 @@
+-- [B - Most Frequent Substrings](https://atcoder.jp/contests/abc428/tasks/abc428_b)
 import Data.List (isPrefixOf, nub, sort)
 import Data.Ord (comparing)
 

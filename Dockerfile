@@ -38,5 +38,10 @@ RUN ghcup install ghc 9.6.7 && \
     ghcup set hls 2.11.0.0
 
 # install ormolu formatter
-RUN cabal update && cabal install ormolu
+RUN <<EOF bash -ex
+cabal update
+cabal install ormolu
+cabal install --lib vector
+cabal install --lib containers
+EOF
 

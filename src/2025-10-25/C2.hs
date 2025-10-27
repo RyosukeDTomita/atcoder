@@ -1,0 +1,17 @@
+-- TODO: AIにエレガントなコードを書いてと言ったら出力されたやつ。Monadの学習が終わるまで放置する。
+-- import Control.Monad
+-- import Control.Monad.ST
+-- import Data.Vector.Unboxed qualified as V
+-- import Data.Vector.Unboxed.Mutable qualified as MV
+
+-- main :: IO ()
+-- main = do
+--   n <- readLn :: IO Int
+--   as <- map read . words <$> getLine :: IO [Int]
+--   print $ runST $ do
+--     v <- MV.replicate (n + 1) (0 :: Int)
+--     forM_ as $ \a -> MV.modify v (+ 1) a
+--     freq <- V.freeze v
+--     let pairs x = x * (x - 1) `div` 2
+--         total = sum [pairs c * (n - c) | i <- [1 .. n], let c = freq V.! i, c >= 2]
+--     pure total
