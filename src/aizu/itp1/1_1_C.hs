@@ -1,5 +1,3 @@
-import Text.XHtml (area)
-
 area' :: Int -> Int -> Int
 area' a b = a * b
 
