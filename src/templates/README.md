@@ -8,11 +8,11 @@ Atcoderの競技プログラミング用に、よく使うコードをまとめ�
 
 ## INDEX
 
-### BASIC SYNTAX
+### LANGUAGE BASICS
 
 よく使うが使い方を忘れがちな文法
 
-- [basic_syntax/](./basic_syntax/)
+- [language_basics/](./language_basics/)
 
 ### FUNCTIONS
 
@@ -24,6 +24,10 @@ Atcoderの競技プログラミング用に、よく使うコードをまとめ�
 
 入力を処理するコード
 
+[inputs/](./inputs/)
+
 ### OUTPUT
 
 出力を処理するコード
+
+[output/](./output/)
