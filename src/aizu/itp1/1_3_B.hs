@@ -12,3 +12,4 @@ main = do
   -- ghci> xList = [3, 5, 1]
   -- ghci> zip [1..] xList
   -- [(1,3),(2,5),(3,1)]
+  -- mapM_はモナド用のmapである。mapMとmapM_があるが、mapM は [b] をモナドの中で返すが、結果のリストを捨てて副作用だけが目的なら mapM_ を使う
