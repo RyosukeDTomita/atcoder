@@ -23,6 +23,7 @@
     "scanl",
     "zipWith",
     "unwords",
-    "unlines"
+    "unlines",
+    "zipWith"
   ]
 }
