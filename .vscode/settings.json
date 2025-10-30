@@ -21,6 +21,8 @@
     "foldl",
     "foldr",
     "scanl",
-    "zipWith"
+    "zipWith",
+    "unwords",
+    "unlines"
   ]
 }
