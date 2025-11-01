@@ -35,3 +35,6 @@
 - [infinityList.hs](./infinityList.hs): 無限リストの生成と操作
 - [show_read.hs](./show_read.hs): show/read関数による型変換
 - [fmap.hs](./fmap.hs): 高階関数fmapによる関数適用
+- [rightImonad.hs](./rightImonad.hs)
+- [leftImonad.hs](./leftImonad.hs)
+- [Associatively.hs](./Associatively.hs)
