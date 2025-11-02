@@ -11,3 +11,4 @@
 - [`let`と`where`の使い方](./let_where.hs): letとwhereの使いかた。
 - [lambda式の使い方](./lambda.hs): カリー化された関数を無名関数で書く方法も含む。
 - [cycle関数で無限リストを作成する](./cycle.hs): cycle関数を使った特定のパターンの無限リスト作成
+- [Set型を使ってリストの重複を削除する](./set_remove_duplicates.hs): Data.Setモジュールを使い、リストの重複を削除する方法。

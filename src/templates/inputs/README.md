@@ -59,12 +59,22 @@ runghc multiple_lines_one_string.hs < input.txt && /usr/bin/rm input.txt
 ```shell
 cat <<'EOF' > input.txt
 3
-A
-B
-C
+HOGE
+FUGA
+PIYO
 EOF
 runghc multiple_lines_one_string2.hs < input.txt && /usr/bin/rm input.txt
-["A","B","C"]
+["HOGE","FUGA","PIYO"]
+
+# #と.で構成されるグリッドの問題の場合もこれでいける
+cat <<'EOF' > input.txt
+3
+#.#.
+####
+....
+EOF
+runghc multiple_lines_one_string2.hs < input.txt && /usr/bin/rm input.txt
+["#.#","####","...."]
 ```
 
 - [複数行に1つの文字列を取得する(末尾に終了文字がある)](./multiple_line_one_string3.hs)
@@ -79,6 +89,8 @@ END
 EOF
 runghc multiple_line_one_string3.hs < input.txt && /usr/bin/rm input.txt
 ```
+
+---
 
 ## 数値
 
