@@ -13,6 +13,11 @@
 - [`Length`](./Length.hs): [`length`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:length)を`再帰`と`foldr`の二種類で実装した。
   - `length'`
   - `length''`
+- [`Reverse`](./Reverse.hs): [`reverse`](
+  https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:reverse)を再帰、`foldl`、`foldr`の三種類で実装した。
+  - `reverse'`
+  - `reverse''`
+  - `reverse'''`
 
 ### higher-order functions(高階関数)
 

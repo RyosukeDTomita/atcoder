@@ -2,6 +2,7 @@ import Filter (filter')
 import Fold (foldl', foldr')
 import Length (length', length'')
 import Map (map', map'')
+import Reverse (reverse')
 import Scan (scanl', scanr')
 import Zip (zip', zipWith')
 
@@ -29,3 +30,8 @@ main = do
   -- scanl, scanr
   print $ scanl' (+) 5 [1, 2, 3, 4]
   print $ scanr (+) 5 [1, 2, 3, 4]
+
+  -- reverse
+  print $ reverse' [1, 2, 3, 4, 5] -- [5, 4, 3, 2, 1]
+  print $ reverse' "Hello, World!" -- "!dlroW ,olleH"
+  print $ reverse' ["MIKE", "KEN"] -- ["KEN","MIKE"]
