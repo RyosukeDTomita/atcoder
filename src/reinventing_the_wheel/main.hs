@@ -1,3 +1,4 @@
+import Concat (concat', concat'')
 import Filter (filter')
 import Fold (foldl', foldr')
 import Length (length', length'')
@@ -35,3 +36,8 @@ main = do
   print $ reverse' [1, 2, 3, 4, 5] -- [5, 4, 3, 2, 1]
   print $ reverse' "Hello, World!" -- "!dlroW ,olleH"
   print $ reverse' ["MIKE", "KEN"] -- ["KEN","MIKE"]
+
+  -- concat
+  print $ concat'' [[1, 2], [3, 4]] -- [1,2,3,4]
+  print $ concat'' (Just [1, 2, 3]) -- [1,2,3]
+  print $ concat'' (Nothing :: Maybe [Int]) -- []
