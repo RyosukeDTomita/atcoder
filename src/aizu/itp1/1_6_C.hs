@@ -37,5 +37,5 @@ main = do
   -- 公舎4棟分の1フロア10部屋、3階建
   let initial = replicate 4 (replicate 3 (replicate 10 0))
   -- print initial
-  let result = foldl update initial infoN
+  let result = foldl update initial infoN -- initialを初期値にして複数個のデータを適用する
   printBuilding result

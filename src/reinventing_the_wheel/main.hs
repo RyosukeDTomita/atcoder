@@ -1,4 +1,4 @@
-import Concat (concat', concat'')
+import Concat (concat', concat'', concatMap', concatMap'')
 import Filter (filter')
 import Fold (foldl', foldr')
 import Length (length', length'')
@@ -41,3 +41,8 @@ main = do
   print $ concat'' [[1, 2], [3, 4]] -- [1,2,3,4]
   print $ concat'' (Just [1, 2, 3]) -- [1,2,3]
   print $ concat'' (Nothing :: Maybe [Int]) -- []
+
+  -- concatMap
+  print $ concatMap' show [1, 2, 3]
+  print $ concatMap'' show [1, 2, 3]
+  print $ concatMap'' show (Just [1, 2, 3]) -- "[1,2,3]"

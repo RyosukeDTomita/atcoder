@@ -17,9 +17,11 @@
   - `reverse'`: 再帰 version
   - `reverse''`: `foldl` version
   - `reverse'''`: `foldr` version
-- [`Concat`](./Concat.hs): original: [`concat`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:concat)
+- [`Concat`](./Concat.hs): original: [`concat`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:concat)と[`concatMap`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:concatMap)
   - `concat'`: リストのみを結合する version
   - `concat''`: 任意の型を結合する version
+  - `concatMap'`: リストのみを結合する version
+  - `concatMap''`: 任意の型を結合する version
 
 ### higher-order functions(高階関数)
 
