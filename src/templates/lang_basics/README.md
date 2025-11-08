@@ -9,6 +9,13 @@
   > Haskellの`if`は`else`が必須。
 - [`take`と`drop`でリストから特定の要素を削除する](./take_drop.hs): takeとdropを使ったリストの要素削除
 - [`let`と`where`の使い方](./let_where.hs): letとwhereの使いかた。
-- [lambda式の使い方](./lambda.hs): カリー化された関数を無名関数で書く方法も含む。
+- [lambda式の使い方](./lambda.hs)
+  - 1つの引数のlambda式
+  - 2つの引数のlambda式
 - [cycle関数で無限リストを作成する](./cycle.hs): cycle関数を使った特定のパターンの無限リスト作成
 - [Set型を使ってリストの重複を削除する](./set_remove_duplicates.hs): Data.Setモジュールを使い、リストの重複を削除する方法。
+- [様々なソート](./sort.hs)
+  - 昇順
+  - 降順
+  - tupleの2番目の要素でソート
+- [リスト内包表記と同じ動作をするコード例](./list_comprehension.hs)

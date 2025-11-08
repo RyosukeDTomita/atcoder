@@ -10,9 +10,18 @@
 
 ## INDEX
 
-- [`Length`](./Length.hs): [`length`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:length)を`再帰`と`foldr`の二種類で実装した。
-  - `length'`
-  - `length''`
+- [`Length`](./Length.hs): original: [`length`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:length)
+  - `length'`: 再帰 version
+  - `length''`: foldr version
+- [`Reverse`](./Reverse.hs): original: [`reverse`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:reverse)
+  - `reverse'`: 再帰 version
+  - `reverse''`: `foldl` version
+  - `reverse'''`: `foldr` version
+- [`Concat`](./Concat.hs): original: [`concat`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:concat)と[`concatMap`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:concatMap)
+  - `concat'`: リストのみを結合する version
+  - `concat''`: 任意の型を結合する version
+  - `concatMap'`: リストのみを結合する version
+  - `concatMap''`: 任意の型を結合する version
 
 ### higher-order functions(高階関数)
 
@@ -25,8 +34,8 @@
   - `zipWith'`
   - `zip'`
 - [`Map`](./Map.hs): [`map`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:map)を再帰と`foldr`の二種類で実装した。
-  - `map'`
-  - `map''`
+  - `map'`: 再帰 version
+  - `map''`: foldr version
 - [`Scan`](./Scan.hs): [`scanl`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:scanl)と[`scanr`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:scanr)を実装した。
   - `scanl'`
   - `scanr'`
