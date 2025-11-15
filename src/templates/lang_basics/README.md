@@ -13,9 +13,9 @@
   - 1つの引数のlambda式
   - 2つの引数のlambda式
 - [cycle関数で無限リストを作成する](./cycle.hs): cycle関数を使った特定のパターンの無限リスト作成
-- [Set型を使ってリストの重複を削除する](./set_remove_duplicates.hs): Data.Setモジュールを使い、リストの重複を削除する方法。
 - [様々なソート](./sort.hs)
   - 昇順
   - 降順
   - tupleの2番目の要素でソート
 - [リスト内包表記と同じ動作をするコード例](./list_comprehension.hs)
+- [2次元行列の転置](./transpose.hs): Data.Listのtranspose関数を使った2次元行列の転置

@@ -22,6 +22,8 @@
 
 - Haskell
 
+[参考](https://www.haskell.org/ghcup/install/)
+
 ```shell
 apt-get update -y
 apt-get install --no-install-recommends -y \
@@ -37,7 +39,7 @@ apt-get install --no-install-recommends -y \
   libtinfo5 \
   pkg-config
 
-# ghcupのインストール
+# GHCupのインストール
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
