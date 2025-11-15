@@ -1,4 +1,5 @@
 import Data.List (transpose)
+import Debug.Trace (traceShowId)
 
 --- 行列の掛け算
 matrixMultiply :: [[Int]] -> [[Int]] -> [[Int]]
@@ -14,4 +15,6 @@ main = interact $ \inputs ->
       [n, m, l] = map read . words $ head ls :: [Int]
       ass = map (map read . words) . take n $ tail ls :: [[Int]]
       bss = map (map read . words) . take m . drop n $ tail ls :: [[Int]]
-   in unlines . map (unwords . map show) $ matrixMultiply ass bss
+      !_ = traceShowId (matrixMultiply ass bss)
+   in --  in unlines . map (unwords . map show) $ matrixMultiply ass bss
+      ""
