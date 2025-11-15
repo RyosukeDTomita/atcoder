@@ -19,3 +19,4 @@
   - tupleの2番目の要素でソート
 - [リスト内包表記と同じ動作をするコード例](./list_comprehension.hs)
 - [2次元行列の転置](./transpose.hs): Data.Listのtranspose関数を使った2次元行列の転置
+- [partitionを使ったリストの分割](./partition.hs)

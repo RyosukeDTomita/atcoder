@@ -1,4 +1,5 @@
 import Data.List (transpose)
+import Debug.Trace (traceShowId)
 
 --- 行列の掛け算
 matrixMultiply :: [[Int]] -> [[Int]] -> [[Int]]
