@@ -15,6 +15,4 @@ main = interact $ \inputs ->
       [n, m, l] = map read . words $ head ls :: [Int]
       ass = map (map read . words) . take n $ tail ls :: [[Int]]
       bss = map (map read . words) . take m . drop n $ tail ls :: [[Int]]
-      !_ = traceShowId (matrixMultiply ass bss)
-   in --  in unlines . map (unwords . map show) $ matrixMultiply ass bss
-      ""
+   in unlines . map (unwords . map show) $ matrixMultiply ass bss
