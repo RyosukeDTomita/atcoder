@@ -5,6 +5,7 @@ import Length (length', length'')
 import Map (map', map'')
 import Reverse (reverse')
 import Scan (scanl', scanr')
+import Transpose (transpose')
 import Zip (zip', zipWith')
 
 main :: IO ()
@@ -46,3 +47,7 @@ main = do
   print $ concatMap' show [1, 2, 3]
   print $ concatMap'' show [1, 2, 3]
   print $ concatMap'' show (Just [1, 2, 3]) -- "[1,2,3]"
+
+  -- transpose
+  print $ transpose' [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+  print $ transpose' [["One", "Two", "Three"], ["Four", "Five", "Six"], ["Seven", "Eight", "Nine"]]
