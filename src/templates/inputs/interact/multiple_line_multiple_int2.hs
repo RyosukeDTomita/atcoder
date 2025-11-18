@@ -3,5 +3,5 @@ main :: IO ()
 main = interact $ \input ->
   let ls = lines input -- lsで一旦全体を受け取る
       [h, _] = map read . words $ head ls
-      intList = map (map read . words) . take h $ tail ls :: [[Int]]
-   in show intList ++ "\n"
+      intList2D = map (map read . words) . take h $ tail ls :: [[Int]]
+   in unlines . map (unwords . map show) $ intList2D
