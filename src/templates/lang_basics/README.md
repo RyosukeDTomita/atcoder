@@ -20,3 +20,4 @@
 - [リスト内包表記と同じ動作をするコード例](./list_comprehension.hs)
 - [2次元行列の転置](./transpose.hs): Data.Listのtranspose関数を使った2次元行列の転置
 - [partitionを使ったリストの分割](./partition.hs)
+- [数値に変換する](./toInt.hs): `digitToInt`を使った文字から数値への変換。

@@ -1,0 +1,14 @@
+import Control.Arrow ((>>>))
+import Control.Monad (replicateM_, when)
+import Data.Char (isLower, isUpper, toLower, toUpper,digitToInt, intToDigit)
+import Data.List (elemIndex, sort, sortOn, partition, transpose)
+import Data.List (isPrefixOf, nub, sort)
+import Data.Map qualified as Map
+import Data.Map.Strict qualified as Map
+import Data.Maybe (fromMaybe, listToMaybe)
+import Data.Ord (comparing)
+import Data.Ord (Down (..))
+import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
+import System.Exit (exitSuccess)
+import Text.Printf (printf)
