@@ -30,4 +30,4 @@ foldl' f acc (x : xs) = foldl' f (f acc x) xs
 main :: IO ()
 main = do
   print $ foldr' (+) 5 [1, 2, 3, 4]
-  print $ foldr' (+) 5 [1, 2, 3, 4]
+  print $ foldl' (+) 5 [1, 2, 3, 4]

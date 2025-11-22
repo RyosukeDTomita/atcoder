@@ -1,9 +1,8 @@
-import Data.List (foldl', maximumBy)
-import qualified Data.Map as Map
-import Data.Ord (comparing)
+import Data.List (foldl)
+import Data.Map qualified as Map
 
 countChars :: String -> Map.Map Char Int
-countChars s = foldl' (\m c -> Map.insertWith (+) c 1 m) Map.empty s
+countChars s = foldl (\m c -> Map.insertWith (+) c 1 m) Map.empty s
 
 findSingleChar :: String -> Char
 findSingleChar s = fst $ head $ filter (\(c, n) -> n == 1) $ Map.toList $ countChars s

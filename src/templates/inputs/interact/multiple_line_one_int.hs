@@ -4,7 +4,7 @@ import Control.Arrow ((>>>))
 main :: IO ()
 main =
   interact $
-    lines >>> map (read :: String -> Int) >>> show >>> (++ "\n")
+    lines >>> map (read :: String -> Int) >>> map show >>> unlines
 
 -- . 版（右から左）
--- main = interact $ (++ "\n") . show . map (read :: String -> Int) . lines
+-- main = interact $ unlines . map show . map (read :: String -> Int) . lines
