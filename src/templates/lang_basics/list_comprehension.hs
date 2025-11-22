@@ -26,7 +26,22 @@ primes'' = f [2 ..]
 primes''' :: [Integer]
 primes''' = f [2 ..]
   where
-    f (p : ns) = p : f [n | n <- ns, n `mod` p /= 0]
+    f (p : ns) =
+      p
+        : f
+          [ n
+            | n <- ns,
+              n `mod` p /= 0
+          ]
+
+-- 各数字の平方と立方を求める例 NOTE: 内包表記の中でletを使う際にはinは不要
+squaresAndCubes :: Int -> [(Int, Int)]
+squaresAndCubes n =
+  [ (xSquared, xCubed)
+    | x <- [1 .. n],
+      let xSquared = x * x,
+      let xCubed = x * x * x
+  ]
 
 main :: IO ()
 main = do
@@ -34,3 +49,4 @@ main = do
   print $ take 10 primes'
   print $ take 10 primes''
   print $ take 10 primes'''
+  print $ squaresAndCubes 10

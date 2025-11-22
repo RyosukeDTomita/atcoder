@@ -8,3 +8,4 @@
 - [2xnのリストをTupleのリストに変換する](./toTupleList.hs): Tupleの場合`(String, Int)`のように別々の型を持てるのがリストとの差別化点。e.g. トランプのスートとランクの組み合わせを扱う場合など。
 - [ある数値の中に特定の数字が含まれているかをチェックする](./containsDigit.hs)
 - [Set型を使って重複を削除する](./set_remove_duplicates.hs)
+- [Char型をString型に変換する](./charToString.hs)
