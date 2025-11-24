@@ -21,3 +21,5 @@
 - [2次元行列の転置](./transpose.hs): Data.Listのtranspose関数を使った2次元行列の転置
 - [partitionを使ったリストの分割](./partition.hs)
 - [数値に変換する](./toInt.hs): `digitToInt`を使った文字から数値への変換。
+- [文字列が文字列の配列に含まれているかを調べる](./isInfixOf.hs): `isInfixOf`を使った部分文字列の存在チェック。`elem`では`Char`を扱うため、文字列の配列に対しては使えない。
+- [`splitAt`を使い、配列を2つに分割する](./splitAt.hs): `take`と`drop`の組み合わせよりも簡潔に書ける。
