@@ -4,7 +4,7 @@ import Data.List (isInfixOf)
 findPattern :: String -> String -> Bool
 findPattern s p =
   or -- 1つでもTrueがあればTrueを返す関数
-    [ p `isInfixOf` rotate i s
+    [ p `isInfixOf` rotate i s -- isInfixOfは部分文字列を探す関数
       | i <- [0 .. length p - 1]
     ]
   where
