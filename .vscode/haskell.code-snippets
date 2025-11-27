@@ -1,0 +1,28 @@
+{
+  "Interact2DIntMatrix": {
+    "scope": "haskell",
+    "prefix": "interact2d",
+    "description": "Read a matrix via interact and echo it as space-separated ints.",
+    "body": [
+      "main :: IO ()",
+      "main = interact $ \\inputs ->",
+      "  let ls = lines inputs",
+      "      [_, _] = map read . words $ head ls :: [Int]",
+      "      intList2D = map (map read . words) $ drop 1 ls :: [[Int]]",
+      "   in unlines . map (unwords . map show) $ intList2D"
+    ]
+  },
+  "ArrowInteractPipeline": {
+    "scope": "haskell",
+    "prefix": "interactArrow",
+    "description": "Simple interact pipeline using Control.Arrow operators.",
+    "body": [
+      "import Control.Arrow ((>>>))",
+      "",
+      "main :: IO ()",
+      "main =",
+      "  interact $",
+      "    words >>> map (read :: String -> Int) >>> map show >>> unwords >>> (++ \"\\n\")"
+    ]
+  }
+}

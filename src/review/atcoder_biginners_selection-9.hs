@@ -1,0 +1,1 @@
+../atcoder_beginners_selection/9_2.hs
