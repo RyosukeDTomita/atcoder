@@ -43,5 +43,6 @@ cabal update
 cabal install ormolu
 cabal install --lib vector
 cabal install --lib containers
+cabal install --lib bytestring
 EOF
 

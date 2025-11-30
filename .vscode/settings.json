@@ -25,6 +25,7 @@
     "zipWith",
     "unwords",
     "unlines",
-    "zipWith"
+    "zipWith",
+    "elems"
   ]
 }

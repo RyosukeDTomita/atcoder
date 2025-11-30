@@ -1,4 +1,3 @@
-import Control.Arrow ((>>>))
 import Data.List (isPrefixOf)
 
 -- NOTE: wordListは大きい順にしておく必要がある。eraserがある時にeraseでマッチすると壊れるから。go (reverse s)をしている関係上各単語の語順を逆にしている。
