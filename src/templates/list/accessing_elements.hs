@@ -1,4 +1,5 @@
 import Data.Vector qualified as V
+import Prelude hiding (!!)
 
 head' :: [a] -> a
 head' (x : xs) = x
@@ -17,7 +18,9 @@ last' (_ : xs) = last xs
 (!!) :: [a] -> Int -> a
 [] !! _ = error "index too large"
 (x : _) !! 0 = x
-(_ : xs) !! n = xs !! (n - 1)
+(_ : xs) !! n 
+  | n < 0 = error "negative index"
+  | otherwise = xs !! (n - 1)
 
 main :: IO ()
 main = do
