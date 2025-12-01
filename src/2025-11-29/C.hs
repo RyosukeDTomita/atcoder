@@ -1,4 +1,4 @@
--- solve :: Int -> [[Int]] ->
+-- parseだけやったが解いてない。
 parse :: [String] -> [(Int, [[Int]])]
 parse [] = []
 parse

@@ -7,6 +7,8 @@ substrings :: Int -> String -> [String]
 substrings k s
   | length s < k = [] -- kが文字列よりも大きい場合には空リストを返して再帰を終了する
   | otherwise = take k s : substrings k (tail s) -- tailは文字列の先頭要素を除いた文字列を返すため、再帰的にすべてのtの組み合わせのリストを返せる
+  -- e.g. K=3かつs=abcde
+  -- abcをピックしてbcdeについて再帰するので全パターンである。abc bcd cdeが作れる。
 
 -- tが出現する回数を求める(オーバーラップあり)
 countSubOverlap :: String -> String -> Int
@@ -20,7 +22,7 @@ main :: IO ()
 main = do
   [n, k] <- map read . words <$> getLine :: IO [Int]
   s <- getLine
-  let subList = nub (substrings k s)
+  let subList = nub (substrings k s) -- nubで重複削除している。
   let occurrenceList = map (\t -> (t, countSubOverlap t s)) subList
   let maxCount = maximum (map snd occurrenceList) -- sndはタプルの2個目を拾う
   print maxCount

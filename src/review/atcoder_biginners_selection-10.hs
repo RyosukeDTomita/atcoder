@@ -1,1 +1,1 @@
-../atcoder_beginners_selection/10_2.hs
+../atcoder_practice/beginners_selection/10.hs
