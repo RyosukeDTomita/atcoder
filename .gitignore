@@ -1,4 +1,5 @@
 input.txt
+inputs.txt
 # https://github.com/github/gitignore/blob/main/Haskell.gitignore
 dist
 dist-*
