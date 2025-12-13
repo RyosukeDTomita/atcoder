@@ -4,4 +4,4 @@
 
 ## スキップする問題
 
-- [ALDS1_1_A: Insertion Sort](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_A): ソートの途中結果を出力すると純粋性が失われるので書き直しになり、面倒なのでスキップ
+- [1_2_D Shell Sort](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_2_D&lang=ja): 途中過程を出力するのがめんどくさいのでスキップ。shell sort自体は別リポジトリで実装した。
