@@ -2,27 +2,50 @@
   "Interact2DIntMatrix": {
     "scope": "haskell",
     "prefix": "interact2d",
-    "description": "Read a matrix via interact and echo it as space-separated ints.",
+    "description": "Read a 2D matrix via interact with solve function.",
     "body": [
+      "solve :: [[Int]] -> [[Int]]",
+      "solve xss = xss",
+      "",
       "main :: IO ()",
       "main = interact $ \\inputs ->",
       "  let ls = lines inputs",
       "      [_, _] = map read . words $ head ls :: [Int]",
       "      intList2D = map (map read . words) $ drop 1 ls :: [[Int]]",
-      "   in unlines . map (unwords . map show) $ intList2D"
+      "   in unlines . map (unwords . map show) $ solve intList2D"
     ]
   },
   "ArrowInteractPipeline": {
     "scope": "haskell",
     "prefix": "interactArrow",
-    "description": "Simple interact pipeline using Control.Arrow operators.",
+    "description": "Interact pipeline using Control.Arrow with solve function.",
     "body": [
       "import Control.Arrow ((>>>))",
+      "",
+      "solve :: [Int] -> [Int]",
+      "solve xs = xs",
       "",
       "main :: IO ()",
       "main =",
       "  interact $",
-      "    words >>> map (read :: String -> Int) >>> map show >>> unwords >>> (++ \"\\n\")"
+      "    words >>> map (read :: String -> Int) >>> solve >>> map show >>> unwords >>> (++ \"\\n\")"
+    ]
+  },
+  "InteractWithSolve": {
+    "scope": "haskell",
+    "prefix": "interactSolve",
+    "description": "Interact with solve function template.",
+    "body": [
+      "solve :: [Int] -> [Int]",
+      "solve xs = xs",
+      "",
+      "main :: IO ()",
+      "main =",
+      "  interact $ \\inputs ->",
+      "    let ls = lines inputs",
+      "        n = (read :: String -> Int) $ head ls",
+      "        xs = map read . words $ ls !! 1 :: [Int]",
+      "     in unwords (map show (solve xs)) ++ \"\\n\""
     ]
   }
 }
