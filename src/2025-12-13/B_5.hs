@@ -17,13 +17,13 @@ solve n =
       -- 2からn*nまでの数を順番に配置していく
       (_, placements) = mapAccumL step s0 [2 .. n * n]
 
-      -- 状態yxs、途中経過(r, c)
+      -- 状態yxsにすでに数字が配置されたマスの座標の集合、途中経過(r, c)
       step (yxs, (r, c)) d =
         let (r1, c1) = ((r - 1) `mod` n, (c + 1) `mod` n)
             (r2, c2) = ((r + 1) `mod` n, c) -- 第二候補
-            yx
-              | S.notMember (r1, c1) yxs = (r1, c1)
-              | otherwise = (r2, c2)
+            yx -- 次に数字を配置するマスの座標
+              | S.notMember (r1, c1) yxs = (r1, c1) -- 第一候補を採用
+              | otherwise = (r2, c2) -- 第二候補
             yxs' = S.insert yx yxs
          in ((yxs', yx), (yx, d))
 
@@ -31,9 +31,12 @@ solve n =
       allPlacements = ((0, n `div` 2), 1) : placements
 
       -- 配置情報からグリッドを構築
-      grid = [[0 | _ <- [0 .. n - 1]] | _ <- [0 .. n - 1]]
+      grid =
+        [ [0 | _ <- [0 .. n - 1]]
+          | _ <- [0 .. n - 1]
+        ]
       updateGrid g (pos, val) =
-        [ [ if (i, j) == pos then val else g !! i !! j
+        [ [ if (i, j) == pos then val else g !! i !! j -- 指定されたposだけ新シvalで上書きし、残りはそのまま使う。
             | j <- [0 .. n - 1]
           ]
           | i <- [0 .. n - 1]
