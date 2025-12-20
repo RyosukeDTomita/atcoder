@@ -1,5 +1,3 @@
--- runCommand !seqXsで!を使う
-{-# LANGUAGE BangPatterns #-}
 -- "insert"等をByteStringとして解釈させる
 {-# LANGUAGE OverloadedStrings #-}
 
@@ -32,17 +30,9 @@ deleteValue x xs =
 solve :: [[Bs.ByteString]] -> [Int]
 solve commands = toList $ foldl' runCommand Seq.Empty commands -- foldlだとメモリオーバーになった。
 
--- -- NOTE: Memory Limit Exceededになった
--- runCommand :: Seq Int -> [String] -> Seq Int
--- runCommand seqXs [commandName, x]
---   | commandName == "insert" = (read :: String -> Int) x Seq.<| seqXs
---   | commandName == "delete" = deleteValue ((read :: String -> Int) x) seqXs
--- runCommand seqXs [commandName]
---   | commandName == "deleteFirst" = deleteHead seqXs
---   | commandName == "deleteLast" = deleteLast seqXs
-
 runCommand :: Seq Int -> [BS.ByteString] -> Seq Int
-runCommand !seqXs line =
+-- runCommand !seqXs line = -- 正格にしても意味なかった
+runCommand seqXs line =
   case line of
     ["insert", x] ->
       let Just (v, _) = BS.readInt x

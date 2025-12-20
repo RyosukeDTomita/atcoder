@@ -1,8 +1,6 @@
 {-# LANGUAGE CPP #-}
 
 import Control.Arrow ((>>>))
-import Data.List (mapAccumL)
-import Data.Set qualified as S
 import Debug.Trace
 
 #ifdef ATCODER
