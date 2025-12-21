@@ -6,21 +6,30 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        formatter = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
-        hsPkgs = pkgs.haskell.packages.ghc945;
-      in {
         devShells.default = pkgs.mkShell {
           packages = [
-            hsPkgs.ghc
-            hsPkgs.cabal-install
-            hsPkgs.haskell-language-server
-
-            # よく使う外部パッケージ
-            hsPkgs.vector
+            pkgs.zsh
+            (pkgs.haskell.packages.ghc96.ghcWithPackages (ps: [
+              ps.vector
+              ps.containers
+              ps.bytestring
+            ]))
+            pkgs.haskell.packages.ghc96.cabal-install
+            pkgs.haskell.packages.ghc96.haskell-language-server
           ];
         };
       }
