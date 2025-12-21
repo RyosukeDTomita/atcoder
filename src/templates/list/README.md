@@ -41,3 +41,5 @@
   - `takeWhile`: Falseが出たら以降のリストを切り捨てる --> 無限リストを止められる
   - `dropWhile`: Trueを捨てて、Falseが出たらその以降を取得する
   - `dropWhileEnd`: リストの末尾から条件を満たす要素を削除する
+
+- [`takeWhile`で条件を満たすまでリストに要素を追加する](./takeWhile_roop.hs): 上限までかごにりんごを詰める例

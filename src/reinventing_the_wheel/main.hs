@@ -2,10 +2,13 @@ import BoolList (all', and', any', or')
 import Concat (concat', concat'', concatMap', concatMap'')
 import Filter (filter')
 import Fold (foldl', foldr')
+import Iterate (iterate')
 import Length (length', length'')
 import Map (map', map'')
+import Nub (nub')
 import Reverse (reverse')
 import Scan (scanl', scanr')
+import TakeWhile (takeWhile')
 import Transpose (transpose')
 import Zip (zip', zipWith')
 
@@ -69,3 +72,9 @@ main = do
   print $ any' even [2, 4, 6] -- True
   print $ any' even [1, 2, 3] -- True
   print $ any' even [1, 3, 5] -- False
+
+  -- nub
+  print $ nub' [1, 1, 2, 3, 5, 8]
+
+  -- iterate, takeWhile
+  print $ takeWhile' (>= 0) $ iterate' (subtract 100) 1000 -- [1000,900,800,700,600,500,400,300,200,100,0]
