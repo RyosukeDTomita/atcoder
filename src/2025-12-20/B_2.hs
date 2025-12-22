@@ -1,12 +1,11 @@
 import Data.List (foldl', maximumBy)
+import Data.Set qualified as Set
 
--- グリッドを1行単位で分割してB_iがいくつ含まれているかもとめ、その最大値を返す
+-- Set.memberを使ってbsが1行単位に分割したasにいくつ含まれているか調べる
 solve :: [[Int]] -> [Int] -> Int
-solve ass bs = maximum $ map (\as -> length (findB as bs)) ass
-
-findB :: [Int] -> [Int] -> [Int]
-findB _ [] = []
-findB as (b : bRest) = filter (== b) as ++ findB as bRest
+solve ass bs =
+  let bsSet = Set.fromList bs
+   in maximum $ map (length . filter (`Set.member` bsSet)) ass
 
 main :: IO ()
 main = interact $ \inputs ->
