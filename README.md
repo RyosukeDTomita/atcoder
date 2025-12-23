@@ -1,5 +1,7 @@
 # AtCoder
 
+[![AtCoder Trophies](https://atcoder-trophies.vercel.app/api/v1/atcoder?username=HathawayNoa&theme=tokyonight&rank=SSS,SS,S,AAA,AA,A,B)](https://github.com/KATO-Hiro/AtCoderTrophies)
+
 ## INDEX
 
 - [ABOUT](#about)
