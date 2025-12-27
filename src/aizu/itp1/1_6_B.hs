@@ -8,7 +8,10 @@ toTuple [suit, rank] =
 -- 特定のスートで無いカードを見つけてその配列を返す。
 missingCards :: Char -> [(Char, Int)] -> [(Char, Int)]
 missingCards suit cards =
-  [(suit, rank) | rank <- [1 .. 13], (suit, rank) `notElem` cards] -- 無いカードだけの新しい配列を内包表記で作成している。
+  [ (suit, rank)
+    | rank <- [1 .. 13],
+      (suit, rank) `notElem` cards -- 無いカードだけの新しい配列を内包表記で作成している。
+  ]
 
 main :: IO ()
 main = do

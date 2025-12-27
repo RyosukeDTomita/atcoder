@@ -1,4 +1,3 @@
-import Control.Monad (replicateM)
 import Data.List ((\\))
 
 toTuple :: [String] -> (Char, Int)
