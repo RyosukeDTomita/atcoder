@@ -8,6 +8,7 @@ import Map (map', map'')
 import Nub (nub')
 import Reverse (reverse')
 import Scan (scanl', scanr')
+import Tails (tails')
 import TakeWhile (takeWhile')
 import Transpose (transpose')
 import Zip (zip', zipWith')
@@ -78,3 +79,6 @@ main = do
 
   -- iterate, takeWhile
   print $ takeWhile' (>= 0) $ iterate' (subtract 100) 1000 -- [1000,900,800,700,600,500,400,300,200,100,0]
+
+  -- tails
+  print $ tails' "abc"

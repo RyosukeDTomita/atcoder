@@ -39,6 +39,8 @@
 - [`Scan`](./Scan.hs): [`scanl`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:scanl)と[`scanr`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:scanr)を実装した。
   - `scanl'`
   - `scanr'`
+- [`tails`](./Tails.hs): [`tails`](https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html#v:tails)を再帰で実装した。
+  - `tails'`
 
 ---
 

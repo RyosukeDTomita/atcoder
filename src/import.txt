@@ -1,7 +1,7 @@
 import Control.Arrow ((>>>))
 import Control.Monad (replicateM ,replicateM_, when)
 import Data.Char (isLower, isUpper, toLower, toUpper, digitToInt, intToDigit, (\\))
-import Data.List (elemIndex, sort, sortOn, partition, transpose, isPrefixOf, nub, isInfixOf)
+import Data.List (elemIndex, sort, sortOn, partition, transpose, isPrefixOf, nub, isInfixOf, tails)
 import Data.Map qualified as Map
 import Data.Map.Strict qualified as Map
 import Data.Maybe (fromMaybe, listToMaybe)
