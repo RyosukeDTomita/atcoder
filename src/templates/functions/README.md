@@ -9,3 +9,4 @@
 - [ある数値の中に特定の数字が含まれているかをチェックする](./containsDigit.hs)
 - [Set型を使って重複を削除する](./set_remove_duplicates.hs)
 - [Char型をString型に変換する](./charToString.hs)
+- [あるリストが別のリストの部分集合であるかをチェックする](./isSubset.hs)
