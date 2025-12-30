@@ -23,17 +23,15 @@ readInt bs =
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
+-- NOTE: 前提としてデータを消す順番が結果に影響しない。そのため、データは前から順に処理していく
 solve :: [Int] -> Int
-solve as =
-  go as []
+solve as = length $ go [] as
   where
-    go as' as
-      | as' == as = length as
-      | otherwise = go (go' as) as
-    go' (a0 : a1 : a2 : a3 : as)
-      | a0 == a1 && a1 == a2 && a2 == a3 = go' as
-      | null as = a0 : a1 : a2 : a3 : []
-      | otherwise = a0 : go' (a1 : a2 : a3 : as)
+    go stack [] = stack
+    go stack (a : as)
+      -- \| length stack >= 3 && all (== a) (take 3 stack) = go (drop 3 stack) as -- TLE対策でlengthするタイミングを変える
+      | length (take 3 stack) == 3 && all (== a) (take 3 stack) = go (drop 3 stack) as
+      | otherwise = go (a : stack) as
 
 main :: IO ()
 main =
