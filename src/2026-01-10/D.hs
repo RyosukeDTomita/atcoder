@@ -1,3 +1,4 @@
+-- TLE
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE OverloadedStrings #-}
 
@@ -23,16 +24,18 @@ readInt bs =
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
-solve :: Int -> [Int] -> Int
-solve k ws = head ws
-
-binarySearch 
-binarySearch lower upper
+solve :: [Int] -> [[Int]] -> [Int]
+solve as xyS = map go xyS
+  where
+    go [x, y] =
+      let notList = filter (\a -> notElem a as) [x ..]
+       in notList !! (y - 1)
 
 main :: IO ()
 main =
   BS.interact $ \inputs ->
     let ls = BS.lines inputs
-        [n, k] = map readInt . BS.words $ head ls :: [Int]
-        ws = map readInt $ tail ls :: [Int]
-     in (BS.pack . show) (solve k ws) <> BS.pack "\n"
+        [n, q] = map readInt . BS.words $ head ls
+        as = map readInt . BS.words $ ls !! 1 :: [Int]
+        xyS = map (map readInt . BS.words) $ drop 2 $ ls :: [[Int]]
+     in BS.unwords (map (BS.pack . show) (solve as xyS)) <> BS.pack "\n"
