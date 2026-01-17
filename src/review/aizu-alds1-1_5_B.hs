@@ -1,0 +1,1 @@
+../aizu/alds1/1_5_B.hs
