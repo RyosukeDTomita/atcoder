@@ -25,4 +25,5 @@ koch (p1 : p2 : rest) =
 main :: IO ()
 main =
   interact $
-    (read :: String -> Int) >>> solve >>> map (\(x, y) -> printf "%.8f %.8f" x y) >>> unlines
+    -- (read :: String -> Int) >>> solve >>> map (\(x, y) -> printf "%.8f %.8f" x y) >>> unlines
+    (read :: String -> Int) >>> solve >>> map (uncurry (printf "%.8f %.8f")) >>> unlines
