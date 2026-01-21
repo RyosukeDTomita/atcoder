@@ -12,3 +12,4 @@
   - arrayにしてみた
   - Vector + ByteStringにしてみた
 - [1_6_C quick sort](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_6_C&lang=ja): quick sort自体は別リポジトリで実装したのでスキップ。
+- [1_6_B Partition](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_6_B&lang=ja): `filter`で実装したが、in-placeでないのでスキップ。
