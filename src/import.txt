@@ -10,3 +10,4 @@ import Data.Set qualified as Set
 import Debug.Trace (traceShowId)
 import System.Exit (exitSuccess)
 import Text.Printf (printf)
+import Data.Sequence qualified as Seq

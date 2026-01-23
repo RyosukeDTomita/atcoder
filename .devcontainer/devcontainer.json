@@ -1,15 +1,20 @@
 {
   "name": "Haskell Development",
   "dockerFile": "../Dockerfile",
+  "mounts": [
+    "source=nix-store,target=/nix,type=volume",
+    "source=direnv-cache,target=/home/vscode/.local/share/direnv,type=volume"
+  ],
+  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
   "customizations": {
     "vscode": {
       "extensions": [
         "haskell.haskell",
         "DavidAnson.vscode-markdownlint"
       ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
     }
-  },
-  "features": {
-    "ghcr.io/guiyomh/features/vim:0": {},
   }
 }
