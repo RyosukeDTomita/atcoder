@@ -22,40 +22,14 @@
 
 ## ENVIRONMENT
 
-- Haskell
-
-[参考](https://www.haskell.org/ghcup/install/)
-
 ```shell
-apt-get update -y
-apt-get install --no-install-recommends -y \
-  build-essential \
-  curl \
-  ca-certificates \
-  libffi-dev \
-  libffi8 \
-  libgmp-dev \
-  libgmp10 \
-  libncurses-dev \
-  libncurses5 \
-  libtinfo5 \
-  pkg-config
-
-# GHCupのインストール
-curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-```
-
-```shell
-# Formatterのormoluのインストール
-cabal install ormolu
+nix develop
 ```
 
 ### VS Code Extensions
 
-`ghcup`をインストール後にVS CodeのExtensionsである`haskell.haskell`をインストールし、ポップアップにしたがって`ghc`や`hls`をインストールする。
-
-> [!NOTE]
-> Dev Containers環境も作り、`hashkell.haskell`のポップアップでインストールするツールを事前インストールするようにしているが、Extensions側でサポートするバージョンが変わった場合にDockerfileを更新するのが面倒なのでローカルをメインで使うほうが良さそう。
+VS CodeのExtensionsである`haskell.haskell`をインストールする。
+`atcoder/.vscode/settings.json`に設定を記載しているので、VS Codeで`atcoder`ディレクトリを開けば自動的に認識される。
 
 ---
 
@@ -98,4 +72,15 @@ Leaving GHCi.
 ```shell
 # Formatter(CLIで実行したい場合)
 ormolu --mode inplace $(find . -type f -name "*.hs")
+```
+
+### ghci
+
+import文の自動読み込み設定を[.ghci](./.ghci)に記載している。
+
+`.ghci`はルートディレクトリ(atcoder/)に置いているが、atdoer/src/等に移動した際には読み込まれない。そのため、グローバルに読み込むためにシンボリックリンクをホームディレクトリに作成する。
+
+```shell
+cd atcoder
+ln -s /home/sigma/atcoder/.ghci /home/sigma/.ghci
 ```
