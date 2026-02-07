@@ -10,7 +10,14 @@
 - [isOf系のまとめ](./isOf.hs)
   - `isPrefixOf`
   - `isSuffixOf`
-  - `isInfixOf`: `elem`は`Char`にしか使えないので`isInfixOf`を使う必要があることに注意。
+  - `isInfixOf`: `elem`は`Char`にしか使えない(1文字単位のマッチング)ので`isInfixOf`を使う必要があることに注意。
+
+    ```haskell
+    -- こういうのはできる
+    ghci> filter(`elem` "ij") "abcdefgijklmnoibj" -- filterを使うと"abcdefgijklmnoibjの要素を1文字ずつに分解してチェックする `'a' `elem` "ij"`みたいな
+    "ijij"
+    ```
+
   - `isSubSequenceOf`
 - [Boolリストの集計](./bool_list.hs)
   - `and`で全要素がTrueかチェック

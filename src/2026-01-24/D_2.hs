@@ -1,60 +1,50 @@
--- TLEした
-{-# LANGUAGE CPP #-}
-{-# LANGUAGE OverloadedStrings #-}
-
--- {-# OPTIONS_GHC -DATCODER #-}
-import Control.Monad.ST (ST)
-import Data.ByteString (ByteString)
+import Control.Monad (forM_)
+import Control.Monad.ST (runST)
 import Data.ByteString.Char8 qualified as BS
 import Data.Vector.Unboxed qualified as VU
 import Data.Vector.Unboxed.Mutable qualified as VUM
-import Debug.Trace (traceShowId)
 
-#ifdef ATCODER
-debug :: Bool ; debug = False
-#else
-debug :: Bool ; debug = True
-#endif
-
-dbgId :: (Show a) => a -> a
-dbgId x
-  | debug = traceShowId x
-  | otherwise = x
-
--- ByteString版 read
 readInt :: BS.ByteString -> Int
-readInt bs =
-  case BS.readInt bs of
-    Just (x, _) -> x
-    Nothing -> error "input is not integer"
+readInt bs = case BS.readInt bs of
+  Just (x, _) -> x
+  Nothing -> 0
 
-swap :: (VUM.Unbox a) => VUM.MVector s a -> Int -> Int -> ST s ()
-swap v i j = do
-  xi <- VUM.read v i
-  xj <- VUM.read v j
-  VUM.write v i xj
-  VUM.write v j xi
+solve :: Int -> [Int] -> [Int] -> [Int]
+solve n as queries = runST $ do
+  -- 0-indexedで管理
+  vecA <- VU.thaw (VU.fromList as) -- thawでMutable Vectorに変換
 
-solve :: [Int] -> [[Int]] -> [Int]
-solve as qs = reverse $ go [] (VU.fromList as) qs
-  where
-    go results _ [] = results
-    go results aVU (q : rest)
-      | head q == 1 =
-          let x = (q !! 1) - 1
-              aVU' = VU.modify (\v -> swap v x (x + 1)) aVU
-           in go results aVU' rest
-      | head q == 2 =
-          let l = (q !! 1) - 1
-              r = (q !! 2) - 1
-              result = VU.sum (VU.slice l (r - l + 1) aVU)
-           in go (result : results) aVU rest
-      | otherwise = [-1]
+  -- 累積和: S[i] = A[0] + A[1] + ... + A[i-1]
+  let cumsum = VU.scanl' (+) 0 (VU.fromList as)
+  vecS <- VU.thaw cumsum
+
+  let process [] = return []
+      process (1 : x : qs) = do
+        let idx = x - 1 -- 問題のxは1スタートなので変換
+        -- A[idx] と A[idx+1] をswap
+        v1 <- VUM.read vecA idx
+        v2 <- VUM.read vecA (idx + 1)
+        VUM.write vecA idx v2
+        VUM.write vecA (idx + 1) v1
+
+        -- S[idx+1]のみ更新: S[idx+1] = S[idx] + A[idx]
+        sIdx <- VUM.read vecS idx
+        VUM.write vecS (idx + 1) (sIdx + v2)
+        process qs
+      process (2 : l : r : qs) = do
+        -- 区間和 [l, r] = S[r] - S[l-1]
+        sr <- VUM.read vecS r
+        slMinus1 <- VUM.read vecS (l - 1)
+        res <- process qs
+        return ((sr - slMinus1) : res)
+      process _ = return []
+
+  process queries
 
 main :: IO ()
-main = BS.interact $ \inputs ->
-  let ls = BS.lines inputs
-      [n, q] = map readInt . BS.words $ head ls :: [Int]
-      as = map readInt . BS.words $ ls !! 1 :: [Int]
-      qs = map (map readInt . BS.words) $ drop 2 ls :: [[Int]]
-   in BS.unlines . map (BS.pack . show) $ solve as qs
+main = BS.interact $ \input ->
+  let (n : q : rest) = map readInt (BS.words input)
+      as = take n rest
+      queries = drop n rest
+      results = solve n as queries
+   in BS.unlines $ map (BS.pack . show) results
