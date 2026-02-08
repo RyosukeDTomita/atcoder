@@ -6,7 +6,7 @@ f 0 = 1
 f i = sum $ map digitToInt (show i) -- showで文字列に変換して、map digitToIntで文字列をIntの配列にするの。その後、その合計を求める
 
 -- a n = a0 + a1 + a2 ... an-1
--- LTEになったので既に計算した値をキャッシュしてみた。
+-- TLEになったので既に計算した値をキャッシュしてみた。
 aList :: [Int]
 aList = map a [0 ..] -- [0..]は無限リスト
   where
