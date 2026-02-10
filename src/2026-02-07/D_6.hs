@@ -31,10 +31,10 @@ solve :: [Int] -> BS.ByteString
 solve as =
   let !maxA = maximum as
 
-      -- Aが何回出現するかをリストで計算 e.g. [0,0,0,4,0]ならas = [3, 3, 3, 3]
-      freqList = [(a, 1 :: Int) | a <- as]
-      -- Vectorに変換（VU.accumが自動的に同じインデックスを合計）
-      freq = dbgId $ VU.accum (+) (VU.replicate (maxA + 2) 0) freqList
+      -- Aが何回出現するか e.g. as = [3,3,3,3]の時、count = [(3,1),(3,1),(3,1),(3,1)]
+      count = dbgId $ [(a, 1 :: Int) | a <- as]
+      -- VU.accumが自動的に同じインデックスを合計 [0,0,0,4,0]
+      freq = dbgId $ VU.accum (+) (VU.replicate (maxA + 2) 0) count
 
       -- k桁目の値はk以上の値が何回登場するかできまる
       -- e.g. as = [3,3,3,3]の場合freqListは[0,0,0,4,0]になるので
