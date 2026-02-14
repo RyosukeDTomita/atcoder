@@ -2,6 +2,7 @@
 
 ## INDEX
 
+- [文字列`Char[]`を数値に変換する。逆も](./charToInt.hs):
 - [リストから要素を取り出す](./accessing_elements.hs): `head`, `tail`, `last`, `init`の使い方。`Data.Vector`との比較も。
 - [`intercalate`でリストを結合する](./intercalate.hs): 区切り文字月で結合できる。
 - [文字列からパターンを取得する](./pattern.hs)
@@ -50,3 +51,4 @@
   - `dropWhileEnd`: リストの末尾から条件を満たす要素を削除する
 
 - [`takeWhile`で条件を満たすまでリストに要素を追加する](./takeWhile_roop.hs): 上限までかごにりんごを詰める例
+- [リストモナドと内包表記比較](./listMonad.hs)
