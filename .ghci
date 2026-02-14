@@ -1,8 +1,8 @@
 :set -XOverloadedStrings
 :set -XBangPatterns
-import qualified Data.Vector as V
-import qualified Data.Vector.Unboxed as VU
-import qualified Data.Vector.Unboxed.Mutable as VUM
+import Data.Vector qualified as V
+import Data.Vector.Unboxed qualified as VU
+import Data.Vector.Unboxed.Mutable qualified as VUM
 import Control.Arrow ((>>>))
 import Control.Monad (replicateM ,replicateM_, when)
 import Data.Char (isLower, isUpper, toLower, toUpper, digitToInt, intToDigit)
