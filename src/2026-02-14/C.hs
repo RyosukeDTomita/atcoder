@@ -28,11 +28,12 @@ readInt bs =
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
+-- 同じ値に行き着いた後は結果が同じになるのでcacheを使用する。
 solve :: [Int] -> [Int]
 solve as = runST $ do
   let n = length as
       av = VU.fromList (0 : as) -- 1-index化
-  memo <- VUM.replicate (n + 1) 0
+  memo <- VUM.replicate (n + 1) 0 -- cache
   let findRoot i = do
         cached <- VUM.read memo i
         if cached /= 0

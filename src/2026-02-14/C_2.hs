@@ -27,25 +27,26 @@ readInt bs =
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
--- 同じ値に行き着いた後は結果が同じになるのでcacheを使用する。
+-- forMを使わないバージョン
 solve :: [Int] -> [Int]
-solve as = runST $ do
-  let n = length as
-      av = VU.fromList (0 : as) -- 1-index化
-  memo <- VUM.replicate (n + 1) 0 -- cache
-  let findRoot i = do
-        cached <- VUM.read memo i
-        if cached /= 0
-          then pure cached
-          else
-            if av VU.! i == i
-              then do
-                VUM.write memo i i
-                pure i
-              else do
-                root <- findRoot (av VU.! i)
-                VUM.write memo i root
-                pure root
+solve as =
+  runST $ do
+    let n = length as
+        av = VU.fromList (0 : as) -- 1-index化
+    memo <- VUM.replicate (n + 1) 0 -- cache
+    let findRoot i = do
+          cached <- VUM.read memo i
+          if cached /= 0
+            then pure cached
+            else
+              if av VU.! i == i
+                then do
+                  VUM.write memo i i
+                  pure i
+                else do
+                  root <- findRoot (av VU.! i)
+                  VUM.write memo i root
+                  pure root
     VU.toList <$> VU.generateM n (findRoot . (+ 1))
 
 main :: IO ()
