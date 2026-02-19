@@ -23,5 +23,5 @@
 - [使った複数更新(bulk update)](https://hackage-content.haskell.org/package/vector-0.13.2.0/docs/Data-Vector-Unboxed.html#g:15): Vectorの長さをm、更新するインデックス/値のペアのリストの長さをnとしたとき、O(m+n)で更新を行う。Vector全体をコピーして差し替えのため速くはないが、簡潔に書ける。
   - [bulkUpdate.hs](./bulkUpdate.hs): `//`は`[(Int, Int)]`で更新情報を渡す。`update`は`Vector (Int, a)`で更新情報を渡す。
 - [`VUM.modify`を使った破壊的更新](https://hackage-content.haskell.org/package/vector-0.13.2.0/docs/Data-Vector-Unboxed.html#g:18): 安全でない場合にのみVectorのコピーを更新する。O(1)で更新できるため高速。
-  - [modify.hs](./modify.hs): `VUM.modify`を使って配列を更新する。
-  - [increment.hs](./increment.hs): `[Int]`の出現回数を記録する
+  - [modify.hs](./VUM/modify.hs): `VUM.modify`を使って配列を更新する。
+  - [increment.hs](./VUM/increment.hs): `[Int]`の出現回数を記録する
