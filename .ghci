@@ -4,7 +4,7 @@ import Data.Vector qualified as V
 import Data.Vector.Unboxed qualified as VU
 import Data.Vector.Unboxed.Mutable qualified as VUM
 import Control.Arrow ((>>>))
-import Control.Monad (replicateM ,replicateM_, when)
+import Control.Monad (replicateM ,replicateM_, when, forM_, forM)
 import Data.Char (isLower, isUpper, toLower, toUpper, digitToInt, intToDigit)
 import Data.List (elemIndex, sort, sortOn, partition, transpose, isPrefixOf, nub, isInfixOf, tails, (\\))
 import Data.Ord (Down (..))
