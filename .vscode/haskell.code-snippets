@@ -4,6 +4,7 @@
     "description": "(BS Version) Interact with solve function template.",
     "prefix": "BS.InteractWithSolve",
     "body": [
+      "{-# LANGUAGE BangPatterns #-}",
       "{-# LANGUAGE CPP #-}",
       "{-# LANGUAGE OverloadedStrings #-}",
       "",
@@ -46,6 +47,7 @@
     "prefix": "interact2d",
     "description": "Read a 2D matrix via interact with solve function.",
     "body": [
+      "{-# LANGUAGE BangPatterns #-}",
       "{-# LANGUAGE CPP #-}",
       "import Debug.Trace (traceShowId)",
       "",
@@ -77,6 +79,7 @@
     "prefix": "interactArrow",
     "description": "Interact pipeline using Control.Arrow with solve function.",
     "body": [
+      "{-# LANGUAGE BangPatterns #-}",
       "import Control.Arrow ((>>>))",
       "",
       "solve :: [Int] -> [Int]",
@@ -93,6 +96,7 @@
     "prefix": "interactSolve",
     "description": "Interact with solve function template.",
     "body": [
+      "{-# LANGUAGE BangPatterns #-}",
       "{-# LANGUAGE CPP #-}",
       "import Debug.Trace (traceShowId)",
       "",
@@ -123,6 +127,7 @@
 	"BS.interact2d": {
 		"prefix": "BS.interact2d",
 		"body": [
+"{-# LANGUAGE BangPatterns #-}",
 "{-# LANGUAGE CPP #-}",
 "{-# LANGUAGE OverloadedStrings #-}",
 "",

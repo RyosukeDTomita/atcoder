@@ -1,3 +1,4 @@
+-- B.hsよりも自然な発想な気はする。速度も速い。
 {-# LANGUAGE CPP #-}
 
 import Debug.Trace (traceShowId)
@@ -14,18 +15,15 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
--- Sに.を追加する
-addDot :: Int -> String -> String
-addDot maxLengthS s =
-  let lengthS = length s
-   in if lengthS < maxLengthS
-        then addDot maxLengthS (('.' : s) ++ ".") -- NOTE: 再起のなかで++しているのでO(n^2)になり、若干遅い
-        else s
+-- サイズnに対応した「.」を生成する
+-- NOTE: 両サイドに「.」はつくため、`div` 2している
+createDot :: Int -> String -> String
+createDot n s = replicate ((n - length s) `div` 2) '.'
 
 solve :: [String] -> [String]
 solve ss =
   let maxLengthS = maximum $ map length ss
-   in map (addDot maxLengthS) ss
+   in map (\s -> (createDot maxLengthS s) ++ s ++ (createDot maxLengthS s)) ss
 
 main :: IO ()
 main =
