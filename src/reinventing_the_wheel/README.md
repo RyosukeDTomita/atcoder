@@ -41,6 +41,9 @@
   - `scanr'`
 - [`tails`](./Tails.hs): [`tails`](https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html#v:tails)を再帰で実装した。
   - `tails'`
+- [dropWhile](./DropWhile.hs): [`dropWhile`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-List.html#v:dropWhile)と[`dropWhileEnd`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-List.html#v:dropWhileEnd)を再帰で実装した。
+  - `dropWhile'`
+  - `dropWhileEnd`
 
 ---
 

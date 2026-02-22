@@ -1,5 +1,6 @@
 import BoolList (all', and', any', or')
 import Concat (concat', concat'', concatMap', concatMap'')
+import DropWhile (dropWhile', dropWhileEnd', dropWhileEnd'')
 import Filter (filter')
 import Fold (foldl', foldr')
 import Iterate (iterate')
@@ -82,3 +83,8 @@ main = do
 
   -- tails
   print $ tails' "abc"
+
+  -- dropWhile
+  print $ dropWhile' (<= 0) $ take 20 $ iterate (+ 100) (-1000)
+  print $ dropWhileEnd' (== 0) [1, 2, 0, 3, 0, 0, 0]
+  print $ dropWhileEnd'' (== 0) [1, 2, 0, 3, 0, 0, 0]
