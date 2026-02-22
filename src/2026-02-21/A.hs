@@ -1,11 +1,8 @@
-{-# LANGUAGE BangPatterns #-}
+import Data.Char (toLower)
 
-import Control.Arrow ((>>>))
-
-solve :: Int -> [Int]
-solve n = [n]
+solve :: String -> String
+solve s = "Of" ++ map toLower s
 
 main :: IO ()
 main =
-  interact $
-    (read :: String -> Int) >>> solve >>> map show >>> unwords >>> (++ "\n")
+  interact solve
