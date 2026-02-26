@@ -23,7 +23,7 @@ dbgId x
 solve :: Int -> [(Int, [Int])] -> [String]
 solve n treeInfo =
   let treeInfo' = sortOn fst treeInfo
-      -- (子, 親)のペアのリストを作成
+      -- (子, 親)のペアのリストを作成(親は複数の子を持てるが子の親は一人)
       parentPairs = [(child, pid) | (pid, children) <- treeInfo', child <- children]
       -- Vectorを使って親の配列を作成 (初期値 -1)
       parentVec = VU.replicate n (-1) VU.// parentPairs -- [(Int, a)]の形式でaに値を差し替えたVectorを返す。

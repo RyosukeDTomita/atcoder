@@ -45,6 +45,12 @@
   - `dropWhile'`
   - `dropWhileEnd`
 
+- [Listdeconctruct](./Listdeconstruct.hs)
+  - `head`
+  - `tail`
+  - `last`: 再帰版と`foldl`版の二種類
+  - `init`: 再帰版と再帰しない版の二種類
+
 ---
 
 ## ENVIRONMENT

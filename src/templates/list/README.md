@@ -44,6 +44,7 @@
   - `splitAt`を使い、配列を2つに分割する: `take`と`drop`の組み合わせよりも簡潔に書ける。
   - `span`
   - `break`
+  - `uncons`
 - [条件でリストをふるいにかける](./filtering_lists.hs)
   - `filter`
   - `takeWhile`: Falseが出たら以降のリストを切り捨てる --> 無限リストを止められる
