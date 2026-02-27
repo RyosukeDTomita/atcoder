@@ -44,11 +44,14 @@
   - `splitAt`を使い、配列を2つに分割する: `take`と`drop`の組み合わせよりも簡潔に書ける。
   - `span`
   - `break`
+  - `uncons`
 - [条件でリストをふるいにかける](./filtering_lists.hs)
   - `filter`
   - `takeWhile`: Falseが出たら以降のリストを切り捨てる --> 無限リストを止められる
-  - `dropWhile`: Trueを捨てて、Falseが出たらその以降を取得する
+  - `dropWhile`: Trueを捨てて、Falseが出たらそれ以降を取得する
   - `dropWhileEnd`: リストの末尾から条件を満たす要素を削除する
+- [リストから該当する要素を1つ見つける](./find.hs)
+  - `find`: Trueで止まるので1つだけ要素を見つけたい場合には`filter`や`map`よりも計算量が少なくすむ。`Maybe`を返すので`case`を使ってデフォルト値を設定すると良さそう。
 
 - [`takeWhile`で条件を満たすまでリストに要素を追加する](./takeWhile_roop.hs): 上限までかごにりんごを詰める例
 - [リストモナドと内包表記比較](./listMonad.hs)

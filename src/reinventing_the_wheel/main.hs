@@ -1,5 +1,6 @@
 import BoolList (all', and', any', or')
 import Concat (concat', concat'', concatMap', concatMap'')
+import DropWhile (dropWhile', dropWhileEnd', dropWhileEnd'')
 import Filter (filter')
 import Fold (foldl', foldr')
 import Iterate (iterate')
@@ -12,6 +13,7 @@ import Tails (tails')
 import TakeWhile (takeWhile')
 import Transpose (transpose')
 import Zip (zip', zipWith')
+import Find (find')
 
 main :: IO ()
 main = do
@@ -82,3 +84,14 @@ main = do
 
   -- tails
   print $ tails' "abc"
+
+  -- dropWhile
+  print $ dropWhile' (<= 0) $ take 20 $ iterate (+ 100) (-1000)
+  print $ dropWhileEnd' (== 0) [1, 2, 0, 3, 0, 0, 0]
+  print $ dropWhileEnd'' (== 0) [1, 2, 0, 3, 0, 0, 0]
+
+  -- find
+  let oneParent = case find' (\(_, children) -> 1 `elem` children) [(0, [1, 2, 3]), (1, [4, 5, 6])] of
+        Just (p, _) -> p
+        Nothing -> -1
+  print oneParent

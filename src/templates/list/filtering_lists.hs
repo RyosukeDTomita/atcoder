@@ -14,7 +14,7 @@ main = do
   print $ dropWhile (< 3) [1, 2, 3, 4, 5, 1] -- [3,4,5,1]
   -- print $ dropWhile (< 3) [0 ..] -- 0,1,2以降の全てになるので終わらない
 
-  -- dropWhileEndはリストの末尾からいらないものを消す
+  -- dropWhileEndはリストの末尾からTrueのものを捨てる。Falseが出たら止まる。
   print $ dropWhileEnd (== 0) [1, 2, 3, 0, 0, 0]
   print $ takeWhile (/= 0) [1, 2, 3, 0, 0, 0] -- 場合によっては代替できる
   print $ dropWhileEnd isSpace "foo\n " -- foo
