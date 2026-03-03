@@ -4,14 +4,7 @@
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 
-import Control.Monad.ST (runST)
-import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
-import Data.Char (ord)
-import Data.List (foldl')
-import Data.Map qualified as Map
-import Data.Vector.Unboxed qualified as VU
-import Data.Vector.Unboxed.Mutable qualified as VUM
 import Debug.Trace (traceShowId)
 
 #ifdef ATCODER
@@ -31,29 +24,24 @@ readInt bs =
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
--- frequencyBS :: BS.ByteString -> VU.Vector Int
--- frequencyBS bs = runST $ do
---   v <- VUM.replicate 256 0
---   BS.foldl' (\acc w -> acc >> VUM.modify v (+ 1) (ord w)) (return ()) bs
---   VU.freeze v
-
-check :: BS.ByteString -> Int -> Bool
-check bs i = case BS.uncons bs of
-  Nothing -> False
-  Just (s, rest)
-    | s == 'a' -> check rest 1
-    | s == 'b' && i == 1 -> check rest 2
-    | s == 'c' && i == 2 -> True
-    | otherwise -> check (BS.cons s rest) i
-
 solve :: BS.ByteString -> Int
-solve s = loop s 0
+solve s = loop (0, 0, 0) s
   where
-    loop bs !n = case check bs 0 of
-      Nothing -> n
-      Just rest -> loop rest (n + 1)
+    -- BangPatternsで正格評価にしたら速くなった。 54 ms -> 10 ms
+    loop (!aN, !bN, !cN) bs = case BS.uncons bs of
+      Nothing -> cN
+      Just (b, rest)
+        | b == 'A' -> loop (aN + 1, bN, cN) rest
+        | b == 'B' ->
+            let bN' = min aN (bN + 1)
+             in loop (aN, bN', cN) rest
+        | b == 'C' ->
+            let cN' = min bN (cN + 1)
+             in loop (aN, bN, cN') rest
+        | otherwise -> error "Unexpected Inputs"
 
 main :: IO ()
 main =
+  -- initで改行削除
   BS.interact $ \s ->
     (BS.pack . show) (solve (BS.init s)) <> BS.pack "\n"
