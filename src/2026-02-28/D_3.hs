@@ -19,7 +19,7 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
--- UNPACK付き厳密データ型を使うことでunbox化され、ポインタ関節参照が消えて速くなる。
+-- UNPACK付き厳密データ型を使うことでunbox化され、ポインタ関節参照が消え、メモリアクセスとGC負荷が軽減される。
 data S = S {-# UNPACK #-} !Int {-# UNPACK #-} !Int {-# UNPACK #-} !Int
 
 solve :: BS.ByteString -> Int
