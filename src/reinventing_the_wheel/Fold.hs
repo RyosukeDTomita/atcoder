@@ -1,5 +1,7 @@
 module Fold (foldr', foldl') where
 
+import Data.Maybe (fromMaybe)
+
 foldr' :: (a -> b -> b) -> b -> [a] -> b
 foldr' _ e [] = e -- 初期値
 foldr' f e (x : xs) = f x (foldr' f e xs) -- 受け取る引数をlist構築式の形で処理している。:はリストを作る演算子である。
@@ -27,7 +29,37 @@ foldl' f acc (x : xs) = foldl' f (f acc x) xs
 -- = foldl' (+) (15) []
 -- = 15
 
+foldr1 :: (a -> a -> a) -> [a] -> a
+foldr1 f xs =
+  fromMaybe
+    (errorWithoutStackTrace "foldr1: empty structure")
+    (foldr mf Nothing xs)
+  where
+    mf x m =
+      Just
+        ( case m of
+            Nothing -> x
+            Just y -> f x y
+        )
+
+-- foldl1はすべて同じ型
+foldl1' :: (a -> a -> a) -> [a] -> a
+foldl1' f xs =
+  fromMaybe
+    (errorWithoutStackTrace "foldl1: empty structure")
+    (foldl mf Nothing xs)
+  where
+    mf m y =
+      Just
+        ( case m of
+            Nothing -> y
+            Just x -> f x y
+        )
+
 main :: IO ()
 main = do
   print $ foldr' (+) 5 [1, 2, 3, 4]
   print $ foldl' (+) 5 [1, 2, 3, 4]
+
+  print $ foldl' max 0 [1, 5, 3]
+  print $ foldl1' max [1, 5, 3]
