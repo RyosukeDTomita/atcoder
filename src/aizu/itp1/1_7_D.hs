@@ -6,7 +6,7 @@ matrixMultiply :: [[Int]] -> [[Int]] -> [[Int]]
 matrixMultiply ass bss =
   let cols = transpose bss
    in [ [sum (zipWith (*) row col) | col <- cols]
-        | row <- ass
+      | row <- ass
       ]
 
 main :: IO ()

@@ -7,8 +7,8 @@ check :: [Int] -> [Int] -> Int -> Bool
 check bList hList k =
   let validCombinations =
         [ filter (>= 0) $ map (\b -> b - h) bList
-          | n <- [0 .. k - 1],
-            let h = hList !! n
+        | n <- [0 .. k - 1],
+          let h = hList !! n
         ]
       -- 空でないリストの個数を数える
       numRobots = length $ filter (not . null) validCombinations

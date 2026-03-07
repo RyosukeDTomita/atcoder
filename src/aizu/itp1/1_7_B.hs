@@ -3,10 +3,10 @@ solve [n, x] =
   -- a < b <cの条件は以下のようにして表現する
   let patterns =
         [ (a, b, c)
-          | a <- [1 .. n],
-            b <- [a + 1 .. n],
-            c <- [b + 1 .. n],
-            a + b + c == x
+        | a <- [1 .. n],
+          b <- [a + 1 .. n],
+          c <- [b + 1 .. n],
+          a + b + c == x
         ]
    in length patterns
 

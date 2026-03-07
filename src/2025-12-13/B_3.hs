@@ -29,9 +29,9 @@ solve n = runST $ do
   traceM $ show (elems frozen) -- debug [8,1,6,3,5,7,4,9,2]
   return
     [ [ frozen ! (i, j)
-        | j <- [0 .. n - 1]
+      | j <- [0 .. n - 1]
       ]
-      | i <- [0 .. n - 1]
+    | i <- [0 .. n - 1]
     ] -- 内包表記でリストに変換
 
 main :: IO ()

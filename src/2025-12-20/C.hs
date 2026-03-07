@@ -14,7 +14,7 @@ sortE case' =
       ps = case' !! 1
       eCase =
         [ (ps !! i / ws !! i, [ws !! i, ps !! i])
-          | i <- [0 .. length ws - 1]
+        | i <- [0 .. length ws - 1]
         ]
    in sortOn fst eCase
 

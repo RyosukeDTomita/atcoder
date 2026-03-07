@@ -17,17 +17,17 @@ solve [n, y]
   | otherwise =
       let abTuples =
             [ (a, (y - 1000 * n - 9000 * a) `div` 4000)
-              | a <- rangeA n y,
-                (y - 1000 * n - 9000 * a) `mod` 4000 == 0
+            | a <- rangeA n y,
+              (y - 1000 * n - 9000 * a) `mod` 4000 == 0
             ]
           abTuples' = filter (\(a, b) -> b >= 0 && b <= n - a) abTuples -- bの範囲外のものを落とす
           cs = map (\(a, b) -> n - a - b) abTuples'
        in head
             ( [ [a, b, c]
-                | a <- map fst abTuples',
-                  b <- map snd abTuples',
-                  c <- cs,
-                  a + b + c == n && 10000 * a + 5000 * b + 1000 * c == y
+              | a <- map fst abTuples',
+                b <- map snd abTuples',
+                c <- cs,
+                a + b + c == n && 10000 * a + 5000 * b + 1000 * c == y
               ]
                 ++ [[-1, -1, -1]] -- 満たすa,b,cが無い時にはheadが失敗しないように末尾にエラーの場合の値を追加
             )

@@ -1,3 +1,4 @@
-main :: IO()
-main = interact $
-  show
+main :: IO ()
+main =
+  interact $
+    show

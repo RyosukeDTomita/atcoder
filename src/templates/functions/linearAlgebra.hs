@@ -2,21 +2,21 @@
 add :: [[Int]] -> [Int] -> [[Int]]
 add matrixA matrixB =
   [ zipWith (+) row matrixB
-    | row <- matrixA
+  | row <- matrixA
   ]
 
 -- 行列の定数倍
 mul :: [[Int]] -> Int -> [[Int]]
 mul matrixA n =
   [ map (* n) row
-    | row <- matrixA
+  | row <- matrixA
   ]
 
 -- 行列積 3x3と3x1の行列の行列積
 matmul :: [[Int]] -> [Int] -> [Int]
 matmul matrixA matrixB =
   [ sum $ zipWith (*) row matrixB -- sumで要素ごとの計算結果の和を出している。
-    | row <- matrixA
+  | row <- matrixA
   ]
 
 main :: IO ()

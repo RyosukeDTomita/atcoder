@@ -29,6 +29,13 @@ foldl' f acc (x : xs) = foldl' f (f acc x) xs
 -- = foldl' (+) (15) []
 -- = 15
 
+-- こう書いたほうがわかりやすいかも
+foldl'' :: (b -> a -> b) -> b -> [a] -> b
+foldl'' _ acc [] = acc -- 累積値
+foldl'' f acc (x : xs) =
+  let acc' = f acc x
+   in foldl'' f acc' xs
+
 foldr1 :: (a -> a -> a) -> [a] -> a
 foldr1 f xs =
   fromMaybe
