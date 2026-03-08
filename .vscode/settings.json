@@ -8,6 +8,8 @@
     "MD010": false, // タブ
     "MD013": false // 長い行
   },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "[haskell]": {
     "editor.defaultFormatter": "haskell.haskell",
     "editor.formatOnSave": true

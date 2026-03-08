@@ -17,7 +17,7 @@ frequencyIM xs =
   IM.fromListWith
     (+)
     [ (x, 1)
-      | x <- xs
+    | x <- xs
     ]
 
 main :: IO ()

@@ -30,7 +30,7 @@ calB :: Int -> Integer
 calB a =
   sum
     [ 10 ^ j
-      | j <- [0 .. a - 1]
+    | j <- [0 .. a - 1]
     ]
 
 -- メモ化された計算結果のVector
