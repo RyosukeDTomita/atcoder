@@ -16,6 +16,7 @@
   },
   "haskell.manageHLS": "PATH", // nix
   "haskell.formattingProvider": "ormolu",
+  "haskell.plugin.ormolu.config.external": true,
   "haskell.ghcupExecutablePath": "",
   "haskell.upgradeGHCup": false,
   "haskell.serverExecutablePath": "haskell-language-server",
