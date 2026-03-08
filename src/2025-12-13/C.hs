@@ -19,8 +19,8 @@ canPut acc (r, c) =
   not $
     or
       [ Set.member (r', c') acc
-      | r' <- [r - 1 .. r + 1],
-        c' <- [c - 1 .. c + 1]
+        | r' <- [r - 1 .. r + 1],
+          c' <- [c - 1 .. c + 1]
       ]
 
 main :: IO ()
@@ -29,7 +29,7 @@ main = interact $ \inputs ->
       [n, m] = map (read :: String -> Int) . words $ head ls
       rcs =
         [ (r, c)
-        | line <- drop 1 ls,
-          let [r, c] = map (read :: String -> Int) $ words line
+          | line <- drop 1 ls,
+            let [r, c] = map (read :: String -> Int) $ words line
         ]
    in show (solve rcs) ++ "\n"

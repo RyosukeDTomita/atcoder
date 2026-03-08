@@ -4,10 +4,10 @@ solve :: Int -> Int -> Int -> Int
 solve n a b =
   sum
     [ i
-    | i <- [0 .. n],
-      let s = sumDigits i, -- 内包表記の中でのletにinは不要
-      -- let s = sumDigits' i,
-      a <= s && s <= b
+      | i <- [0 .. n],
+        let s = sumDigits i, -- 内包表記の中でのletにinは不要
+        -- let s = sumDigits' i,
+        a <= s && s <= b
     ]
 
 -- 各桁の数の和を求める。

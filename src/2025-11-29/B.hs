@@ -20,7 +20,7 @@ averageValues groups m =
    in [ case Map.lookup k groups of
           Just values -> fromIntegral (sum values) / fromIntegral (length values)
           Nothing -> 0.0
-      | k <- [1 .. m]
+        | k <- [1 .. m]
       ]
 
 main :: IO ()
@@ -29,7 +29,7 @@ main = interact $ \inputs ->
       [_, m] = map read . words $ head ls :: [Int]
       abTuple =
         [ (a, b)
-        | line <- drop 1 ls,
-          let [a, b] = map read (words line) :: [Int]
+          | line <- drop 1 ls,
+            let [a, b] = map read (words line) :: [Int]
         ]
    in unlines $ map (printf "%.20f") $ solve abTuple m

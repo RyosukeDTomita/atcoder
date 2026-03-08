@@ -5,9 +5,9 @@ solve n =
   let startC = (n - 1) `div` 2 -- 最初に埋めるc
       ass =
         [ [ if r == 0 && c == startC then 1 else 0
-          | c <- [0 .. n - 1]
+            | c <- [0 .. n - 1]
           ]
-        | r <- [0 .. n - 1]
+          | r <- [0 .. n - 1]
         ] -- 一旦最初のマスを1でそれ以外を0で埋める
    in go ass 0 startC 1 -- kの初期値は1
   where

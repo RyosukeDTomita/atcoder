@@ -6,7 +6,7 @@ solve :: [Int] -> String
 solve as =
   let results =
         [ if isHigher as i then findNearIdx as i + 1 else -1
-        | i <- [0 .. (length as - 1)]
+          | i <- [0 .. (length as - 1)]
         ]
    in unlines $ map show results
 

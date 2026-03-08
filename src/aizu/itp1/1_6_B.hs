@@ -9,8 +9,8 @@ toTuple [suit, rank] =
 missingCards :: Char -> [(Char, Int)] -> [(Char, Int)]
 missingCards suit cards =
   [ (suit, rank)
-  | rank <- [1 .. 13],
-    (suit, rank) `notElem` cards -- 無いカードだけの新しい配列を内包表記で作成している。
+    | rank <- [1 .. 13],
+      (suit, rank) `notElem` cards -- 無いカードだけの新しい配列を内包表記で作成している。
   ]
 
 main :: IO ()

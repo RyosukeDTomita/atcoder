@@ -8,13 +8,13 @@ distance xs ys p
   | p == 8 =
       maximum
         [ abs (xs !! i - ys !! i)
-        | i <- [0 .. length xs - 1]
+          | i <- [0 .. length xs - 1]
         ]
   | otherwise =
       let tmp =
             sum $
               [ abs $ (xs !! i - ys !! i) ^ p
-              | i <- [0 .. length xs - 1]
+                | i <- [0 .. length xs - 1]
               ]
        in tmp ** (1 / fromIntegral p)
 

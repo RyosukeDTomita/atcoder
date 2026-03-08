@@ -5,7 +5,7 @@ solve :: String -> [[String]] -> Int
 solve w ts =
   sum $
     [ length $ filter (== w) t
-    | t <- ts
+      | t <- ts
     ]
 
 main :: IO ()

@@ -30,17 +30,17 @@ primes''' = f [2 ..]
       p
         : f
           [ n
-          | n <- ns,
-            n `mod` p /= 0
+            | n <- ns,
+              n `mod` p /= 0
           ]
 
 -- 各数字の平方と立方を求める例 NOTE: 内包表記の中でletを使う際にはinは不要
 squaresAndCubes :: Int -> [(Int, Int)]
 squaresAndCubes n =
   [ (xSquared, xCubed)
-  | x <- [1 .. n],
-    let xSquared = x * x,
-    let xCubed = x * x * x
+    | x <- [1 .. n],
+      let xSquared = x * x,
+      let xCubed = x * x * x
   ]
 
 main :: IO ()

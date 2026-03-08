@@ -38,7 +38,7 @@ calB :: Int -> Integer
 calB a =
   sum
     [ jVec V.! j
-    | j <- [0 .. a - 1]
+      | j <- [0 .. a - 1]
     ]
 
 -- メモ化された計算結果のVector

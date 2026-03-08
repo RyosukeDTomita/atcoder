@@ -8,7 +8,7 @@ stdDev xs =
       variance =
         sum
           [ (x - mean) ^ 2
-          | x <- xs
+            | x <- xs
           ]
           / n
    in sqrt variance

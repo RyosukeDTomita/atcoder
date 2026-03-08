@@ -33,9 +33,9 @@ solve n = runST $ do
   -- 1次元Vectorを2次元リストに変換
   return
     [ [ frozen V.! (idx i j)
-      | j <- [0 .. n - 1]
+        | j <- [0 .. n - 1]
       ]
-    | i <- [0 .. n - 1]
+      | i <- [0 .. n - 1]
     ]
 
 main :: IO ()

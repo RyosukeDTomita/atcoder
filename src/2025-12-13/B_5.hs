@@ -33,13 +33,13 @@ solve n =
       -- 配置情報からグリッドを構築
       grid =
         [ [0 | _ <- [0 .. n - 1]]
-        | _ <- [0 .. n - 1]
+          | _ <- [0 .. n - 1]
         ]
       updateGrid g (pos, val) =
         [ [ if (i, j) == pos then val else g !! i !! j -- 指定されたposだけ新シvalで上書きし、残りはそのまま使う。
-          | j <- [0 .. n - 1]
+            | j <- [0 .. n - 1]
           ]
-        | i <- [0 .. n - 1]
+          | i <- [0 .. n - 1]
         ]
       resultGrid = foldl updateGrid grid allPlacements
    in resultGrid

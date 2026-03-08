@@ -5,7 +5,7 @@ findPattern :: String -> String -> Bool
 findPattern s p =
   or -- 1つでもTrueがあればTrueを返す関数
     [ p `isInfixOf` rotate i s -- isInfixOfは部分文字列を探す関数
-    | i <- [0 .. length p - 1]
+      | i <- [0 .. length p - 1]
     ]
   where
     rotate n xs = drop n xs ++ take n xs -- 冒頭n文字を取り出して、後ろに連結する

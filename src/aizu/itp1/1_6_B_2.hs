@@ -10,8 +10,8 @@ findMissingCard :: [(Char, Int)] -> [(Char, Int)]
 findMissingCard cards =
   let fullDeck =
         [ (s, n)
-        | s <- "SHCD",
-          n <- [1 .. 13]
+          | s <- "SHCD",
+            n <- [1 .. 13]
         ]
    in fullDeck \\ cards -- \\はリストの差を求める演算子
 

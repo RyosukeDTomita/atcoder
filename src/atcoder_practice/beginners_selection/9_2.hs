@@ -15,13 +15,13 @@ import Control.Arrow ((>>>))
 solve :: [Int] -> [Int]
 solve [n, y] =
   case [ [a, b, c]
-       | a <- rangeA n y,
-         let target = y - 1000 * n - 9000 * a,
-         target `mod` 4000 == 0,
-         let b = target `div` 4000,
-         let c = n - a - b,
-         b >= 0,
-         c >= 0
+         | a <- rangeA n y,
+           let target = y - 1000 * n - 9000 * a,
+           target `mod` 4000 == 0,
+           let b = target `div` 4000,
+           let c = n - a - b,
+           b >= 0,
+           c >= 0
        ] of
     [a, b, c] : _ -> [a, b, c] -- 冒頭[a,b,c]と残りの配列の場合には冒頭のみ返す。
     [] -> [-1, -1, -1] -- [a,b,c]の候補なしの場合
