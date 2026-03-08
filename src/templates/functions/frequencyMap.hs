@@ -1,6 +1,3 @@
--- foldlよりもfoldl'の方が積極評価のためパフォーマンスが良い
-
-import Data.IntMap.Strict qualified as IM
 import Data.List (foldl')
 import Data.Map qualified as Map
 
@@ -11,14 +8,6 @@ import Data.Map qualified as Map
 -- fromList [('a',2)]
 frequency :: (Ord a) => [a] -> Map.Map a Int
 frequency a = foldl' (\m c -> Map.insertWith (+) c 1 m) Map.empty a
-
-frequencyIM :: [Int] -> IM.IntMap Int
-frequencyIM xs =
-  IM.fromListWith
-    (+)
-    [ (x, 1)
-    | x <- xs
-    ]
 
 main :: IO ()
 main = do
@@ -38,6 +27,3 @@ main = do
   print $ frequency iList -- fromList [(0,1),(1,2),(2,1),(3,1),(5,1)]
   let wordList = ["apple", "banana", "apple", "cherry", "banana", "apple"]
   print $ frequency wordList -- fromList [("apple",3),("banana",2),("cherry",1)]
-
-  -- Listバージョン
-  print $ frequencyIM [1, 2, 3, 1]
