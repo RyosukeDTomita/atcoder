@@ -6,7 +6,7 @@
 
 [main.hs](./main.hs)から呼び出せるようになっていれば一旦、ヨシとする。
 
----
+______________________________________________________________________
 
 ## INDEX
 
@@ -26,32 +26,46 @@
 ### higher-order functions(高階関数)
 
 - [`Fold`](./Fold.hs): [`foldl`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:foldl)と[`foldr`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:foldr)を実装した。
+
   - `foldl'`
   - `foldr'`
+
 - [`Filter`](./Filter.hs): [`filter`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:filter)を再帰で実装した。
+
   - `filter'`
+
 - [`Zip`](./Zip.hs): [`zipWith`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:zipWith)を再帰で[`zip`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:zip)を`zipWith`を使って実装した。
+
   - `zipWith'`
   - `zip'`
+
 - [`Map`](./Map.hs): [`map`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:map)を再帰と`foldr`の二種類で実装した。
+
   - `map'`: 再帰 version
   - `map''`: foldr version
+
 - [`Scan`](./Scan.hs): [`scanl`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:scanl)と[`scanr`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:scanr)を実装した。
+
   - `scanl'`
   - `scanr'`
+
 - [`tails`](./Tails.hs): [`tails`](https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html#v:tails)を再帰で実装した。
+
   - `tails'`
+
 - [dropWhile](./DropWhile.hs): [`dropWhile`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-List.html#v:dropWhile)と[`dropWhileEnd`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-List.html#v:dropWhileEnd)を再帰で実装した。
+
   - `dropWhile'`
   - `dropWhileEnd`
 
 - [Listdeconctruct](./Listdeconstruct.hs)
+
   - `head`
   - `tail`
   - `last`: 再帰版と`foldl`版の二種類
   - `init`: 再帰版と再帰しない版の二種類
 
----
+______________________________________________________________________
 
 ## ENVIRONMENT
 

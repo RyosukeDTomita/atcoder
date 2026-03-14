@@ -90,7 +90,7 @@ EOF
 runghc multiple_line_one_string3.hs < input.txt && /usr/bin/rm input.txt
 ```
 
----
+______________________________________________________________________
 
 ## 数値
 
@@ -196,4 +196,4 @@ cat <<'EOF' > input.txt
 EOF
 runghc multiple_line_multiple_int3.hs < input.txt && /usr/bin/rm input.txt
 [[1,2,3],[4,5,6],[7,8,9]]
-````
+```

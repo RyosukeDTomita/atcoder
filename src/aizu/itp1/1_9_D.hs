@@ -18,12 +18,12 @@ run (nowStr, outputs) command =
           (left, rest) = splitAt a nowStr
           (mid, right) = splitAt (b - a + 1) rest
        in (left ++ reverse mid ++ right, outputs)
-    ("replace" : aStr : bStr : pattern : _) ->
+    ("replace" : aStr : bStr : replacement : _) ->
       let a = read aStr :: Int
           b = read bStr :: Int
           (left, rest) = splitAt a nowStr
           (_, right) = splitAt (b - a + 1) rest
-       in (left ++ pattern ++ right, outputs)
+       in (left ++ replacement ++ right, outputs)
 
 main :: IO ()
 main = interact $ \inputs ->

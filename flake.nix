@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
@@ -11,17 +12,20 @@
       self,
       nixpkgs,
       flake-utils,
+      treefmt-nix,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = import nixpkgs { inherit system; };
+        treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
-        formatter = nixpkgs.legacyPackages.${system}.nixfmt-tree;
+        formatter = treefmtEval.config.build.wrapper;
 
         devShells.default = pkgs.mkShell {
           packages = [
+            treefmtEval.config.build.wrapper
             pkgs.zsh
             (pkgs.haskell.packages.ghc96.ghcWithPackages (ps: [
               ps.vector
