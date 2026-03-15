@@ -4,7 +4,6 @@
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 
-import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Map.Strict qualified as Map
 import Data.Vector.Unboxed qualified as VU

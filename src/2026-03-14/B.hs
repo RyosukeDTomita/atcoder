@@ -1,6 +1,5 @@
 {-# LANGUAGE CPP #-}
 
-import Control.Monad.Trans.Accum (mapAccum)
 import Data.List (mapAccumL)
 import Debug.Trace (traceShowId)
 
