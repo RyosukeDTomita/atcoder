@@ -14,6 +14,7 @@ main :: IO ()
 main = do
   let im = frequency [1, 2, 3, 1, 2, 2]
   print im
+
   print $ mostFrequent im
   case mostFrequent im of
     Nothing -> print "Nothing"
