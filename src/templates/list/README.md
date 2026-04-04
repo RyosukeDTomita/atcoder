@@ -45,11 +45,9 @@
 
 - [無限リストを扱う](./infinite_lists.hs)
 
-  - `repeat`
-  - `replicate`
-  - `cycle`
-
-- [cycle関数で無限リストを作成する](./cycle.hs): cycle関数を使った特定のパターンの無限リスト作成
+  - `repeat`: 単一要素を無限回繰り返す
+  - `cycle`: リストを無限回繰り返す
+  - `replicate`: 無限は使えない
 
 - [様々なソート](./sort.hs)
 
