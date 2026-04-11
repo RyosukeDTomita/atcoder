@@ -11,6 +11,7 @@ import Nub (nub')
 import Reverse (reverse')
 import Scan (scanl', scanr')
 import Tails (tails')
+import TakeDrop (drop', take', take'')
 import TakeWhile (takeWhile')
 import Transpose (transpose')
 import Zip (zip', zipWith')
@@ -95,3 +96,11 @@ main = do
         Just (p, _) -> p
         Nothing -> -1
   print oneParent
+
+  -- take
+  print $ take' 3 [0 ..]
+  print $ take'' 3 [0 ..]
+  -- print (unsafeTake undefined ([0 ..] :: [Int]))
+
+  -- drop
+  print $ drop' 3 [0 .. 10]
