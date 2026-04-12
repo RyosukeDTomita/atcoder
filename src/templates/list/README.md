@@ -12,14 +12,12 @@
 
   - `subsequences`で部分列を取得
   - `permutations`で順列を取得
+  - すべての組み合わせをもとめるのは[`replicateM`](../monad/replicateM_.hs)を使う
 
 - [isOf系のまとめ](./isOf.hs)
-
-  - `isPrefixOf`
-
-  - `isSuffixOf`
-
-  - `isInfixOf`: `elem`は`Char`にしか使えない(1文字単位のマッチング)ので`isInfixOf`を使う必要があることに注意。
+  - `isPrefixOf`: 前方一致で存在をチェック
+  - `isSuffixOf`: 後方一致で存在をチェック
+  - `isInfixOf`: ある単語が含まれるかチェック。`elem`は`Char`にしか使えない(1文字単位のマッチング)ので`isInfixOf`を使う必要があることに注意。
 
     ```haskell
     -- こういうのはできる

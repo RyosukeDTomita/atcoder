@@ -2,9 +2,11 @@
 
 ## INDEX
 
-- [forM\_](./forM_.hs): 手続き型言語の`for`のようなループを実現するための関数。
+- [`forM_`](./forM_.hs): 手続き型言語の`for`のようなループを実現するための関数。
 
-- [replicateM\_](./replicateM_.hs): 指定された回数だけアクションを繰り返すための関数。
+- [`replicateM_`](./replicateM_.hs): 指定された回数だけアクションを繰り返すための関数。
+  - [`replicateM`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Control-Monad.html#v:replicateM): `replicate`と異なり、モナドのアクションを繰り返すための関数。
+  - [`replicateM_`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Control-Monad.html#v:replicateM_): `replicateM`の結果を保持しないバージョン。
 
 - 破壊的代入
 
