@@ -1,3 +1,4 @@
+-- echo -e "1\n2\n3" | runghc replicateM_.hs
 import Control.Monad (replicateM, replicateM_)
 
 createNZero :: Int -> [Int]
@@ -11,3 +12,6 @@ main = do
   print xs
   -- replicateM_は戻り値を捨てる
   replicateM_ n $ print "Hello"
+
+  -- replicateMにlistモナドを渡すと組み合わせの列挙をしてくれる
+  print $ replicateM 3 [1, -1] -- [[1,1,1],[1,1,-1],[1,-1,1],[1,-1,-1],[-1,1,1],[-1,1,-1],[-1,-1,1],[-1,-1,-1]]
