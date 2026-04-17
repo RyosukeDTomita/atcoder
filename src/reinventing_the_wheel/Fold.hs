@@ -38,6 +38,7 @@ foldl'' f acc (x : xs) =
 
 foldr1 :: (a -> a -> a) -> [a] -> a
 foldr1 f xs =
+  -- NOTE: fromMaybeは第一引数にデフォルト値、第二引数にMaybe aをとる。
   fromMaybe
     (errorWithoutStackTrace "foldr1: empty structure")
     (foldr mf Nothing xs)
