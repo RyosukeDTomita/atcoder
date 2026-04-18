@@ -18,6 +18,18 @@ scanl' f q (x : xs) = q : scanl' f (f q x) xs
 -- = 5 : 6 : 8: 11 : scanl' (+) (15) []
 -- = 5 : 6 : 8: 11 : [15]
 
+-- https://hackage-content.haskell.org/package/ghc-internal-9.1401.0/docs/src/GHC.Internal.List.html#scanl
+scanl'' :: (b -> a -> b) -> b -> [a] -> [b]
+scanl'' = scanlGo
+  where
+    scanlGo :: (b -> a -> b) -> b -> [a] -> [b]
+    scanlGo f q ls =
+      q
+        : ( case ls of
+              [] -> []
+              x : xs -> scanlGo f (f q x) xs
+          )
+
 scanr' :: (a -> b -> b) -> b -> [a] -> [b]
 scanr' _ q [] = [q]
 scanr' f q (x : xs) =
@@ -40,7 +52,15 @@ scanr' f q (x : xs) =
 -- x = 1の時 rest = scanr' (+) 5 [2, 3, 4] = [14, 12, 9, 5]なので r = 14
 -- f x r : rest = (+) 1 14 : [14, 12, 9, 5] = [15, 14, 12, 9, 5]
 
+-- https://hackage-content.haskell.org/package/ghc-internal-9.1401.0/docs/src/GHC.Internal.List.html#scanr
+scanr'' :: (a -> b -> b) -> b -> [a] -> [b]
+scanr'' _ q0 [] = [q0]
+scanr'' f q0 (x : xs) = f x q : qs
+  where
+    qs@(q : _) = scanr'' f q0 xs
+
 main :: IO ()
 main = do
   print $ scanl' (+) 5 [1, 2, 3, 4] -- [5, 5 + 1, 5 + 1 + 2, 5 + 1 + 2 + 3, 5 + 1 + 2 + 3 + 4] = [5, 6, 8, 11, 15]
+  print $ scanl'' (+) 5 [1, 2, 3, 4] -- [5, 5 + 1, 5 + 1 + 2, 5 + 1 + 2 + 3, 5 + 1 + 2 + 3 + 4] = [5, 6, 8, 11, 15]
   print $ scanr' (+) 5 [1, 2, 3, 4] -- [15, 14, 12, 9, 5]

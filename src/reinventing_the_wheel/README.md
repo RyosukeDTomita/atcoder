@@ -29,10 +29,13 @@ ______________________________________________________________________
 
   - `foldl'`
   - `foldr'`
+  - `foldl1'`
+  - `foldr1'`
 
 - [`Filter`](./Filter.hs): [`filter`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:filter)を再帰で実装した。
 
   - `filter'`
+  - `filter''`: foldr version
 
 - [`Zip`](./Zip.hs): [`zipWith`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:zipWith)を再帰で[`zip`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Prelude.html#v:zip)を`zipWith`を使って実装した。
 
@@ -69,7 +72,13 @@ ______________________________________________________________________
   - `take''`: 公式の実装
   - `drop'`: 公式の実装
 
-______________________________________________________________________
+- [Scan](./Scan.hs)
+  - `scanl'`
+  - `scanl1'`
+  - `scanr'`
+  - `scanr1'`
+
+---
 
 ## ENVIRONMENT
 

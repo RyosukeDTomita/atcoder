@@ -1,4 +1,4 @@
-module Filter (filter') where
+module Filter (filter', filter'') where
 
 filter' :: (a -> Bool) -> [a] -> [a]
 -- 第一引数fが関数、第2引数がリスト
@@ -15,6 +15,11 @@ filter' f (x : xs)
   -- = 1 : 2 : []
   -- = [1, 2]
 
+-- NOTE: filterはどうせ最後までリストを走査するので右から畳み込んでも問題ない
+filter'' :: (a -> Bool) -> [a] -> [a]
+filter'' f xs = foldr (\x acc -> if f x then x : acc else acc) [] xs
+
 main :: IO ()
 main = do
   print $ filter' (< 3) [1, 2, 3, 4]
+  print $ filter'' (< 3) [1, 2, 3, 4]

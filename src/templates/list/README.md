@@ -2,6 +2,8 @@
 
 ## INDEX
 
+- [関数適用をリストに対して`map`できる](./mapFunc.hs)
+
 - [文字列`Char[]`を数値に変換する。逆も](./charToInt.hs):
 
 - [リストから要素を取り出す](./accessing_elements.hs): `head`, `tail`, `last`, `init`の使い方。`Data.Vector`との比較も。
@@ -27,7 +29,7 @@
 
   - `isSubSequenceOf`
 
-- [Boolリストの集計](./bool_list.hs)
+- [Boolリストの集計](./boolList.hs)
 
   - `and`で全要素がTrueかチェック
   - `or`で一つでもTrueがあるかチェック

@@ -17,6 +17,7 @@ main = do
   -- リストの要素が全てTrueか
   print $ and' [True, True, True] -- True
   print $ and' [True, True, False] -- False
+  print $ and' (repeat False)
   -- リストの要素が一つでもTrueか
   print $ or' [True, True, True] -- True
   print $ or' [True, True, False] -- True
