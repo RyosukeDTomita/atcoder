@@ -4,6 +4,7 @@ import DropWhile (dropWhile', dropWhileEnd', dropWhileEnd'')
 import Filter (filter')
 import Find (find')
 import Fold (foldl', foldr')
+import Group (group')
 import Iterate (iterate')
 import Length (length', length'')
 import Map (map', map'')
@@ -104,3 +105,6 @@ main = do
 
   -- drop
   print $ drop' 3 [0 .. 10]
+
+  -- group
+  print $ group' [1, 2, 2, 3, 3, 3]

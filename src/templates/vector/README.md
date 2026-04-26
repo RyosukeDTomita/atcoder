@@ -1,5 +1,11 @@
 # Data.Vector
 
+## `Data.Vector`
+
+どんな型でも格納できるが、`VU`に比べてメモリ効率やパフォーマンスが悪いため、競技プログラミングの文脈で使うことはあまりなさそう。
+
+______________________________________________________________________
+
 ## `Data.Vector.Unboxed`
 
 [`Data.Vector.Unboxed`](https://hackage-content.haskell.org/package/vector-0.13.2.0/docs/Data-Vector-Unboxed.html): ポインタを使わずにそのまま、メモリに詰め込まれた型のベクトルを提供する。boxedな型（ポインタを使う型）に比べて、メモリ効率とパフォーマンスが良い。
@@ -18,6 +24,8 @@
 - [使った複数更新(bulk update)](https://hackage-content.haskell.org/package/vector-0.13.2.0/docs/Data-Vector-Unboxed.html#g:15): Vectorの長さをm、更新するインデックス/値のペアのリストの長さをnとしたとき、O(m+n)で更新を行う。Vector全体をコピーして差し替えのため速くはないが、簡潔に書ける。
 
 - [bulkUpdate.hs](./VU/bulkUpdate.hs): `//`は`[(Int, Int)]`で更新情報を渡す。`update`は`Vector (Int, a)`で更新情報を渡す。
+
+- [imap.hs](./VU/imap.hs): index番号と値で計算をしたい時に使 頻度mapを作った後などに有効かも。
 
 ______________________________________________________________________
 

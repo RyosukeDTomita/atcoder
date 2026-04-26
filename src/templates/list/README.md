@@ -17,8 +17,11 @@
   - すべての組み合わせをもとめるのは[`replicateM`](../monad/replicateM_.hs)を使う
 
 - [isOf系のまとめ](./isOf.hs)
+
   - `isPrefixOf`: 前方一致で存在をチェック
+
   - `isSuffixOf`: 後方一致で存在をチェック
+
   - `isInfixOf`: ある単語が含まれるかチェック。`elem`は`Char`にしか使えない(1文字単位のマッチング)ので`isInfixOf`を使う必要があることに注意。
 
     ```haskell
@@ -82,3 +85,9 @@
 - [リストモナドと内包表記比較](./listMonad.hs)
 
 - [一度選ばれた要素を管理する](./mapAccumeL.hs): `mapAccumL`を使って、リストを走査しながら状態を管理する方法。使わないバージョンと比較している。
+
+______________________________________________________________________
+
+## サンプルコードを書くまでもないが便利な関数
+
+- [`group`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-List.html#v:group)

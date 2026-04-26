@@ -36,7 +36,7 @@ ribCharSets ss abList =
    in [ Set.fromList $
           map (\w -> BS.index w (b - 1)) $
             M.findWithDefault [] a wordsByLen
-      | [a, b] <- abList
+        | [a, b] <- abList
       ]
 
 -- 単語Sでオブジェを作れるかチェックしている

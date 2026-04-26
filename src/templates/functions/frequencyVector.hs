@@ -11,7 +11,7 @@ frequency maxValue xs = runST $ do
     VUM.modify freq (+ 1) x
   VU.freeze freq
 
-frequency' :: Int ->  [Int] ->  VU.Vector Int
+frequency' :: Int -> [Int] -> VU.Vector Int
 -- NOTE: accumulateは第2引数に初期ベクタ、第3引数の(index番号, value)をとり、f valueを初期ベクタのn番目に適用する関数である。
 frequency' maxX xs = VU.accumulate (+) (VU.replicate (maxX + 1) 0) (VU.fromList [(x, 1) | x <- xs])
 

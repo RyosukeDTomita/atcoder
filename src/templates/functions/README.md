@@ -6,6 +6,7 @@
   - [凡庸的に使うならMap](./frequencyMap.hs)
   - [IntMapを使うと検索が速い](./frequencyIM.hs)
   - [構築するだけならVectorが速そう](./frequencyVector.hs)
+  - [リストの要素が多すぎると0からnまでの空配列を作るのは不利。\`group\`と\`sort'で対応する](./frequencyGroupSort.hs): もとのリストにある数のみしかカウントしない点に注意。
 - [組み合わせを計算する](./combination.hs): nCrを計算する関数とその使用例
 - [二次元配列から特定のサイズの正方形を全通り抽出する](./getSquare.hs): nxnの配列から切り出せるmxmの正方形をすべて取得する関数とその使用例
 - [2xnのリストをTupleのリストに変換する](./toTupleList.hs): Tupleの場合`(String, Int)`のように別々の型を持てるのがリストとの差別化点。e.g. トランプのスートとランクの組み合わせを扱う場合など。
