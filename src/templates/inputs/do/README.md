@@ -90,7 +90,7 @@ EOF
 runghc multiple_line_one_string3.hs < input.txt && /usr/bin/rm input.txt
 ```
 
-______________________________________________________________________
+---
 
 ## 数値
 

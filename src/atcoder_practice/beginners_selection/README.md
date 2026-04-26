@@ -6,7 +6,7 @@
 
 ![AtCoder Beginners Selection](./assets/complete.png)
 
-______________________________________________________________________
+---
 
 ## INDEX
 
