@@ -1,0 +1,15 @@
+{
+  "lsp": {
+    "hls": {
+      "binary": {
+        "path": "/nix/store/n8zj6zg7i3wibpsmj92k4djwy0sg6lzr-haskell-language-server-2.12.0.0/bin/haskell-language-server-wrapper",
+        "arguments": ["--lsp"]
+      },
+      "initialization_options": {
+        "haskell": {
+          "checkProject": false
+        }
+      }
+    }
+  }
+}
