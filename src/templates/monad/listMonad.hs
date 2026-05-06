@@ -30,7 +30,11 @@ bindWithGuard :: [(Int, Int)]
 bindWithGuard =
   [1, 2, 3] >>= \x ->
     [10, 20] >>= \y ->
-      guard (odd (x + y))
+      -- NOTE: guardを使うことで、モナド文脈のまま条件フィルタを行える。
+      -- guard True = pure (), guard False = empty
+      -- pureとは値を型の文脈にリフトする関数。pure 1 :: Maybe IntはJust 1になる。
+      -- NOTE: pureは型変換ではなく、wrapのイメージらしい。pureは値自体を変えずに箱に入れる。
+      guard (odd (x + y)) -- NOTE: 型推論により、x,yが[Int]のためリストモナドであることがわかるため、Trueの場合にはpure () :: [()]と同じ動きになり、[()]が返される。
         >> return (x, y)
 
 -- do + guard

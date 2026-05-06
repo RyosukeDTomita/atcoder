@@ -36,3 +36,4 @@
   ```
 
 - [リストモナド](./listMonad.hs): `>>=`、`do`式、リスト内包表記の3つの書き方で全組み合わせ生成とフィルタを実装。
+- [`pure`について](./pure.hs): [`pure`](https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Control-Applicative.html#v:pure)のliftするという感覚がわからなかったので検証した。型変換と違い、値が変わらず、コンテナを変えるイメージらしい? そのため、IntをFloatにするのは落ちる。
