@@ -26,10 +26,19 @@
 nix develop
 ```
 
-### VS Code Extensions
+### (VS Code User)
 
-VS CodeのExtensionsである`haskell.haskell`をインストールする。
-`atcoder/.vscode/settings.json`に設定を記載しているので、VS Codeで`atcoder`ディレクトリを開けば自動的に認識される。
+- VS CodeのExtensionsである`haskell.haskell`をインストールする。
+- [settings.json](./.vscode/settings.json)に設定を記載しているので、VS Codeで`atcoder/`ディレクトリを開けば自動的にLSPやフォーマッタ等は認識される。
+- スニペットは、[haskell.code-snippets](./.vscode/haskell.code-snippets)に配置している。
+
+### (Zed User)
+
+最近はZedに移行した。
+
+- `haskell`のExtensionsをインストールする。
+- `[settings.json](./.zed/settings.json)に設定を配置している。これで、LSPやフォーマッタ等が使えるようになる。
+- プロジェクト固有のスニペット機能は2026年5月現在ではサポートされていないので、VS CodeのスニペットをZed用に移植したものをグローバルに配置して使用している。
 
 ---
 
@@ -71,7 +80,7 @@ Leaving GHCi.
 
 ```shell
 # Formatter(CLIで実行したい場合)
-ormolu --mode inplace $(find . -type f -name "*.hs")
+nix fmt
 ```
 
 ### ghci
