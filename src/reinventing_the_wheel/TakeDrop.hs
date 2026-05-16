@@ -35,6 +35,10 @@ drop' n ls
     unsafeDrop 1 (_ : xs) = xs
     unsafeDrop m (_ : xs) = unsafeDrop (m - 1) xs
 
+-- const:: a -> b -> a を利用して
+dropEnd :: Int -> [a] -> [a]
+dropEnd n xs = zipWith const xs (drop n xs)
+
 main :: IO ()
 main = do
   print $ take' 3 [0 ..]
@@ -42,3 +46,5 @@ main = do
   -- print (unsafeTake undefined ([0 ..] :: [Int]))
 
   print $ drop' 3 [0 .. 10]
+
+  print $ dropEnd 3 [0 .. 10]

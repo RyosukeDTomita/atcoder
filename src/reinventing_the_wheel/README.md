@@ -73,6 +73,7 @@
   - `take'`: すごいHaskell楽しく学ぼうの実装。ガードで`otherWise`をつけないのがポイント。
   - `take''`: 公式の実装
   - `drop'`: 公式の実装
+  - `dorpEnd`: 末尾から削除する
 
 - [Scan](./Scan.hs)
 
