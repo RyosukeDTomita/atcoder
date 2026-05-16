@@ -1,4 +1,5 @@
 -- https://algo-method.com/tasks/302
+-- 1ケースWAになった。どうやらNがでかいとIntだとオーバフローしているらしい。
 -- {-# LANGUAGE BangPatterns #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
 

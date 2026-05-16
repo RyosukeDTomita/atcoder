@@ -37,7 +37,7 @@ nix develop
 最近はZedに移行した。
 
 - `haskell`のExtensionsをインストールする。
-- `[settings.json](./.zed/settings.json)に設定を配置している。これで、LSPやフォーマッタ等が使えるようになる。
+- \`[settings.json](./.zed/settings.json)に設定を配置している。これで、LSPやフォーマッタ等が使えるようになる。
 - プロジェクト固有のスニペット機能は2026年5月現在ではサポートされていないので、VS CodeのスニペットをZed用に移植したものをグローバルに配置して使用している。
 
 ---

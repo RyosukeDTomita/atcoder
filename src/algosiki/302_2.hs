@@ -1,4 +1,5 @@
 -- https://algo-method.com/tasks/302
+-- オーバーフローを回避するために足し算するまえに`mod`する
 {-# OPTIONS_GHC -Wunused-imports #-}
 
 import Control.Arrow ((>>>))
