@@ -12,7 +12,7 @@ import Nub (nub')
 import Reverse (reverse')
 import Scan (scanl', scanr')
 import Tails (tails')
-import TakeDrop (drop', take', take'')
+import TakeDrop (drop', take', take'', dropEnd)
 import TakeWhile (takeWhile')
 import Transpose (transpose')
 import Zip (zip', zipWith')
@@ -105,6 +105,9 @@ main = do
 
   -- drop
   print $ drop' 3 [0 .. 10]
+
+  -- dropEnd
+  print $ dropEnd 3 [0 .. 10]
 
   -- group
   print $ group' [1, 2, 2, 3, 3, 3]
