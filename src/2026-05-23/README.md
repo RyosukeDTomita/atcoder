@@ -1,4 +1,4 @@
-# Tokio Marine &amp; Nichido Fire Insurance Programming Contest 2026  (AtCoder Beginner Contest 459)
+# Tokio Marine & Nichido Fire Insurance Programming Contest 2026 (AtCoder Beginner Contest 459)
 
 https://atcoder.jp/contests/abc459
 
