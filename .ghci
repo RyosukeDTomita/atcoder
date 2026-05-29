@@ -10,7 +10,7 @@ import Data.Vector.Unboxed.Mutable qualified as MVec
 import Data.Vector.Unboxed.Mutable qualified as UM
 import Control.Arrow ((>>>))
 import Control.Monad (replicateM ,replicateM_, when, forM_, forM, guard)
-import Data.Char (isLower, isUpper, toLower, toUpper, digitToInt, intToDigit)
+import Data.Char (isLower, isUpper, toLower, toUpper, digitToInt, intToDigit, ord)
 import Data.List (group, elemIndex, sort, sortOn, partition, transpose, isPrefixOf, nub, isInfixOf, tails, (\\), find, mapAccumL, permutations, isSubsequenceOf, permutations, subsequences)
 import Data.Ord (Down (..))
 import Data.Map qualified as Map
