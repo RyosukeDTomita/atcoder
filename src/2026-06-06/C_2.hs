@@ -36,22 +36,26 @@ solve k m cvs = baseSum - removeSum + addSum
 
     -- 上位K個を1パスで振り分ける(IntSetでO(log n)判定、(++)は使わない)
     --   色の初出 -> keeper(色集合へ), 既出 -> extra(捨てる候補)
-    -- extrasAsc はconsで積むので昇順(小さい順)になる
-    (baseSum, selColors, extrasAsc) = foldl' classify (0, IntSet.empty, []) selected
+    -- extras はconsで積むので昇順(小さい順)になる
+    (baseSum, selectedColors, extras) = foldl' classify (0, IntSet.empty, []) selected
+    classify :: (Int, IntSet.IntSet, [Int]) -> (Int, Int) -> (Int, IntSet.IntSet, [Int])
     classify (!bs, seen, exs) (c, v)
       | c `IntSet.member` seen = (bs + v, seen, v : exs) -- extra
       | otherwise = (bs + v, IntSet.insert c seen, exs) -- keeper
-
-    need = m - IntSet.size selColors -- 追加で必要な色数(0以下ならスワップ不要)
+    need = m - IntSet.size selectedColors -- 追加で必要な色数(0以下ならスワップ不要)
 
     -- 捨てる: 小さいextraを need 個
-    removeSum = sum (take need extrasAsc)
+    removeSum = sum (take need extras)
 
     -- 入れる: 残りを降順走査し、未選択色の初出(=その色の最大)を need 個まで貪欲に加算
     (_, addSum, _) = foldl' pick (IntSet.empty, 0, 0) rest
+    -- taken: 今回追加で取得した色
+    -- acc: 今回追加した宝石の価値の合計
+    -- cnt: 追加した個数
+    pick :: (IntSet.IntSet, Int, Int) -> (Int, Int) -> (IntSet.IntSet, Int, Int)
     pick (taken, !acc, !cnt) (c, v)
-      | cnt >= need = (taken, acc, cnt) -- 必要数に達したら加算しない
-      | c `IntSet.member` selColors = (taken, acc, cnt) -- 既に選択色
+      | cnt >= need = (taken, acc, cnt) -- 必要数に達したら加算しない --NOTE: ==ではなく、>=なのはneedが負になる可能性もあるため。
+      | c `IntSet.member` selectedColors = (taken, acc, cnt) -- 既に選択済みの色は何もしない
       | c `IntSet.member` taken = (taken, acc, cnt) -- この新色は最大採用済み
       | otherwise = (IntSet.insert c taken, acc + v, cnt + 1) -- candidate採用
 
