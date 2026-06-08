@@ -15,6 +15,7 @@
   - `subsequences`で部分列を取得
   - `permutations`で順列を取得
   - すべての組み合わせをもとめるのは[`replicateM`](../monad/replicateM_.hs)を使う
+  - 連続した部分列は`tails`が役に立つ
 
 - [isOf系のまとめ](./isOf.hs)
 

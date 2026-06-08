@@ -1,4 +1,4 @@
-import Data.List (isSubsequenceOf, permutations, subsequences)
+import Data.List (isSubsequenceOf, permutations, subsequences, tails)
 
 main :: IO ()
 main = do
@@ -9,3 +9,7 @@ main = do
 
   -- 並び替えのパターン
   print $ permutations "abc" -- ["abc","bac","cba","bca","cab","acb"]
+
+  -- 部分列は問題によっては、こういう定義だったりもする
+  print $ tails "ZABCDBABCQ" -- ["ZABCDBABCQ","ABCDBABCQ","BCDBABCQ","CDBABCQ","DBABCQ","BABCQ","ABCQ","BCQ","CQ","Q",""]
+  print $ filter ((== "ABC") . take 3) $ tails "ZABCDBABCQ"
