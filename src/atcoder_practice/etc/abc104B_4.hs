@@ -1,3 +1,4 @@
+-- https://atcoder.jp/contests/abc104/tasks/abc104_b
 -- ChatGPTに作ってもらったストリーミングを使わないシンプルな実装
 import Data.Char (isLower)
 

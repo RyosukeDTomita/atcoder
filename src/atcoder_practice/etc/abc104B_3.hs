@@ -1,3 +1,4 @@
+-- https://atcoder.jp/contests/abc104/tasks/abc104_b
 {-# LANGUAGE OverloadedStrings #-}
 
 import Control.Arrow ((>>>))
