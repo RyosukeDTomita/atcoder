@@ -13,7 +13,7 @@ format :: Map.Map Char Int -> String
 format freqMap =
   unlines
     [ c : " : " ++ show (Map.findWithDefault 0 c freqMap)
-      | c <- ['a' .. 'z']
+    | c <- ['a' .. 'z']
     ]
 
 solve :: String -> String

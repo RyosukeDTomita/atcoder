@@ -43,7 +43,7 @@ ok as l = go as freqA
       IM.fromListWith
         (+)
         [ (a, 1)
-          | a <- as
+        | a <- as
         ]
     go [] _ = True
     go (x : xs) freq =
@@ -71,8 +71,8 @@ solve n as =
   let !sumA = sum as
       ls =
         [ (sumA `div` k)
-          | k <- [(n + 1) `div` 2 .. n], -- (n+1)することで切り上げを行っている。
-            sumA `mod` k == 0
+        | k <- [(n + 1) `div` 2 .. n], -- (n+1)することで切り上げを行っている。
+          sumA `mod` k == 0
         ]
    in sort $ filter (ok as) ls
 

@@ -6,7 +6,7 @@ checkPattern h w =
       [ if even r
           then row1
           else row2
-        | r <- [0 .. h - 1]
+      | r <- [0 .. h - 1]
       ]
 
 main :: IO ()

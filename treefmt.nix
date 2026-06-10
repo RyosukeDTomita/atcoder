@@ -11,7 +11,7 @@
   };
 
   programs.ormolu.enable = true;
-  programs.ormolu.package = pkgs.haskell.packages.ghc96.ormolu;
+  programs.ormolu.package = pkgs.haskell.packages.ghc9122.ormolu;
 
   # treefmt controls mode/idempotence itself; pass only parser options.
   settings.formatter.ormolu.options = [

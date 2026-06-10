@@ -31,7 +31,7 @@ solve ls =
   let ls' = map fromIntegral ls :: [Double]
    in maximum
         [ count 0.5 (zipWith (*) signs ls')
-          | signs <- replicateM (length ls') [1, -1]
+        | signs <- replicateM (length ls') [1, -1]
         ]
   where
     count :: Double -> [Double] -> Int

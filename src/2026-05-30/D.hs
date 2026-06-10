@@ -40,18 +40,18 @@ solve :: Int -> Int -> [BS.ByteString] -> [BS.ByteString]
 solve h w ss =
   [ BS.pack
       [ if IntSet.member (i * w + j) evenCells then '#' else '.'
-        | j <- [0 .. w - 1]
+      | j <- [0 .. w - 1]
       ]
-    | i <- [0 .. h - 1]
+  | i <- [0 .. h - 1]
   ]
   where
     -- 初期の黒マスをフラットな添字に変換
     blacks :: [Int]
     blacks =
       [ i * w + j
-        | (i, row) <- zip [0 ..] ss,
-          (j, c) <- zip [0 ..] (BS.unpack row),
-          c == '#'
+      | (i, row) <- zip [0 ..] ss,
+        (j, c) <- zip [0 ..] (BS.unpack row),
+        c == '#'
       ]
     blackSet = IntSet.fromList blacks
     -- 各黒マスに対して周囲8マスをもとめ、それが白いマス
@@ -64,15 +64,15 @@ solve h w ss =
     neighbors idx =
       let (i, j) = idx `quotRem` w
        in [ i' * w + j'
-            | di <- [-1, 0, 1],
-              dj <- [-1, 0, 1],
-              (di, dj) /= (0, 0),
-              let i' = i + di,
-              let j' = j + dj,
-              i' >= 0,
-              i' < h,
-              j' >= 0,
-              j' < w
+          | di <- [-1, 0, 1],
+            dj <- [-1, 0, 1],
+            (di, dj) /= (0, 0),
+            let i' = i + di,
+            let j' = j + dj,
+            i' >= 0,
+            i' < h,
+            j' >= 0,
+            j' < w
           ]
     -- 層=sourceからのBFS距離が同じマスのグループ
     -- 層ごとにBFSし、偶数層に入ったマスを集める

@@ -6,13 +6,13 @@ solve :: [Int] -> Int
 solve as =
   let aliceCardSum =
         [ as !! n
-          | n <- [0 .. ((length as) - 1)],
-            even n
+        | n <- [0 .. ((length as) - 1)],
+          even n
         ]
       bobCardSum =
         [ as !! n
-          | n <- [0 .. ((length as) - 1)],
-            odd n
+        | n <- [0 .. ((length as) - 1)],
+          odd n
         ]
    in sum aliceCardSum - sum bobCardSum
 

@@ -21,10 +21,10 @@ solve n cijs =
   let abc =
         dbgId $
           [ (a, b, c)
-            | a <- [0 .. n - 1],
-              b <- [a + 1 .. n - 1],
-              c <- [b + 1 .. n - 1],
-              (cijs !! a !! (b - a - 1) + cijs !! b !! (c - b - 1)) < cijs !! a !! (c - a - 1)
+          | a <- [0 .. n - 1],
+            b <- [a + 1 .. n - 1],
+            c <- [b + 1 .. n - 1],
+            (cijs !! a !! (b - a - 1) + cijs !! b !! (c - b - 1)) < cijs !! a !! (c - a - 1)
           ]
    in if length abc > 0 then "Yes" else "No"
 

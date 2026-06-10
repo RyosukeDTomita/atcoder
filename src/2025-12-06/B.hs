@@ -3,9 +3,9 @@ solve :: [Int] -> Int -> Int
 solve as n =
   length
     [ [l, r]
-      | r <- [2 .. n],
-        l <- [1 .. r],
-        l /= r && check l r as
+    | r <- [2 .. n],
+      l <- [1 .. r],
+      l /= r && check l r as
     ]
 
 check :: Int -> Int -> [Int] -> Bool

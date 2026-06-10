@@ -3,7 +3,7 @@ import Control.Monad (replicateM)
 solve :: [[Int]] -> [Int] -> [Int]
 solve matrixA vectorB =
   [ sum $ zipWith (*) row vectorB
-    | row <- matrixA
+  | row <- matrixA
   ]
 
 main :: IO ()

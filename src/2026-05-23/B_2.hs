@@ -27,11 +27,11 @@ solve ss = concatMap (show . digit . head) ss
     digit c =
       head -- 内包表記を崩すためのhead
         [ d
-          | (d, g) <-
-              zip
-                [2 ..]
-                keypad,
-            c `elem` g
+        | (d, g) <-
+            zip
+              [2 ..]
+              keypad,
+          c `elem` g
         ]
 
 main :: IO ()

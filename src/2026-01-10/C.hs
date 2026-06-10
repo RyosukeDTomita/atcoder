@@ -42,7 +42,7 @@ whichPaint n w caseT =
   let allPattern =
         dbgId $
           [ map (subtract 1) $ filter (\i -> ((i + x) `mod` (2 * w)) < w) [1 .. n]
-            | x <- [0 .. 2 * w]
+          | x <- [0 .. 2 * w]
           ]
       allCosts = map (map (\i -> caseT !! i)) allPattern
    in foldl findMin maxBound allCosts

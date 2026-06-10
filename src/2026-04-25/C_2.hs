@@ -33,7 +33,7 @@ solve n k aList =
   let contribs =
         sort
           [ head g * length g -- groupで集めた同じ数の合計を求める。
-            | g <- group (sort aList)
+          | g <- group (sort aList)
           ]
    in sum $ take (length contribs - k) contribs -- k回実行するのはでかいやつから消すと最小値が求められる。
 

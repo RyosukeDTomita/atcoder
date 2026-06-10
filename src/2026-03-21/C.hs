@@ -38,9 +38,9 @@ solve h w shws =
 getWhiteIndex :: Int -> Int -> [BS.ByteString] -> [(Int, Int)]
 getWhiteIndex h w sss =
   [ (i, j)
-    | i <- [0 .. h - 1],
-      j <- [0 .. w - 1],
-      BS.index (sss !! i) j == '.'
+  | i <- [0 .. h - 1],
+    j <- [0 .. w - 1],
+    BS.index (sss !! i) j == '.'
   ]
 
 -- 集合Cを求める

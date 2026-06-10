@@ -5,10 +5,10 @@ solve :: [Int] -> Int
 solve [a, b, c, x] =
   length
     [ (aN, bN, cN)
-      | aN <- [0 .. (min (x `div` 500) a)],
-        bN <- [0 .. (min (x `div` 100) b)],
-        cN <- [0 .. (min (x `div` 50) c)],
-        (aN * 500 + bN * 100 + cN * 50) == x
+    | aN <- [0 .. (min (x `div` 500) a)],
+      bN <- [0 .. (min (x `div` 100) b)],
+      cN <- [0 .. (min (x `div` 50) c)],
+      (aN * 500 + bN * 100 + cN * 50) == x
     ]
 
 main :: IO ()

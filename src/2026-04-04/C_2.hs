@@ -38,7 +38,7 @@ isExist n s ribSets
 ribCharSets :: [BS.ByteString] -> [[Int]] -> [Set.Set Char]
 ribCharSets ss abList =
   [ Set.fromList [BS.index w (b - 1) | w <- ss, BS.length w == a]
-    | [a, b] <- abList
+  | [a, b] <- abList
   ]
 
 -- sは短いのでわざわざVectorにしなくて良さそう

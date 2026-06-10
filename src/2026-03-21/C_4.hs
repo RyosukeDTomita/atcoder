@@ -40,9 +40,9 @@ solve h w grid =
 getWhiteIndex :: Int -> Int -> Vector BS.ByteString -> [(Int, Int)]
 getWhiteIndex h w grid =
   [ (i, j)
-    | i <- [0 .. h - 1],
-      j <- [0 .. w - 1],
-      BS.index (grid V.! i) j == '.' -- NOTE: C_2.hsからの改善箇所。Vector化したことでgrid V.! iをO(i)からO(1)に
+  | i <- [0 .. h - 1],
+    j <- [0 .. w - 1],
+    BS.index (grid V.! i) j == '.' -- NOTE: C_2.hsからの改善箇所。Vector化したことでgrid V.! iをO(i)からO(1)に
   ]
 
 -- 白マスの塊にエッジが含まれているか

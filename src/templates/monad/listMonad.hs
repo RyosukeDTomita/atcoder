@@ -49,9 +49,9 @@ doWithGuard = do
 listCompWithGuard :: [(Int, Int)]
 listCompWithGuard =
   [ (x, y)
-    | x <- [1, 2, 3],
-      y <- [10, 20],
-      odd (x + y)
+  | x <- [1, 2, 3],
+    y <- [10, 20],
+    odd (x + y)
   ]
 
 main :: IO ()

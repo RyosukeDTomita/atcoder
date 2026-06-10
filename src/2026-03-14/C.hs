@@ -38,7 +38,7 @@ solve n l r s =
        in sum
             [ upperBound v ((v VU.! i) + r) (i + 1) k
                 - lowerBound v ((v VU.! i) + l) (i + 1) k
-              | i <- [0 .. k - 2]
+            | i <- [0 .. k - 2]
             ]
 
 -- 二分探索を使い、s[i] + l >= s[j]を満たす最小のjを探す。

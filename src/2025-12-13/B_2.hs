@@ -16,18 +16,18 @@ solve n =
       -- 全マスに対してvalを呼び、二次元配列を作る
       table =
         [ [ val i j
-            | j <- [0 .. n - 1]
+          | j <- [0 .. n - 1]
           ]
-          | i <- [0 .. n - 1]
+        | i <- [0 .. n - 1]
         ]
       -- kが置かれた座標(r,c)を見ていき、それがi jと一致した最初のkを返すことで(i,j)に置かれたkを求める。
       val :: Int -> Int -> Int
       val i j =
         head
           [ k
-            | (k, ((r, c), _)) <- zip [1 ..] positions,
-              r == i,
-              c == j
+          | (k, ((r, c), _)) <- zip [1 ..] positions,
+            r == i,
+            c == j
           ]
    in table
 

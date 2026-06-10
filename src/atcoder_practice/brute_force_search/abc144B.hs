@@ -21,9 +21,9 @@ solve :: Int -> String
 solve !n =
   let possible =
         [ (a, b)
-          | a <- [1 .. 9],
-            b <- [1 .. 9],
-            a * b == n
+        | a <- [1 .. 9],
+          b <- [1 .. 9],
+          a * b == n
         ]
    in if length possible == 0 then "No" else "Yes"
 

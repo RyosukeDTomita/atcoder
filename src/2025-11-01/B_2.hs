@@ -6,8 +6,8 @@ import Data.Set qualified as Set
 getSquares :: [String] -> Int -> [[String]]
 getSquares grid m =
   [ [take m (drop c row) | row <- take m (drop r grid)] -- rowで行を切り出し、その後左側の式で列を取り出している。
-    | r <- [0 .. n - m],
-      c <- [0 .. n - m] -- この書き方で二重ループになる
+  | r <- [0 .. n - m],
+    c <- [0 .. n - m] -- この書き方で二重ループになる
   ]
   where
     n = length grid

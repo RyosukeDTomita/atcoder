@@ -34,7 +34,7 @@ solve m s t =
   let substringsS = dbgId $ filter ((== m) . length) $ map (take m) (tails s) -- sをm桁だけ取り出す全パターン
    in minimum
         [ sum (zipWith cost t sub) -- 各桁ごとにcostを計算して合計値を出す
-          | sub <- substringsS
+        | sub <- substringsS
         ]
 
 main :: IO ()

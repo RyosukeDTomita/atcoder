@@ -9,9 +9,9 @@ solve [h, w] =
         + (if i < h then 1 else 0)
         + (if j > 1 then 1 else 0)
         + (if j < w then 1 else 0)
-      | j <- [1 .. w]
+    | j <- [1 .. w]
     ]
-    | i <- [1 .. h]
+  | i <- [1 .. h]
   ]
 
 main :: IO ()

@@ -3,9 +3,9 @@ solve :: [Int] -> Int
 solve rs =
   maximum
     [ (rs !! j) - (rs !! i)
-      | i <- [0 .. length rs - 1],
-        j <- [i .. length rs - 1],
-        i /= j
+    | i <- [0 .. length rs - 1],
+      j <- [i .. length rs - 1],
+      i /= j
     ]
 
 main :: IO ()

@@ -38,9 +38,9 @@ solve h w grid =
 getWhiteIndex :: Int -> Int -> [BS.ByteString] -> [(Int, Int)]
 getWhiteIndex h w grid =
   [ (i, j)
-    | i <- [0 .. h - 1],
-      j <- [0 .. w - 1],
-      BS.index (grid !! i) j == '.' -- [BS.ByteString]だとgrid !! iがO(i)で遅い
+  | i <- [0 .. h - 1],
+    j <- [0 .. w - 1],
+    BS.index (grid !! i) j == '.' -- [BS.ByteString]だとgrid !! iがO(i)で遅い
   ]
 
 -- 白マスの塊にエッジが含まれているか

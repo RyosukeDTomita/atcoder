@@ -25,10 +25,10 @@ solve h w ss = length $ filter isSymmetric candidates
   where
     candidates =
       [ (h1, h2, w1, w2)
-        | h1 <- [0 .. h - 1],
-          h2 <- [h1 .. h - 1],
-          w1 <- [0 .. w - 1],
-          w2 <- [w1 .. w - 1]
+      | h1 <- [0 .. h - 1],
+        h2 <- [h1 .. h - 1],
+        w1 <- [0 .. w - 1],
+        w2 <- [w1 .. w - 1]
       ]
     isSymmetric (h1, h2, w1, w2) =
       all

@@ -6,7 +6,7 @@ isPrime i =
   let rootI = sqrt $ fromIntegral i
    in and
         [ i `mod` x /= 0
-          | x <- [2 .. floor rootI]
+        | x <- [2 .. floor rootI]
         ]
 
 main :: IO ()

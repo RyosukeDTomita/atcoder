@@ -2,7 +2,7 @@
   description = "Haskell dev environment AtCoder";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
@@ -27,13 +27,12 @@
           packages = [
             treefmtEval.config.build.wrapper
             pkgs.zsh
-            (pkgs.haskell.packages.ghc96.ghcWithPackages (ps: [
+            (pkgs.haskell.packages.ghc9122.ghcWithPackages (ps: [
               ps.vector
               ps.containers
               ps.bytestring
             ]))
-            pkgs.haskell.packages.ghc96.cabal-install
-            pkgs.haskell.packages.ghc96.haskell-language-server
+            pkgs.haskell.packages.ghc9122.haskell-language-server
           ];
         };
       }
