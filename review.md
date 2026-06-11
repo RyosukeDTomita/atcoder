@@ -43,5 +43,6 @@
 - [黒マスに囲まれた白マスの集合を探す](./src/2026-03-21/C_4.hs): まず、白マスのindexを列挙する。その後、つながっている白マスのグループを深さ優先探索で求める。最後にエッジにある白マスのグループを削除する。深さ優先探索のお手本みたいな問題。
 - [脊髄と肋骨を使ってオブジェを作るやつ](./src/2026-04-04/C_3.hs): 肋骨に書かれた単語の縦読みで指定の単語を作れるかを調べる問題。肋骨の位置と長さに条件があるので、条件ごとに使用可能な英字の集合を作り、指定の単語に含まれる英字がその集合にあるか調べる。
 - [あるxをすべて消す操作をk回実行し、残った数の合計を最小にする](./src/2026-04-25/C_2.hs): 頻度マップを普通に作るとメモリが足りなくなるので`group`を使って解決。
-  [`iterate`と`takeWhile`の合わせ技](./src/atcoder_practice/etc/081B.hs): [naoyaさんの資料](https://speakerdeck.com/naoya/this-is-functional-competitive-programming-with-haskell?slide=18)で紹介されていた問題。
-  [連続する部分列を求める問題](./src/atcoder_practice/etc/abc150B.hs): 部分列というと`subsequences`が思いつきがちだが、`subsequences`は飛び飛びも含むので連続した部分列を探すには`tails`が役に立つ。
+- [`iterate`と`takeWhile`の合わせ技](./src/atcoder_practice/etc/abc081B.hs): [naoyaさんの資料](https://speakerdeck.com/naoya/this-is-functional-competitive-programming-with-haskell?slide=18)で紹介されていた問題。
+- [連続する部分列を求める問題](./src/atcoder_practice/brute_force_search/abc150B.hs): 部分列というと`subsequences`が思いつきがちだが、`subsequences`は飛び飛びも含むので連続した部分列を探すには`tails`が役に立つ。
+- [ハーフアンドハーフのピザを買うべきか調べる問題](./src/atcoder_practice/brute_force_search/abc095C_2.hs): ハーフアンドハーフの価格を元に細かく条件分岐する実装で最初ACを通したが、ハーフアンドハーフのピザを買う枚数を変えて全探索してコストが安い組み合わせを使うが良さそう。
