@@ -46,3 +46,4 @@
 - [`iterate`と`takeWhile`の合わせ技](./src/atcoder_practice/etc/abc081B.hs): [naoyaさんの資料](https://speakerdeck.com/naoya/this-is-functional-competitive-programming-with-haskell?slide=18)で紹介されていた問題。
 - [連続する部分列を求める問題](./src/atcoder_practice/brute_force_search/abc150B.hs): 部分列というと`subsequences`が思いつきがちだが、`subsequences`は飛び飛びも含むので連続した部分列を探すには`tails`が役に立つ。
 - [ハーフアンドハーフのピザを買うべきか調べる問題](./src/atcoder_practice/brute_force_search/abc095C_2.hs): ハーフアンドハーフの価格を元に細かく条件分岐する実装で最初ACを通したが、ハーフアンドハーフのピザを買う枚数を変えて全探索してコストが安い組み合わせを使うが良さそう。
+- [マジックナンバーの部分列がpinになる](./src/atcoder_practice/brute_force_search/sumitb2019D.hs): `isSubsequences`や`subsequences`が使えるタイプの部分列の問題。
