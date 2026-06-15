@@ -47,3 +47,4 @@
 - [連続する部分列を求める問題](./src/atcoder_practice/brute_force_search/abc150B.hs): 部分列というと`subsequences`が思いつきがちだが、`subsequences`は飛び飛びも含むので連続した部分列を探すには`tails`が役に立つ。
 - [ハーフアンドハーフのピザを買うべきか調べる問題](./src/atcoder_practice/brute_force_search/abc095C_2.hs): ハーフアンドハーフの価格を元に細かく条件分岐する実装で最初ACを通したが、ハーフアンドハーフのピザを買う枚数を変えて全探索してコストが安い組み合わせを使うが良さそう。
 - [マジックナンバーの部分列がpinになる](./src/atcoder_practice/brute_force_search/sumitb2019D.hs): `isSubsequences`や`subsequences`が使えるタイプの部分列の問題。
+- [すべての電球が点灯するスイッチのon offパターンを求める](./src/atcoder_practice/brute_force_search/abc128C.hs): bit全探索の好例。
