@@ -27,12 +27,12 @@
           packages = [
             treefmtEval.config.build.wrapper
             pkgs.zsh
-            (pkgs.haskell.packages.ghc9122.ghcWithPackages (ps: [
+            (pkgs.haskell.packages.ghc984.ghcWithPackages (ps: [
               ps.vector
               ps.containers
               ps.bytestring
             ]))
-            pkgs.haskell.packages.ghc9122.haskell-language-server
+            pkgs.haskell.packages.ghc984.haskell-language-server
           ];
         };
       }
