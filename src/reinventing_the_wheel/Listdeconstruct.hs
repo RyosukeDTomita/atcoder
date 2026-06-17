@@ -1,12 +1,5 @@
 module Listdeconstruct (init', init'', last') where
 
--- 再帰バージョン
--- パターンマッチが多くなる。
-init'' :: [a] -> [a]
-init'' [] = error "empty list"
-init'' [x] = []
-init'' (x : xs) = x : init'' xs
-
 last' :: [a] -> a
 -- GHCにはfoldlやfoldrのような標準的な畳み込み関数に対して、中間リストをメモリ上に生成せずに処理を合成する強力な最適化ルールがある。
 -- NOTE: リストを作る側はproducer、リストを畳み込む側はconsumerと呼ぶ
@@ -39,6 +32,13 @@ init' (x : xs) = go x xs
     -- 再帰版よりも分岐が少ない
     go _ [] = []
     go y (z : zs) = y : go z zs
+
+-- 再帰バージョン
+-- パターンマッチが多くなる。
+init'' :: [a] -> [a]
+init'' [] = error "empty list"
+init'' [x] = []
+init'' (x : xs) = x : init'' xs
 
 tail' :: [a] -> [a]
 tail' (_ : xs) = xs -- 先頭とそれ以外にわけてそれ以外を返す
