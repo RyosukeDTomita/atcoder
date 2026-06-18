@@ -1,3 +1,4 @@
+-- https://atcoder.jp/contests/abc128/tasks/abc128_c
 -- {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
@@ -22,7 +23,7 @@ dbgId x
 lit :: Int -> [Int] -> Int -> Bool
 lit bit ks p =
   let switches = tail ks -- 先頭の接続数k_iを除いたスイッチ番号リスト
-      onCount = length [s | s <- switches, testBit bit (s - 1)] -- testBitでそのスイッチが今回のbitパターンでオンかどうか判定する。NOTE: スイッチ番号を0スタートindexに直すため-1している
+      onCount = length [s | s <- switches, testBit bit (s - 1)] -- testBitでそのスイッチが今回のbitパターンでオンかどうか判定する。NOTE: スイッチ番号が1スタートのため、0スタートにあわせるために(s-1)している。bit全探索が0スタートを前提にbitパターンを生成している
    in onCount `mod` 2 == p
 
 -- スイッチの状態をbit全探索し、全電球が点灯するパターンを数える。

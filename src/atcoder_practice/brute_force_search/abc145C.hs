@@ -1,4 +1,5 @@
--- {-# LANGUAGE BangPatterns #-}
+-- -- https://atcoder.jp/contests/abc145/tasks/abc145_c
+{-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}

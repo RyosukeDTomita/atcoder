@@ -48,3 +48,4 @@
 - [ハーフアンドハーフのピザを買うべきか調べる問題](./src/atcoder_practice/brute_force_search/abc095C_2.hs): ハーフアンドハーフの価格を元に細かく条件分岐する実装で最初ACを通したが、ハーフアンドハーフのピザを買う枚数を変えて全探索してコストが安い組み合わせを使うが良さそう。
 - [マジックナンバーの部分列がpinになる](./src/atcoder_practice/brute_force_search/sumitb2019D.hs): `isSubsequences`や`subsequences`が使えるタイプの部分列の問題。
 - [すべての電球が点灯するスイッチのon offパターンを求める](./src/atcoder_practice/brute_force_search/abc128C.hs): bit全探索の好例。
+- [すべての経路の平均を求める](./src/atcoder_practice/brute_force_search/abc145C.hs): 順列全探索で求めた全経路に対して愚直に経路の距離を求める。2点間の距離を求めるために`zipWith`で`tail`を使って点のリストから2点を距離を求める関数に渡すのがきれい。
