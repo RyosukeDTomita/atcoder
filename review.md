@@ -49,3 +49,4 @@
 - [マジックナンバーの部分列がpinになる](./src/atcoder_practice/brute_force_search/sumitb2019D.hs): `isSubsequences`や`subsequences`が使えるタイプの部分列の問題。
 - [すべての電球が点灯するスイッチのon offパターンを求める](./src/atcoder_practice/brute_force_search/abc128C.hs): bit全探索の好例。
 - [すべての経路の平均を求める](./src/atcoder_practice/brute_force_search/abc145C.hs): 順列全探索で求めた全経路に対して愚直に経路の距離を求める。2点間の距離を求めるために`zipWith`で`tail`を使って点のリストから2点を距離を求める関数に渡すのがきれい。
+- [無向グラフの全頂点を通る経路パターンを求める](./src/atcoder_practice/brute_force_search/abc054C.hs): 順列全探索で全経路をもとめ、それが与えられた辺から再現できるかをチェックする。無効グラフなので1 -> 2の経路が使用可能かを調べるためには辺`[2, 1]` or `[1, 2]`のどちらかがあるか調べるのに注意。
