@@ -1,6 +1,6 @@
 :set -XOverloadedStrings
 :set -XBangPatterns
-import Data.Bits (shiftL, testBit)
+import Data.Bits (shiftL, testBit, popCount)
 import Data.Vector qualified as V
 import Data.Vector (Vector)
 import Data.Vector.Mutable qualified as MV

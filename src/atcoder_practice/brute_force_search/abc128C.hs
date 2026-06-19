@@ -32,8 +32,8 @@ solve :: Int -> [[Int]] -> [Int] -> Int
 solve n ksList ps =
   length
     [ bit
-      | bit <- [0 .. (1 `shiftL` n) - 1] :: [Int],
-        and [lit bit ks p | (ks, p) <- zip ksList ps] -- 全部の電球が光るか。 NOTE: andはBoolのリストが全てTrueならTrueを返す
+    | bit <- [0 .. (1 `shiftL` n) - 1] :: [Int],
+      and [lit bit ks p | (ks, p) <- zip ksList ps] -- 全部の電球が光るか。 NOTE: andはBoolのリストが全てTrueならTrueを返す
     ]
 
 main :: IO ()

@@ -5,7 +5,7 @@ main :: IO ()
 main = do
   -- filterは条件を満たすものをすべて抽出する
   print $ filter (< 3) [1, 2, 3, 4, 5, 1] -- [1,2,1]
-  print $ filter id [True, False, True] --Trueだけを抽出する。
+  print $ filter id [True, False, True] -- Trueだけを抽出する。
 
   -- takeWhile条件を満たさないものが出た時点で止まる --> 無限リストを打ち切ることができる
   print $ takeWhile (< 3) [1, 2, 3, 4, 5, 1] -- [1,2]

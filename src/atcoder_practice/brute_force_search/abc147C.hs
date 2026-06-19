@@ -28,8 +28,8 @@ detect bit n xyss = honests == (Set.toList $ foldl' go Set.empty $ zip [1 ..] xy
     -- bitから今回正直者の番号パターンを展開(1始まり)
     honests =
       [ i
-        | i <- [1 .. n],
-          testBit bit (i - 1)
+      | i <- [1 .. n],
+        testBit bit (i - 1)
       ]
     go :: Set.Set Int -> (Int, [(Int, Int)]) -> Set.Set Int
     go acc (i, xys)
@@ -42,8 +42,8 @@ solve n xyss =
   popCount $ -- 誤り先にpopCountしてmaximumする必要がある。なぜなら、立っているビットが最多=bitがでかいではないため
     maximum
       [ bit
-        | bit <- [0 .. (1 `shiftL` n) - 1] :: [Int],
-          detect bit n xyss
+      | bit <- [0 .. (1 `shiftL` n) - 1] :: [Int],
+        detect bit n xyss
       ]
 
 parse :: [String] -> [[(Int, Int)]]

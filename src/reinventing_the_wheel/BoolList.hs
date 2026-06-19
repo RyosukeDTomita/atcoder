@@ -9,6 +9,10 @@ or' xs = foldr (||) False xs
 all' :: (a -> Bool) -> [a] -> Bool
 all' f xs = foldr (\x acc -> f x && acc) True xs
 
+-- おれはこっちのほうがしっくりくる
+all'' :: (a -> Bool) -> [a] -> Bool
+all'' f xs = and' $ map f xs
+
 any' :: (a -> Bool) -> [a] -> Bool
 any' f xs = foldr (\x acc -> f x || acc) False xs
 
@@ -25,6 +29,7 @@ main = do
 
   -- 結果が全てTrueか
   print $ all' even [2, 4, 6] -- True
+  print $ all'' even [2, 4, 6] -- True
   print $ all' even [1, 2, 3] -- False
 
   -- 結果が一つでもTrueか

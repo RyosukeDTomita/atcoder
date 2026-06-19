@@ -23,17 +23,17 @@ detect :: Int -> Int -> [[(Int, Int)]] -> Bool
 detect bit n xyss =
   and
     [ testBit bit (x - 1) == (y == 1) -- x-1のbitが立っていない場合: False == (0 == 1)でTrue。bitが立っている場合にはTrue = (1==1)でTrue。正直者の話は必ずTrueになる。
-      | i <- [0 .. n - 1],
-        testBit bit i, -- 内包表記は先に検証を書くことjもできる。
-        (x, y) <- xyss !! i
+    | i <- [0 .. n - 1],
+      testBit bit i, -- 内包表記は先に検証を書くことjもできる。
+      (x, y) <- xyss !! i
     ]
 
 solve :: Int -> [[(Int, Int)]] -> Int
 solve n xyss =
   maximum
     [ popCount bit -- NOTE: 立っているビット数最大をもとめるためmaximumの前にpopCountしている。
-      | bit <- [0 .. (1 `shiftL` n) - 1] :: [Int],
-        detect bit n xyss
+    | bit <- [0 .. (1 `shiftL` n) - 1] :: [Int],
+      detect bit n xyss
     ]
 
 parse :: [String] -> [[(Int, Int)]]

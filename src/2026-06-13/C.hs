@@ -1,12 +1,12 @@
-{-# OPTIONS_GHC -Wunused-imports #-}
-{-# OPTIONS_GHC -Wno-x-partial #-}
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -Wno-x-partial #-}
+{-# OPTIONS_GHC -Wunused-imports #-}
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 import Data.ByteString.Char8 qualified as BS
-import Data.List (sortOn, foldl')
+import Data.List (foldl', sortOn)
 import Debug.Trace (traceShowId)
 
 #ifdef ATCODER
@@ -26,7 +26,6 @@ readInt bs =
   case BS.readInt bs of
     Just (x, _) -> x
     Nothing -> error "input is not integer"
-
 
 readPair :: BS.ByteString -> (Int, Int)
 readPair l =

@@ -24,7 +24,7 @@ dbgId x
 solve :: Int -> [[Int]] -> [[Int]]
 solve n kas =
   [ length bs : bs
-    | bs <- map reverse (V.toList res)
+  | bs <- map reverse (V.toList res)
   ]
   where
     sent = map (drop 1) kas -- 個数はいらないので捨てる
@@ -32,8 +32,8 @@ solve n kas =
     pairs =
       V.fromList
         [ (x - 1, i) -- 受信者xは0-indexedで添字に、送信者iは値
-          | (i, dests) <- zip [1 ..] sent,
-            x <- dests
+        | (i, dests) <- zip [1 ..] sent,
+          x <- dests
         ]
     -- 受信者をキーに送信者を散布。flip(:)で前置されるのでiの降順で溜まる
     -- ghci> V.accumulate (flip (:)) (V.replicate 3 []) $ V.fromList [(0,1), (2,2), (0, 3)]

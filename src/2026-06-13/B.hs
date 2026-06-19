@@ -1,7 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
-{-# OPTIONS_GHC -Wunused-imports #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
+{-# OPTIONS_GHC -Wunused-imports #-}
 
 import Debug.Trace (traceShowId)
 
