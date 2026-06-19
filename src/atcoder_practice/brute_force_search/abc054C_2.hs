@@ -13,8 +13,8 @@ solve n abList = length (filter valid perms)
     edges =
       Set.fromList
         [ (u, v)
-          | [a, b] <- abList,
-            (u, v) <- [(a, b), (b, a)]
+        | [a, b] <- abList,
+          (u, v) <- [(a, b), (b, a)]
         ]
     perms = map (1 :) (permutations [2 .. n])
     -- \| 隣接ペア (path と tail path のzip) がすべて辺として存在するか。

@@ -31,7 +31,7 @@ solve n as = case find valid (permutations [1 .. n]) of
     valid p =
       and
         [ a == -1 || p_i == a
-          | (p_i, a) <- zip p as
+        | (p_i, a) <- zip p as
         ] -- andで全部Trueの時だけTrueを返す
 
 main :: IO ()
