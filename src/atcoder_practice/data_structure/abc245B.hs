@@ -22,8 +22,8 @@ solve :: Int -> [Int] -> Int
 solve n as =
   head
     [ i
-      | i <- [0 .. n],
-        i `notElem` as
+    | i <- [0 .. n],
+      i `notElem` as
     ]
 
 main :: IO ()
