@@ -7,7 +7,7 @@ solve :: Int -> Int
 solve h = 2 ^ (k + 1) - 1
   where
     k :: Int
-    k = length $ takeWhile (> 1) $ iterate (`div` 2) h -- 1になるまで半分にする回数
+    k = length $ takeWhile (> 1) $ iterate (`div` 2) h -- 1になるまで半分にする回数(小数点は切り捨てでいいっぽい)
 
 main :: IO ()
 main =

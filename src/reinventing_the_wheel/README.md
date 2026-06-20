@@ -84,6 +84,13 @@
 
 - [Group](./Group.hs)
 
+- [ReplicateM](./ReplicateM.hs): [`replicateM`](https://hackage.haskell.org/package/base-4.19.1.0/docs/Control-Monad.html#v:replicateM)を題材に、`liftA2`が「ループ1段(内包表記)」であり、それを畳み込んだものが`sequence`であることを示した。
+
+  - `liftA2'`: リスト向け`liftA2`。二重の内包表記そのもの
+  - `sequence'`: `liftA2' (:)`を`foldr`で畳み込んだ version
+  - `replicateM'`: `sequence' . replicate`版
+  - `replicateMlc`: 内包表記の再帰で直接書いた比較用 version
+
 ---
 
 ## ENVIRONMENT
