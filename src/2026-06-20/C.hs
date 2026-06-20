@@ -29,7 +29,11 @@ readInt bs =
     Nothing -> error "input is not integer"
 
 -- | hlsの各インデックスごとにその時点での身長の最大値を求める
--- 検索時にO(1)で取得できるようにVector化している
+-- 右畳み込みを使っているのがポイント
+-- Lが昇順なので、時間とともに左にある値が消えていく状態なのもポイント。
+-- scanr1 max [3,2,1]
+-- [3,2,1]
+-- NOTE: 検索時にO(1)で取得できるようにVector化している
 suffMax :: [Int] -> V.Vector Int
 suffMax hs = V.scanr1 max $ V.fromList hs
 
