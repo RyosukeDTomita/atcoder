@@ -4,6 +4,7 @@ main :: IO ()
 main = do
   -- NOTE: `subsequences`が使えるのは元の文字列から0個以上の要素を消して、残りの順序を保ったまま並べたものである。
   print $ subsequences "abc" -- ["","a","b","ab","c","ac","bc","abc"
+  print $ subsequences "abca" -- "","a","b","ab","c","ac","bc","abc","a","aa","ba","aba","ca","aca","bca","abca"] 重複は外しているぽい
 
   -- isSubSequenceOfを使い、全て部分列であることを確認する
   print $ all (`isSubsequenceOf` "abc") (subsequences "abc")
