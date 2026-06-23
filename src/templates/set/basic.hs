@@ -17,3 +17,4 @@ main = do
   print $ fromJust $ Set.lookupGE 6 $ Set.fromList [2, 4, 6, 8] -- 6自身も含む最小は6
   print $ Set.elemAt 2 $ Set.fromList [8, 2, 6, 4] -- 内部的にはソートされているので6
   print $ fromJust $ Set.lookupIndex 6 $ Set.fromList [8, 2, 6, 4] -- 内部的にはソートされているので2
+  print $ Set.findIndex 6 $ Set.fromList [8, 2, 6, 4] -- 内部的にはソートされているので2

@@ -20,3 +20,5 @@ main = do
   print $ yMap Map.!? "john" -- Just 20
   print $ yMap Map.! "john" -- 20
   print $ "john" `Map.member` yMap -- True
+  -- Nothingの時デフォルト値を使う
+  print $ Map.findWithDefault (-99) "hoge" yMap
