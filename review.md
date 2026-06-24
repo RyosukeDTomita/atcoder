@@ -62,4 +62,5 @@
 - [ブルートフォースアタックの辞書を作る](./src/atcoder_practice/brute_force_search/abc029C_2.hs): `replicateM`とリストモナドが強すぎる。
 - [部屋に残っている最も身長の高い人を求める](./src/2026-06-20/C.hs): リストの各indexごとにそれ以降の最大の身長を求めるのが面白い。あと、Lが昇順になっているのに気付けることが大切。
 - [連続部分列作る](./src/atcoder_practice/brute_force_search/abc347B.hs): 連続部分列は、前後を削って作成される。
-- [寿司を食べた金額を出す](./src/atcoder_practice/data_structure): `Data.Map`の使い方がわかりやすい例。
+- [寿司を食べた金額を出す](./src/atcoder_practice/data_structure/abc308B_2.hs): `Data.Map`の使い方がわかりやすい例。`lookUp`して`Nothing`の場合の処理を書いていたが、`findWithDefault`を使った方が簡潔に書ける。
+- [ワードカウントして出力](./src/atcoder_practice/data_structure/abc261C_2.hs): ワードの出現回数を更新しつつ、既存のカウンタを見る実装でもACしたが、`Data.Map.insertLookupWithKey`を使ってキー検索で値を取得しつつ、インクリメントも行うことができてすごい。
