@@ -11,9 +11,15 @@ main = do
 
   let yMap = Map.fromList [("john", 20), ("sigma", 29)] -- [("john",20),("sigma",29)]
   print yMap
-  let yMap' = Map.insert "taro" 19 yMap
+  let yMap' = Map.insert "taro" 19 yMap -- 仮に存在する場合には上書きする
   print yMap'
-  let yMap'' = Map.delete "john" yMap
+  let yMap'' = Map.insertWith (+) "taro" 1 yMap' -- 存在する倍には+1インクリメント
+  let yMap''' = Map.insertWith (+) "ken" 1 yMap'' -- 存在しない場合にはデフォルト値1をいれる
+  print yMap'''
+  let (prevAge, yMap'''') = Map.insertLookupWithKey (\_ _ old -> old + 1) "ken" 1 yMap''' -- 存在しない場合にはデフォルト値1をいれる。存在するならインクリメントしつつ、値の取得も行う
+  print prevAge -- Just 1
+  print yMap''''
+  let yMapD = Map.delete "john" yMap
 
   print yMap''
   print $ Map.lookup "john" yMap -- Just 20
