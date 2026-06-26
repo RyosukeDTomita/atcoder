@@ -6,6 +6,7 @@ main = do
   print arr1 -- array (0,4) [(0,10),(1,20),(2,30),(3,40),(4,50)]
   print $ arr1 ! 1 -- 20
   print $ bounds arr1 -- (0,4)範囲
+  print $ inRange (bounds arr1) 2 -- True
   print $ indices arr1 -- [0,1,2,3,4] インデックスのリスト
   print $ elems arr1 -- [10,20,30,40,50] -- リストに変換
   print $ assocs arr1 -- [(0,10),(1,20),(2,30),(3,40),(4,50)] -- tupleのリストに戻す
@@ -19,5 +20,29 @@ main = do
   let acc2 = accum (+) (listArray (0, 2) [10, 20, 30]) [(0, 1), (1, 2), (2, 3)] -- array (0,2) [(0,11),(1,22),(2,33)]
   print acc2
   -- ジャグ配列(隣接リスト)はVectorよりも扱いやすい
-  let arr2D = listArray (0, 2) [[1, 2, 3], [10, 20, 30], [100, 200]] -- array (0,2) [(0,[1,2,3]),(1,[10,20,30]),(2,[100,200])]
-  print arr2D
+  let jag = listArray (0, 2) [[1, 2, 3], [10, 20, 30], [100, 200]] -- array (0,2) [(0,[1,2,3]),(1,[10,20,30]),(2,[100,200])]
+  print jag
+
+  -- 2次元配列: タプル(Int,Int)もIxインスタンスなのでそのまま添字にできる(i*w+jの手計算が不要)
+  -- グリッド探索で「配列の添字」と「探索の座標」を同一物として扱えるのが強い
+  let h = 3
+      w = 4
+      grid = listArray ((0, 0), (h - 1, w - 1)) "s..#.....#.g" -- 添字(i,j)=(行,列)。行を連結した文字列を流し込む(row0="s..#",row1="....",row2=".#.g")
+  print grid -- array ((0,0),(2,3)) [((0,0),'s'),((0,1),'.'),...,((2,1),'#'),...,((2,3),'g')]
+  print $ grid ! (0, 0) -- 's'  座標(i,j)でO(1)アクセス
+  print $ bounds grid -- ((0,0),(2,3))  そのまま盤面の範囲になる
+  -- タプルのinRangeは成分ごと(componentwise)判定: 行も列も両方範囲内かを一発で確認できる
+  print $ inRange (bounds grid) (1, 3) -- True  内側
+  print $ inRange (bounds grid) (-1, 0) -- False 行が範囲外
+  print $ inRange (bounds grid) (1, 8) -- False 列が範囲外(辞書順なら範囲内に見えるが成分判定で弾く)
+  -- 上下左右の隣接マスを盤面内かつ壁(#)でない条件で列挙(DFS/BFSの定番)
+  let (i, j) = (1, 1)
+      nexts =
+        [ (ni, nj)
+          | (di, dj) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
+            let ni = i + di,
+            let nj = j + dj,
+            inRange (bounds grid) (ni, nj),
+            grid ! (ni, nj) /= '#'
+        ]
+  print nexts -- [(0,1),(1,0),(1,2)] 下(2,1)='#'は除外され、上下左右のうち道(.)のマスだけ残る
