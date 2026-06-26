@@ -1,6 +1,7 @@
 :set -XOverloadedStrings
 :set -XBangPatterns
 import Data.Foldable (toList)
+import Data.Array
 import Data.Bits (shiftL, testBit, popCount)
 import Data.Vector qualified as V
 import Data.Vector (Vector)
