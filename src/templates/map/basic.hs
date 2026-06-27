@@ -8,6 +8,8 @@ main = do
   -- fromSet: Setの各要素をキーに, 関数で計算した値を持つMapを作る
   let xMap = Map.fromSet (\k -> ['a' ..] !! k) xSet -- [(1,'b'),(2,'c'),(3,'d')]
   print xMap
+  print $ Map.toList xMap -- listに戻す
+  print $ Map.elems xMap -- 値だけのリスト
 
   let yMap = Map.fromList [("john", 20), ("sigma", 29)] -- [("john",20),("sigma",29)]
   print yMap
