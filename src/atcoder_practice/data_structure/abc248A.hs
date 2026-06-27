@@ -24,8 +24,8 @@ solve :: String -> Int
 solve s =
   head
     [ digitToInt c
-      | c <- candidates,
-        c `notElem` s
+    | c <- candidates,
+      c `notElem` s
     ]
   where
     candidates = concatMap show [0 .. 9]

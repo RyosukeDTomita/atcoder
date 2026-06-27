@@ -10,7 +10,6 @@ main = do
   print xMap
   print $ Map.toList xMap -- listに戻す
   print $ Map.elems xMap -- 値だけのリスト
-
   let yMap = Map.fromList [("john", 20), ("sigma", 29)] -- [("john",20),("sigma",29)]
   print yMap
   let yMap' = Map.insert "taro" 19 yMap -- 仮に存在する場合には上書きする

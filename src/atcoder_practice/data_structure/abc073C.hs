@@ -1,3 +1,4 @@
+-- https://atcoder.jp/contests/abc073/submissions/me
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
@@ -19,6 +20,7 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
+-- asのサイズが結構でかいので、探索を軽くするためのSetを使う
 solve :: [Int] -> Int
 solve as = Set.size $ foldl' go Set.empty as
   where

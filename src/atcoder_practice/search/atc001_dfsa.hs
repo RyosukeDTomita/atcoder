@@ -43,9 +43,9 @@ solve h w css = dfs Set.empty [start]
     findCell c =
       head
         [ (i, j)
-          | i <- [0 .. h - 1],
-            j <- [0 .. w - 1],
-            grid ! (i, j) == c
+        | i <- [0 .. h - 1],
+          j <- [0 .. w - 1],
+          grid ! (i, j) == c
         ]
 
     dfs :: Set.Set (Int, Int) -> [(Int, Int)] -> Bool
@@ -59,11 +59,11 @@ solve h w css = dfs Set.empty [start]
     nexts :: (Int, Int) -> [(Int, Int)]
     nexts (i, j) =
       [ (ni, nj)
-        | (di, dj) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
-          let ni = i + di,
-          let nj = j + dj,
-          inRange (bounds grid) (ni, nj), -- Array (Int, Int) Charになっていることに注意
-          grid ! (ni, nj) /= '#' -- 柵
+      | (di, dj) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
+        let ni = i + di,
+        let nj = j + dj,
+        inRange (bounds grid) (ni, nj), -- Array (Int, Int) Charになっていることに注意
+        grid ! (ni, nj) /= '#' -- 柵
       ]
 
     -- grid !(i,j): 座標(j,i)の区画。
