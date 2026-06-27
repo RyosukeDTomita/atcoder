@@ -66,3 +66,4 @@
 - [ワードカウントして出力](./src/atcoder_practice/data_structure/abc261C_2.hs): ワードの出現回数を更新しつつ、既存のカウンタを見る実装でもACしたが、`Data.Map.insertLookupWithKey`を使ってキー検索で値を取得しつつ、インクリメントも行うことができてすごい。
 - [隣接する頂点を求める](./src/atcoder_practice/graph/abc276B.hs): `Data.Array`の`accumArray`を使う良い例
 - [柵を避けつつ、ゴールにいけるかを判定する](./src/atcoder_practice/search/atc001_dfsa.hs) 深さ優先探索を使う。gridを`Array (Int, Int) Char`の2次元配列で表現するのがポイント。
+- [すでにある値は削除、新しい値は追加する](./src/atcoder_practice/data_structure/abc073C_2.hs): 自分は`Data.Set`を使って探索コストを減らし、あれば削除、ないなら追加を愚直にやったが、`group $ sort`して出現回数が奇数のものだけ`filter`するの美しいと思った。
