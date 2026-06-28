@@ -67,3 +67,5 @@
 - [隣接する頂点を求める](./src/atcoder_practice/graph/abc276B.hs): `Data.Array`の`accumArray`を使う良い例
 - [柵を避けつつ、ゴールにいけるかを判定する](./src/atcoder_practice/search/atc001_dfsa.hs) 深さ優先探索を使う。gridを`Array (Int, Int) Char`の2次元配列で表現するのがポイント。
 - [すでにある値は削除、新しい値は追加する](./src/atcoder_practice/data_structure/abc073C_2.hs): 自分は`Data.Set`を使って探索コストを減らし、あれば削除、ないなら追加を愚直にやったが、`group $ sort`して出現回数が奇数のものだけ`filter`するの美しいと思った。
+- [マスの上下左右が全部白なら消す](./src/2026-06-27/B_2.hs): `filter (== '.')`を1行ずつしていたが、`takeWhile (=='.')`のほうが良かった。あと、`reverse`すると下側の操作ができるのは盲点だった。
+- [時間で変化する鳥の色の種類を数える](./src/2026-06-27/C.hs): `Data.Map`で鳥の色ごとに羽数を管理するのがコツ。あと、`Data.Array`で日ごとに変化する鳥の情報を管理するのが良い。`group`などで同じ日に色が変わる鳥の情報を集約すると、その日変化する鳥の情報がない日の扱いが難しい
