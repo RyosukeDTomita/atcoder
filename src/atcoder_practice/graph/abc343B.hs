@@ -1,3 +1,4 @@
+-- https://atcoder.jp/contests/abc343/tasks/abc343_b
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
@@ -17,11 +18,10 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
--- 各行 as について、値が1の列番号 j を昇順に集める
 solve :: [Int] -> [Int]
-solve as = [j | (j, a) <- zip [1 ..] as, a == 1]
+solve as = [j | (j, a) <- zip [1 ..] as, a == 1] -- zipで頂点の番号を降る
 
 main :: IO ()
 main = interact $ \inputs ->
   let ass = map (map read . words) . drop 1 $ lines inputs :: [[Int]]
-   in unlines . map (unwords . map show . solve) $ ass
+   in unlines . map (unwords . map show . solve) $ ass -- assを受け取って二次元リストをこねくり回すよりも呼び出し元でmapしたほうがきれいにかけそう
