@@ -1,5 +1,7 @@
 Haskellで挑戦するAtCoder用リポジトリ
 
+質問に応答するまえに現在編集していソースコードを再度読み込むこと
+
 ## Haskell Conventions
 
 - 競技プログラミングの場合、入出力はinteractを使用する。
