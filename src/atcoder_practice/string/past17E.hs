@@ -1,5 +1,4 @@
--- https://atcoder.jp/contests/abc263/tasks/abc263_c
--- subsequencesが使える典型的な問題
+-- https://atcoder.jp/contests/past17-open/tasks/past17_e
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
@@ -7,7 +6,7 @@
 {-# OPTIONS_GHC -Wunused-imports #-}
 
 import Control.Arrow ((>>>))
-import Data.List (sort, subsequences)
+import Data.List (group)
 import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
@@ -22,10 +21,11 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
-solve :: [Int] -> [[Int]]
-solve [n, m] = sort $ filter (\xs -> length xs == n) $ subsequences [1 .. m]
+-- solve s = map (\x -> [head x] ++ " " ++ show (length x)) $ group $ init s のようにすると区切りがおかしくなるのでおとなしく、unwordsしたほうがよい。A 1B 1C 1D 1E 1
+solve :: String -> [String]
+solve s = concatMap (\x -> [[head x], (show . length) x]) $ group $ init s
 
 main :: IO ()
 main =
   interact $
-    words >>> map (read :: String -> Int) >>> solve >>> map (map show >>> unwords) >>> unlines
+    solve >>> unwords >>> (++ "\n")
