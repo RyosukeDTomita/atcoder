@@ -12,6 +12,9 @@ main = do
   print $ Map.elems xMap -- 値だけのリスト
   let yMap = Map.fromList [("john", 20), ("sigma", 29)] -- [("john",20),("sigma",29)]
   print yMap
+  let counts = Map.fromListWith (+) $ [(s, 1) | s <- ["atcoder", "abc", "atcoder"]] ++ [(t, -1) | t <- ["abc", "hoge"]] -- カウントアップしたり、カウントダウンしながらMapを作るなら
+  print counts
+  -- 挿入
   let yMap' = Map.insert "taro" 19 yMap -- 仮に存在する場合には上書きする
   print yMap'
   let yMap'' = Map.insertWith (+) "taro" 1 yMap' -- 存在する倍には+1インクリメント

@@ -36,5 +36,5 @@ main =
     let ls = lines inputs
         n = (read :: String -> Int) $ head ls
         (ss, rest) = splitAt n $ tail ls
-        (m : ts) = rest
+        (_ : ts) = rest
      in show (solve ss ts) ++ "\n"
