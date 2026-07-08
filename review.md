@@ -77,3 +77,4 @@
 - [8進法、9進法変換](./src/atcoder_practice/tenkei90/67.hs): 8 -> 9をやる際には"8" -> 10 -> "9"がいいことがわかった。8進法 -> 10進法変換、`String`にして一文字ずつ取り出して`foldl'`で左から畳み込むのおもろい。逆に10進法 -> 9進法の変換には`unfoldr`で開いていくのも面白い。
 - [ラングレンス圧縮](./src/atcoder_practice/string/past17E.hs): ラングレンス圧縮の場合は、`Data.Map`を使って頻度マップにしてはいけない。`AABCCA`の時に連続していない`A`も集計されてしまう。代わりに`group`を使う。あと、文字列は素直に`[String, String]`を作って`unwords`するほうが良い。`++ " "`とかやるのはバグの原因にしかならん。
 - [単語が青のカードに書かれていたら1円、赤のカードに書かれていたら-1円](./src/atcoder_practice/data_structure/abc091B_2.hs): `Map.fromListWith`で書くほうが自然かも。`max 0`なり、答えに0を追加するなりして、最大値が負の数にならないようにするのも大事。
+- [大文字、小文字が1文字はありつつ、重複なしの文字列を判定する](./src/atcoder_practice/data_structure/abc249B.hs): `find isUpper`では条件を満たす文字列を探せるが、今回の場合は`any isUpper`を使ったほうが楽。
