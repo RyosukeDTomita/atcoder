@@ -41,14 +41,14 @@ solve r c sy sx gy gx css = bfs initialPaths Set.empty $ Seq.singleton (sy, sx)
     findNeighbors :: (Int, Int) -> [(Int, Int)]
     findNeighbors (y, x) =
       [ (y', x')
-        | (dy, dx) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
-          let y' = y + dy,
-          let x' = x + dx,
-          y' >= 1, -- 1ステップマスを進ませる
-          y' <= r, -- 範囲外アクセス抑止
-          x' >= 1,
-          x' <= c, -- 範囲外アクセス抑止
-          arr ! (y', x') /= '#'
+      | (dy, dx) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
+        let y' = y + dy,
+        let x' = x + dx,
+        y' >= 1, -- 1ステップマスを進ませる
+        y' <= r, -- 範囲外アクセス抑止
+        x' >= 1,
+        x' <= c, -- 範囲外アクセス抑止
+        arr ! (y', x') /= '#'
       ]
 
 main :: IO ()

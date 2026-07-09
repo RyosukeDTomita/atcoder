@@ -9,8 +9,9 @@ solve n hs abList = length . filter id . elems $ good
   where
     decks = listArray (1, n) hs -- 灯台の高さ
     -- 各辺で高い方だけが勝つ。全辺で勝った頂点(=Trueのまま)が良い展望台。辺のない頂点もTrueのまま残る
-    good = accumArray (&&) True (1, n) $
-      concatMap (\[a, b] -> [(a, decks ! a > decks ! b), (b, decks ! b > decks ! a)]) abList
+    good =
+      accumArray (&&) True (1, n) $
+        concatMap (\[a, b] -> [(a, decks ! a > decks ! b), (b, decks ! b > decks ! a)]) abList
 
 main :: IO ()
 main = interact $ \inputs ->

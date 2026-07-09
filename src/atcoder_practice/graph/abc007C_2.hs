@@ -34,22 +34,22 @@ solve r c sy sx gy gx css = bfs 0 start start
         frontier' =
           Set.fromList
             [ next
-              | cell <- Set.toList frontier,
-                next <- findNeighbors cell, -- 1ステップマスを進ませる
-                Set.notMember next visited -- ここで訪問済みは外すとキューの連結コストを考えてData.Sequenceを使う必要がなくてうれしい
+            | cell <- Set.toList frontier,
+              next <- findNeighbors cell, -- 1ステップマスを進ませる
+              Set.notMember next visited -- ここで訪問済みは外すとキューの連結コストを考えてData.Sequenceを使う必要がなくてうれしい
             ]
         visited' = Set.union visited frontier'
     findNeighbors :: (Int, Int) -> [(Int, Int)]
     findNeighbors (y, x) =
       [ (y', x')
-        | (dy, dx) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
-          let y' = y + dy,
-          let x' = x + dx,
-          y' >= 1,
-          y' <= r, -- 範囲外アクセス抑止
-          x' >= 1,
-          x' <= c, -- 範囲外アクセス抑止
-          arr ! (y', x') /= '#'
+      | (dy, dx) <- [(-1, 0), (1, 0), (0, -1), (0, 1)],
+        let y' = y + dy,
+        let x' = x + dx,
+        y' >= 1,
+        y' <= r, -- 範囲外アクセス抑止
+        x' >= 1,
+        x' <= c, -- 範囲外アクセス抑止
+        arr ! (y', x') /= '#'
       ]
 
 main :: IO ()
