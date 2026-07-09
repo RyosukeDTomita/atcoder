@@ -80,3 +80,5 @@
 - [単語が青のカードに書かれていたら1円、赤のカードに書かれていたら-1円](./src/atcoder_practice/data_structure/abc091B_2.hs): `Map.fromListWith`で書くほうが自然かも。`max 0`なり、答えに0を追加するなりして、最大値が負の数にならないようにするのも大事。
 - [大文字、小文字が1文字はありつつ、重複なしの文字列を判定する](./src/atcoder_practice/data_structure/abc249B.hs): `find isUpper`では条件を満たす文字列を探せるが、今回の場合は`any isUpper`を使ったほうが楽。
 - [自分が隣接リストで最大 or 隣接リストなしの灯台を探す](./src/atcoder_practice/graph/abc166C_2.hs): 各灯台の隣接リストをもとめ、条件を満たすか調べるよりも、`accumArray`でa -> b、b -> aでaがbよりも大きいか調べて`&&`でつなぐ畳み込みのほうが効率が良い。
+- [自分より前に自分よりも目線が高い人がこないように踏み台をおく](./src/atcoder_practice/greedy/abc176C_2.hs): `mapAccumL`で解いたが、`scanL1`で現在の最大値をもてるののが学びになった。
+- [L、Rの区間だけ料金が違う問題](./src/atcoder_practice/etc/abc465B.hs): 条件分岐を細かく書くと間違えるもとなので、A、BとL、Rの重なる場所を`max 0 (min b r - max a l)`として求めてしまう。
