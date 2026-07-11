@@ -5,10 +5,11 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Control.Monad (replicateM)
-import Data.List (sort, foldl')
 import Data.Array
+import Data.List (foldl', sort)
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -25,7 +26,7 @@ dbgId x
 solve :: Int -> Int -> Int -> [String] -> String
 solve n k x ss = (sort (map f asList)) !! (x - 1)
   where
-    asList = replicateM k [1..n]
+    asList = replicateM k [1 .. n]
     sArr = listArray (1, length asList) ss
     f :: [Int] -> String
     f as = foldl' (\acc a -> acc ++ sArr ! a) "" as
