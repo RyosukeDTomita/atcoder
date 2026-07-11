@@ -11,4 +11,4 @@ main = do
   -- tupleのsort
   let trumpCards = [("Heart", 3), ("Heart", 1), ("Heart", 4)]
   print $ sortOn snd trumpCards
-  print $ sortOn (Down. snd) trumpCards
+  print $ sortOn (Down . snd) trumpCards

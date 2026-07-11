@@ -1,8 +1,9 @@
+{-# LANGUAGE MonoLocalBinds #-}
 -- https://atcoder.jp/contests/abc416/tasks/abc416_c
 -- 添字列ではなく文字列列そのものをreplicateMで列挙し、concatで連結する。
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-{-# LANGUAGE MonoLocalBinds #-}
+
 import Control.Monad (replicateM)
 import Data.List (sort)
 

@@ -4,10 +4,11 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Control.Monad (replicateM)
-import Data.List (sort)
 import Data.Array
+import Data.List (sort)
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -24,11 +25,11 @@ dbgId x
 solve :: Int -> Int -> Int -> [String] -> String
 solve n k x ss = (sort (map (f "") asList)) !! (x - 1)
   where
-    asList = replicateM k [1..n] -- 直積
+    asList = replicateM k [1 .. n] -- 直積
     sArr = listArray (1, length asList) ss -- i番目にO(1)でアクセスするため
     f :: String -> [Int] -> String
     f result [] = result
-    f result (a: rest) = f (result ++ sArr ! a) rest
+    f result (a : rest) = f (result ++ sArr ! a) rest
 
 main :: IO ()
 main =
