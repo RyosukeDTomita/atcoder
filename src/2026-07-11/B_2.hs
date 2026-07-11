@@ -1,3 +1,4 @@
+-- AC優先でData.Map前提で書いた再帰でACを通したが、foldl'のほうが美しいので書き直した。
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
@@ -6,6 +7,7 @@
 
 import Data.Array
 import Debug.Trace (traceShowId)
+import Data.List (foldl')
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -22,13 +24,12 @@ dbgId x
 -- c: ボールの色
 -- s: 大きさ
 solve :: Int -> [[Int]] -> [Int]
-solve m csList = reverse $ go [] $ assocs arr
+solve m csList = reverse $ foldl' go [] $ assocs arr
   where
     arr = accumArray (flip (:)) [] (1, m) $ concatMap (\[c, s] -> [(c, s)]) csList -- Data.Arrayが全色埋めてくれている。
-    go :: [Int] -> [(Int, [Int])] -> [Int]
-    go result [] = result
-    go result ((_, []) : rest) = go ((-1) : result) rest
-    go result ((_, sList) : rest) = go (maximum sList : result) rest
+    go :: [Int] -> (Int, [Int]) -> [Int]
+    go acc (_, [])　= (- 1) : acc
+    go acc (_, sList) = maximum sList : acc
 
 main :: IO ()
 main = interact $ \inputs ->
