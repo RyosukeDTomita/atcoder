@@ -1,12 +1,12 @@
 -- https://atcoder.jp/contests/abc121/tasks/abc121_c
--- accを評価せずに、foldrではうまく短絡できなかったので手で再帰を書いた。
+-- foldl'版。短絡せず全要素を処理してみる
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
 
-import Data.List (sortOn)
+import Data.List (foldl', sortOn)
 import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
@@ -22,15 +22,13 @@ dbgId x
   | otherwise = x
 
 solve :: Int -> [[Int]] -> Int
-solve m abList = fst $ go (0, 0) abTupleList
+solve m abList = fst $ foldl' go (0, 0) abTupleList
   where
     abTupleList = sortOn fst $ map (\[a, b] -> (a, b)) abList
-    go :: (Int, Int) -> [(Int, Int)] -> (Int, Int)
-    go (!result, !cnt) _
-      | cnt == m = (result, cnt)
-    go (!result, !cnt) ((a, b) : rest) =
+    go :: (Int, Int) -> (Int, Int) -> (Int, Int)
+    go (result, cnt) (a, b) =
       let n = min b (m - cnt)
-       in go (result + (n * a), cnt + n) rest
+       in (result + (n * a), cnt + n)
 
 main :: IO ()
 main = interact $ \inputs ->

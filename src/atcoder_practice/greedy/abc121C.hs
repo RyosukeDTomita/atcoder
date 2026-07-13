@@ -1,5 +1,5 @@
 -- https://atcoder.jp/contests/abc121/tasks/abc121_c
--- これやるくらいなら畳み込みでも、foldl'のほうがマシそう
+-- これやるくらいなら畳み込みでも、foldl'のほうがマシそう。ACしたけど、失敗作
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
