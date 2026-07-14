@@ -1,4 +1,5 @@
 import Data.List (uncons)
+import Data.List (partition)
 
 -- uncons活用のための関数。パターンマッチでもかけるけど
 headPlusLength :: [Int] -> Int
@@ -20,6 +21,9 @@ main = do
   print $ span (> 3) [5, 4, 3, 2, 1, 4] -- ([5,4], [3,2,1,4])
   print $ break (<= 3) [1, 2, 3, 4, 5] -- ([], [1,2,3,4,5])
   print $ break (<= 3) [5, 4, 3, 2, 1, 4] -- ([5,4], [3,2,1,4])
+
+  -- 全要素を振り分けるのでリストの分割ではない
+  print $ partition (> 3) [1, 4, 3, 2, 5] -- ([4, 5], [1, 2, 3])
 
   -- uncons
   print $ headPlusLength [1, 2, 3, 4, 5] -- 1 + 4 = 5

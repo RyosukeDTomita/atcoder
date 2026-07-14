@@ -45,7 +45,7 @@
   - `mapAccumL`
   - `iterate`
 
-- [`elem`を使ってリスト内の要素をチェックする](./elem.hs): elem関数を使ったリスト内の要素存在チェック
+- [リストの基本操作](./basic.hs): `elem`での要素存在チェックと`find`での要素探索(Maybeを返す)
 
 - [無限リストを扱う](./infinite_lists.hs)
 
@@ -61,13 +61,12 @@
 
 - [2次元行列の転置](./transpose.hs): 2次元行列の転置
 
-- [partitionを使ったリストの分割](./partition.hs)
-
 - [リストの分割](./splitting_lists.hs)
 
   - `splitAt`を使い、配列を2つに分割する: `take`と`drop`の組み合わせよりも簡潔に書ける。
   - `span`
   - `break`
+  - `partition`: 全要素を条件のTrue/Falseで2つに振り分ける(登場位置での分割ではない)
   - `uncons`
 
 - [条件でリストをふるいにかける](./filtering_lists.hs)
@@ -84,8 +83,6 @@
 - [`takeWhile`で条件を満たすまでリストに要素を追加する](./takeWhile_roop.hs): 上限までかごにりんごを詰める例
 
 - [リストモナドと内包表記比較](./listMonad.hs)
-
-- [一度選ばれた要素を管理する](./mapAccumeL.hs): `mapAccumL`を使って、リストを走査しながら状態を管理する方法。使わないバージョンと比較している。
 
 ---
 
