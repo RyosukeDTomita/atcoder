@@ -14,8 +14,14 @@ main = do
   let seq = Seq.fromList [1, 2, 3]
   print seq
   let originalList = toList seq -- 元に戻すのにはData.Foldableのメソッドなのに注意
-  print originalList
+  -- 先頭取得
   print $ headSeq seq
+  -- こっちは古い書き方らしい
+  let headE = case Seq.viewl seq of -- Seq.viewlは空 or 先頭を取得した形に分割する関数
+        Seq.EmptyL -> error "input is not valid"
+        x Seq.:< rest -> x
+  print headE
+
   print $ lastSeq seq
 
   let seq' = seq Seq.|> 4 -- 末尾連結
