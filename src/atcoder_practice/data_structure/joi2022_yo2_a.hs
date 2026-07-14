@@ -4,8 +4,9 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Data.List (mapAccumL)
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -20,7 +21,7 @@ dbgId x
   | otherwise = x
 
 solve :: [String] -> [String]
-solve ss = filter (/="") $ snd $ mapAccumL go [] ss
+solve ss = filter (/= "") $ snd $ mapAccumL go [] ss
   where
     go :: [String] -> String -> ([String], String)
     go acc s

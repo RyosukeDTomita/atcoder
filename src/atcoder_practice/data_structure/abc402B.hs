@@ -4,9 +4,10 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
-import Data.Sequence qualified as Seq
+
 import Data.List (foldl')
+import Data.Sequence qualified as Seq
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -27,7 +28,7 @@ solve qs = reverse $ snd $ foldl' go (Seq.empty, []) qs
     go (seq, output) ["1", xStr] = (seq Seq.|> xStr, output)
     go (seq, output) ["2"] = case Seq.viewl seq of
       Seq.EmptyL -> error "input is not valid"
-      xStr Seq.:< rest -> (rest, xStr: output)
+      xStr Seq.:< rest -> (rest, xStr : output)
 
 main :: IO ()
 main =

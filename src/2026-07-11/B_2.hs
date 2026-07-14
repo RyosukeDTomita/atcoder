@@ -6,8 +6,8 @@
 {-# OPTIONS_GHC -Wunused-imports #-}
 
 import Data.Array
-import Debug.Trace (traceShowId)
 import Data.List (foldl')
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -28,7 +28,7 @@ solve m csList = reverse $ foldl' go [] $ assocs arr
   where
     arr = accumArray (flip (:)) [] (1, m) $ concatMap (\[c, s] -> [(c, s)]) csList -- Data.Arrayが全色埋めてくれている。
     go :: [Int] -> (Int, [Int]) -> [Int]
-    go acc (_, [])　= (- 1) : acc
+    go acc (_, []) = (-1) : acc
     go acc (_, sList) = maximum sList : acc
 
 main :: IO ()

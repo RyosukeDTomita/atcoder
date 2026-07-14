@@ -1,5 +1,4 @@
-import Data.List (uncons)
-import Data.List (partition)
+import Data.List (partition, uncons)
 
 -- uncons活用のための関数。パターンマッチでもかけるけど
 headPlusLength :: [Int] -> Int

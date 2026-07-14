@@ -4,6 +4,7 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
+
 import Control.Arrow ((>>>))
 import Debug.Trace (traceShowId)
 
@@ -21,7 +22,7 @@ dbgId x
 
 -- Data.Setでprevsを持つべきではあるが、TLEしないのでいいや
 solve :: Int -> Int
-solve s = go [] $ zip [1.. ] (iterate f s)
+solve s = go [] $ zip [1 ..] (iterate f s)
   where
     go :: [Int] -> [(Int, Int)] -> Int
     go _ [] = error "unexpected"

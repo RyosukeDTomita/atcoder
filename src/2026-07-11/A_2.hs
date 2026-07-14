@@ -4,6 +4,7 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
+
 import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
@@ -19,7 +20,7 @@ dbgId x
   | otherwise = x
 
 solve :: [Int] -> String
-solve xs = if any (>=0) xs then "No" else "Yes"
+solve xs = if any (>= 0) xs then "No" else "Yes"
 
 main :: IO ()
 main =
