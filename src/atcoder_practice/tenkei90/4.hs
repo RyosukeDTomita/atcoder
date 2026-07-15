@@ -36,9 +36,10 @@ solve bss = zipWith add rowSum bss --- zipWit add [3,3,3] [[1,1,1],[1,1,1],[1,1,
     add :: Int -> [Int] -> [Int]
     add r bs = zipWith (\c b -> r + c - b) colSum bs -- add 3 [1,1,1] = zipWith (\c b -> r + c - b) [3,3,3] [1]
 
+-- bsにしたら1ケース5000 ms >だったTLEがきえた。実は入力がH=W=2000なの400万くらいででかいし、出力サイズも同等なのでbsが効きやすい
 main :: IO ()
 main = BS.interact $ \inputs ->
-  let ls = lines inputs
+  let ls = BS.lines inputs
       -- [h, w] = map read . words $ head ls :: [Int]
       bss = map (map readInt . BS.words) $ drop 1 ls :: [[Int]]
    in BS.unlines . map (BS.unwords . map (BS.pack . show)) $ solve bss
