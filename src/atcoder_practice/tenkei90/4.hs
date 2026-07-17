@@ -4,9 +4,10 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
-import Data.List (transpose)
+
 import Data.ByteString.Char8 qualified as BS
+import Data.List (transpose)
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER

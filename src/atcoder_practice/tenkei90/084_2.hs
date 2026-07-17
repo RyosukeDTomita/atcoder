@@ -1,6 +1,7 @@
 -- https://atcoder.jp/contests/typical90/submissions/me
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
+
 import Data.List (group)
 
 -- 「o,x両方を含む区間数」= 全区間数 - 単色区間数

@@ -4,9 +4,10 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
-import Data.Set qualified as Set
+
 import Data.List (foldl')
+import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -21,12 +22,12 @@ dbgId x
   | otherwise = x
 
 solve :: [String] -> [Int]
-solve ss = reverse $ snd $ foldl' go (Set.empty, []) $ zip [1..] ss
+solve ss = reverse $ snd $ foldl' go (Set.empty, []) $ zip [1 ..] ss
   where
     go :: (Set.Set String, [Int]) -> (Int, String) -> (Set.Set String, [Int])
     go (set, output) (i, s)
-      | s `Set.member` set  = (set, output)
-      | otherwise = (Set.insert s set, i: output)
+      | s `Set.member` set = (set, output)
+      | otherwise = (Set.insert s set, i : output)
 
 main :: IO ()
 main =
