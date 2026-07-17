@@ -4,8 +4,9 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Data.ByteString.Char8 qualified as BS
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -18,7 +19,6 @@ dbgId :: (Show a) => a -> a
 dbgId x
   | debug = traceShowId x
   | otherwise = x
-
 
 -- combinationsと同じ「選ぶ/選ばない」の再帰だが、5要素リストを実体化せず途中積accを持ち回る。
 -- C(100,5)=約7500万通りのリスト生成が消えるぶん速い(実測4.9s→1.5s)。
