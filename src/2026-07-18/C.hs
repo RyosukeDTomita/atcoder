@@ -6,10 +6,11 @@
 {-# OPTIONS_GHC -Wunused-imports #-}
 
 -- {-# OPTIONS_GHC -DATCODER #-}
-import Data.ByteString.Char8 qualified as BS
-import Debug.Trace (traceShowId)
-import Data.List (foldl')
+
 import Data.Array
+import Data.ByteString.Char8 qualified as BS
+import Data.List (foldl')
+import Debug.Trace (traceShowId)
 
 #ifdef ATCODER
 debug :: Bool ; debug = False
@@ -34,7 +35,7 @@ readInt bs =
 -- b_i == 1 -> a_i + a_(i+1) `mod` 2 == 1
 --
 solve :: Int -> [Int] -> [Int] -> Int
-solve n aList bList = fst $ foldl' go (0, aijArr) $ zip [1..] bList
+solve n aList bList = fst $ foldl' go (0, aijArr) $ zip [1 ..] bList
   where
     -- !aijList = dbgId $ zipWith (+) aList $ tail aList
     aijList = zipWith (+) aList $ tail aList
@@ -42,8 +43,7 @@ solve n aList bList = fst $ foldl' go (0, aijArr) $ zip [1..] bList
     go :: (Int, Array Int Int) -> (Int, Int) -> (Int, Array Int Int)
     go (n, arr) (i, b)
       | (arr ! i) `mod` 2 == b = (n, arr)
-      | otherwise = (n+1, arr // [(i, (arr ! i) + 1), (i + 1, (arr ! (i + 1) + 1))])
-
+      | otherwise = (n + 1, arr // [(i, (arr ! i) + 1), (i + 1, (arr ! (i + 1) + 1))])
 
 main :: IO ()
 main = BS.interact $ \inputs ->

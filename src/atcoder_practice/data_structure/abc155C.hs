@@ -4,10 +4,11 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
-import Data.Map qualified as Map
+
 import Data.List (foldl', maximumBy)
+import Data.Map qualified as Map
 import Data.Ord (comparing)
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -27,7 +28,6 @@ solve ss = reverse $ foldl' (\acc (w, n) -> if n == mostFreqN then w : acc else 
     m = foldl' (\acc s -> Map.insertWith (+) s 1 acc) Map.empty ss
     mList = Map.toList m
     mostFreqN = snd $ maximumBy (comparing snd) mList :: Int
-
 
 main :: IO ()
 main =

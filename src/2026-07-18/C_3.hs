@@ -34,14 +34,13 @@ readInt bs =
 -- A_1に足すか否か(x1=0/1)で残りの反転はすべて一意に決まるので、
 -- 貪欲を2回(x1=0とx1=1)走らせてminを取る。
 solve :: [Int] -> [Int] -> Int
-solve aList@(a0: aRest) bList = min (go a0 aRest bList 0) (go (a0 + 1) aRest bList 0 + 1) -- 2回目の貪欲法はa0に+1した状態から始めるので1回分cntを増やしている
+solve aList@(a0 : aRest) bList = min (go a0 aRest bList 0) (go (a0 + 1) aRest bList 0 + 1) -- 2回目の貪欲法はa0に+1した状態から始めるので1回分cntを増やしている
   where
     go :: Int -> [Int] -> [Int] -> Int -> Int
     go _ [] [] cnt = cnt
-    go ai (ai': as) (bi : bs) !cnt -- ai'=a_(i+1) cntをBangPatternにしてみたが、実行時間は変わらず(GHCが賢い)
+    go ai (ai' : as) (bi : bs) !cnt -- ai'=a_(i+1) cntをBangPatternにしてみたが、実行時間は変わらず(GHCが賢い)
       | (ai + ai') `mod` 2 == bi = go ai' as bs cnt
       | otherwise = go (ai' + 1) as bs (cnt + 1)
-
 
 main :: IO ()
 main = BS.interact $ \inputs ->

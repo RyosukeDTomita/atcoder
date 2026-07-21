@@ -3,8 +3,9 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Data.List (foldl')
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -34,6 +35,6 @@ main :: IO ()
 main =
   interact $ \inputs ->
     let ls = lines inputs
-      -- n = (read :: String -> Int) $ head ls
+        -- n = (read :: String -> Int) $ head ls
         absList = map parseLine $ tail ls
-      in show (solve absList) ++ "\n"
+     in show (solve absList) ++ "\n"

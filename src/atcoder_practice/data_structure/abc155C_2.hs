@@ -1,6 +1,7 @@
 -- https://atcoder.jp/contests/abc155/tasks/abc155_c
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
+
 import Data.ByteString.Char8 qualified as BS
 import Data.Map.Strict qualified as Map
 

@@ -25,10 +25,10 @@ solve n = [length gs'] : gs'
   where
     gs' = gs ++ [[n, 1]]
     gs =
-        [ [x, x + 1]
-        | x <- [1 .. n],
-          x + 1 < n + 1
-        ]
+      [ [x, x + 1]
+      | x <- [1 .. n],
+        x + 1 < n + 1
+      ]
 
 main :: IO ()
 main =
