@@ -21,6 +21,8 @@ main = do
   print $ fromJust $ Set.lookupGT 6 $ Set.fromList [2, 4, 6, 8] -- 6より大きく最小は8
   print $ fromJust $ Set.lookupLE 6 $ Set.fromList [2, 4, 6, 8] -- 6自身も含む最小は6
   print $ fromJust $ Set.lookupGE 6 $ Set.fromList [2, 4, 6, 8] -- 6自身も含む最小は6
+  print $ Set.findMin $ Set.fromList [2, 4, 6, 8] -- 2
+  print $ Set.findMax $ Set.fromList [2, 4, 6, 8] -- 8
   print $ Set.elemAt 2 $ Set.fromList [8, 2, 6, 4] -- 内部的にはソートされているので6 O(log n)
   print $ fromJust $ Set.lookupIndex 6 $ Set.fromList [8, 2, 6, 4] -- 内部的にはソートされているので2
   print $ Set.findIndex 6 $ Set.fromList [8, 2, 6, 4] -- 内部的にはソートされているので2
