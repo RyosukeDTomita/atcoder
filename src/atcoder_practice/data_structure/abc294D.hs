@@ -4,9 +4,10 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Data.List (foldl')
 import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -20,11 +21,11 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
-thd :: (a,b,c) -> c
+thd :: (a, b, c) -> c
 thd (_, _, c) = c
 
 solve :: Int -> [[Int]] -> [Int]
-solve n qs = reverse $ thd $ foldl' go (Set.empty, [1..n], []) qs
+solve n qs = reverse $ thd $ foldl' go (Set.empty, [1 .. n], []) qs
   where
     -- called: 受付に1回以上呼ばれた人(受付に行った人は削除する)
     -- notCalled: まだ一度も呼ばれてない待機列

@@ -4,9 +4,10 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
-import Data.Set qualified as Set
+
 import Data.List (foldl')
+import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -27,9 +28,9 @@ solve qs = reverse $ snd $ foldl' go (Set.empty, []) qs
     go (acc, output) [i, x]
       | i == 1 = (Set.insert x acc, output)
       | i == 2 = (Set.delete x acc, output)
-      | i == 3 =  case Set.lookupGE x acc of
-        Just gtX -> (acc, gtX : output)
-        Nothing -> (acc, (-1) : output)
+      | i == 3 = case Set.lookupGE x acc of
+          Just gtX -> (acc, gtX : output)
+          Nothing -> (acc, (-1) : output)
       | otherwise = error "input is not valid"
 
 main :: IO ()

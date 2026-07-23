@@ -6,8 +6,8 @@
 {-# OPTIONS_GHC -Wunused-imports #-}
 
 import Data.Array
+import Data.Set qualified as Set
 import Debug.Trace (traceShowId)
-import qualified Data.Set as Set
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
