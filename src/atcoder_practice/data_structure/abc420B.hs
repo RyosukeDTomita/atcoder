@@ -38,7 +38,7 @@ solve n ss =
   ]
   where
     rounds = map pointsForRound $ transpose ss
-    scores = foldl' (zipWith (+)) (replicate n 0) rounds -- ここがぱっと思いつけなさそう。
+    scores = foldl' (zipWith (+)) (replicate n 0) rounds -- mapではだめ。畳み込む必要がある。
     best = maximum scores
 
 main :: IO ()
