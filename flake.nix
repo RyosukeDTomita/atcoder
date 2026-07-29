@@ -33,6 +33,8 @@
               ps.bytestring
             ]))
             pkgs.haskell.packages.ghc984.haskell-language-server
+            pkgs.ghcid
+            pkgs.ghciwatch
           ];
         };
       }
