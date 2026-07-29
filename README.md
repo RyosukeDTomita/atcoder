@@ -22,19 +22,13 @@
 
 ## ENVIRONMENT
 
+GHC 9.8.4
+
 ```shell
 nix develop
 ```
 
-### (VS Code User)
-
-- VS CodeのExtensionsである`haskell.haskell`をインストールする。
-- [settings.json](./.vscode/settings.json)に設定を記載しているので、VS Codeで`atcoder/`ディレクトリを開けば自動的にLSPやフォーマッタ等は認識される。
-- スニペットは、[haskell.code-snippets](./.vscode/haskell.code-snippets)に配置している。
-
-### (Zed User)
-
-最近はZedに移行した。
+### Zed User
 
 - `haskell`のExtensionsをインストールする。
 - \`[settings.json](./.zed/settings.json)に設定を配置している。これで、LSPやフォーマッタ等が使えるようになる。
@@ -51,32 +45,21 @@ cd src
 ./create_today_dir.sh
 ```
 
+コンテスト終了後にREADME.md作成する
+
+```shell
+cd src
+./create_readme.sh abcxxx <ディレクトリ名>
+```
+
 Haskellのコードを実行する
-
-```shell
-# コンパイルして実行する
-ghc <file_name>.hs
-./<file_name>
-```
-
-```shell
-# インタプリタで実行する
-runghc <file_name>.hs
-```
 
 ```shell
 # 入力データをtxtファイルから受け取って実行する(これが一番競技プログラミングに向いてそう?)
 runghc <file_name>.hs < input.txt
 ```
 
-```shell
-# 対話形式で実行する
-ghci
-ghci> putStrLn "Hello, World!"
-Hello, World!
-ghci> :q
-Leaving GHCi.
-```
+### Format
 
 ```shell
 # Formatter(CLIで実行したい場合)
@@ -93,3 +76,29 @@ import文の自動読み込み設定を[.ghci](./.ghci)に記載している。
 cd atcoder
 ln -s /home/sigma/atcoder/.ghci /home/sigma/.ghci
 ```
+
+```shell
+# 対話形式で実行する
+ghci
+ghci> putStrLn "Hello, World!"
+Hello, World!
+ghci> :q
+Leaving GHCi.
+```
+
+\`\`\`shell\`
+
+# .hsファイルを読みこんで関数を呼び出す。
+
+ghci hoge.hs
+ghci> solve 1
+1
+
+````
+
+
+```shell
+ghci
+ghci>:t foldl
+```
+````
