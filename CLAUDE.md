@@ -1,6 +1,7 @@
 Haskellで挑戦するAtCoder用リポジトリ
 
 質問に応答するまえに現在編集しているソースコードを再度読み込むこと
+nix flakeでghcをインストールしているので`nix develop`してから`runghc`すること。
 
 ## Haskell Conventions
 
