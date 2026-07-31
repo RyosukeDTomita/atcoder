@@ -4,9 +4,10 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
+
 import Data.ByteString.Char8 qualified as BS
-import Debug.Trace (traceShowId)
 import Data.Vector.Unboxed qualified as VU
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -26,7 +27,6 @@ readInt bs =
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
-
 pairs :: [Int] -> [(Int, Int)]
 pairs (a : b : rest) = (a, b) : pairs rest
 pairs _ = []
@@ -45,8 +45,8 @@ solve cps lrs = map go lrs
     -- !class2 = dbgId $ map (\(c,p) -> if c == 2 then p else 0) cps
     -- !prefixSum1 = dbgId $ VU.scanl' (+) 0 $ VU.fromList class1
     -- !prefixSum2 = dbgId $ VU.scanl' (+) 0 $ VU.fromList class2
-    class1 = map (\(c,p) -> if c == 1 then p else 0) cps
-    class2 = map (\(c,p) -> if c == 2 then p else 0) cps
+    class1 = map (\(c, p) -> if c == 1 then p else 0) cps
+    class2 = map (\(c, p) -> if c == 2 then p else 0) cps
     prefixSum1 = VU.scanl' (+) 0 $ VU.fromList class1
     prefixSum2 = VU.scanl' (+) 0 $ VU.fromList class2
     go :: (Int, Int) -> [Int]
@@ -54,7 +54,7 @@ solve cps lrs = map go lrs
 
 main :: IO ()
 main =
-    BS.interact $ \inputs ->
+  BS.interact $ \inputs ->
     let ls = BS.lines inputs
         n = readInt $ head ls
         (use, rest) = splitAt n $ tail ls

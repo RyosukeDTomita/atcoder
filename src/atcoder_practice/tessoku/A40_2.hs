@@ -1,7 +1,8 @@
+{-# LANGUAGE MonoLocalBinds #-}
 -- https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_an
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-{-# LANGUAGE MonoLocalBinds #-}
+
 import Data.Array (accumArray, elems)
 
 nCr :: Int -> Int -> Int
