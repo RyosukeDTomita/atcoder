@@ -13,3 +13,4 @@
   - 2つの引数のlambda式
 - [リスト内包表記と同じ動作をするコード例](./list_comprehension.hs)
 - [割り算まとめ](./division.hs) : `div`, `mod`, `quot`、`divMod`の違い。`/`を使う時には`fromIntegral`が必要。
+- [文字列`Char[]`を数値に変換する。逆も](./charToInt.hs): `digitToInt`, `intToDigit`, `toInteger`
