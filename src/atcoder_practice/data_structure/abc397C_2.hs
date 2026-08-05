@@ -5,8 +5,9 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
+
 import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -26,12 +27,11 @@ solve as = go (0, Set.empty, Set.fromList as) as
   where
     go :: (Int, Set.Set Int, Set.Set Int) -> [Int] -> Int
     go (score, _, _) [] = score
-    go (!score, !left, !right) (a: rest) = go (max score score', left', right') rest
+    go (!score, !left, !right) (a : rest) = go (max score score', left', right') rest
       where
         left' = Set.insert a left
-        right'= Set.delete a right
+        right' = Set.delete a right
         score' = Set.size left' + Set.size right'
-
 
 main :: IO ()
 main =

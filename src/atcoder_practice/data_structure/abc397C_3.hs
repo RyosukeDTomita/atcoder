@@ -4,10 +4,11 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
-import Debug.Trace (traceShowId)
-import Data.Set qualified as Set
-import Data.List (foldl')
+
 import Data.ByteString.Char8 qualified as BS
+import Data.List (foldl')
+import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -30,18 +31,20 @@ solve as = maximum $ zipWith (+) ((init . fst) (foldl' go ([], Set.empty) as)) (
     go (output, leftSet) a = (output', leftSet')
       where
         leftSet' = Set.insert a leftSet -- こっちはbangPatternにするとTLEになる。
-        !output' = Set.size leftSet : output -- 逆順(添字の降順)に積まれるので、zipWithで足す側の片方をreverseして添字を揃える。
+        -- !output' = Set.size leftSet : output -- 逆順(添字の降順)に積まれるので、zipWithで足す側の片方をreverseして添字を揃える。
+        !leftSetSize = Set.size leftSet -- bangPatternでsizeに潰すために名前をつけた
+        output' = leftSetSize : output -- 逆順(添字の降順)に積まれるので、zipWithで足す側の片方をreverseして添字を揃える。
 
 -- ByteString版 read
 readInt :: BS.ByteString -> Int
 readInt bs = case BS.readInt bs of
-    Just (x, _) -> x
-    Nothing -> error "input is not integer"
+  Just (x, _) -> x
+  Nothing -> error "input is not integer"
 
 -- ByteStringにしてギリギリ通った。
 main :: IO ()
 main = BS.interact $ \inputs ->
-    let ls = BS.lines inputs
-        n = readInt $ head ls
-        as = map readInt . BS.words $ ls !! 1 :: [Int]
-    in ((BS.pack . show) (solve as)) <> BS.pack "\n"
+  let ls = BS.lines inputs
+      n = readInt $ head ls
+      as = map readInt . BS.words $ ls !! 1 :: [Int]
+   in ((BS.pack . show) (solve as)) <> BS.pack "\n"
