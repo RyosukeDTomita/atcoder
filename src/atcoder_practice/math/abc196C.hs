@@ -5,6 +5,7 @@
 {-# LANGUAGE MonoLocalBinds #-}
 {-# OPTIONS_GHC -Wno-x-partial #-}
 {-# OPTIONS_GHC -Wunused-imports #-}
+
 import Control.Arrow ((>>>))
 import Debug.Trace (traceShowId)
 
@@ -21,14 +22,15 @@ dbgId x
   | otherwise = x
 
 solve :: Int -> Int
-solve n = length [
-  i
-  | i <- [11..n],
-  let iStr = show i,
-  let lenI = length iStr,
-  -- even lenI && (\(left, right) -> left == right) (splitAt (lenI `div` 2) iStr)
-  even lenI && uncurry (==) (splitAt (lenI `div` 2) iStr)
-  ]
+solve n =
+  length
+    [ i
+    | i <- [11 .. n],
+      let iStr = show i,
+      let lenI = length iStr,
+      -- even lenI && (\(left, right) -> left == right) (splitAt (lenI `div` 2) iStr)
+      even lenI && uncurry (==) (splitAt (lenI `div` 2) iStr)
+    ]
 
 main :: IO ()
 main =
