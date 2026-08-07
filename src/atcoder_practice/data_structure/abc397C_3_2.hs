@@ -1,5 +1,5 @@
 -- https://atcoder.jp/contests/abc397/tasks/abc397_c
--- ギリギリACできた。(BangPatternsなし)
+-- BangPatternsにしたらTLEになってしまった。
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
@@ -30,8 +30,8 @@ solve as = maximum $ zipWith (+) ((init . fst) (foldl' go ([], Set.empty) as)) (
     go :: ([Int], Set.Set Int) -> Int -> ([Int], Set.Set Int)
     go (output, leftSet) a = (output', leftSet')
       where
-        leftSet' = Set.insert a leftSet
-        output' = Set.size leftSet : output -- 逆順(添字の降順)に積まれるので、zipWithで足す側の片方をreverseして添字を揃える。
+        !leftSet' = Set.insert a leftSet -- ここがだめ。
+        !output' = Set.size leftSet : output -- 逆順(添字の降順)に積まれるので、zipWithで足す側の片方をreverseして添字を揃える。
 
 -- ByteString版 read
 readInt :: BS.ByteString -> Int
@@ -39,6 +39,7 @@ readInt bs = case BS.readInt bs of
     Just (x, _) -> x
     Nothing -> error "input is not integer"
 
+-- ByteStringにしてギリギリ通った。
 main :: IO ()
 main = BS.interact $ \inputs ->
     let ls = BS.lines inputs
