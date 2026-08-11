@@ -25,6 +25,7 @@ main = do
   print yMap''''
   let yMapD = Map.delete "john" yMap
 
+  -- 検索
   print yMap''
   print $ Map.lookup "john" yMap -- Just 20
   print $ yMap Map.!? "john" -- Just 20

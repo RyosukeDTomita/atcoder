@@ -9,3 +9,4 @@ main = do
   -- Map.findMaxとかはキーの最大値が返されるのであんま使えない
   print $ maximumBy (comparing snd) $ Map.toList xMap
   print $ fst $ maximumBy (comparing snd) $ Map.toList xMap -- キーだけ
+  print $ maximum (Map.elems xMap) -- キーがいらないならこっちでも
