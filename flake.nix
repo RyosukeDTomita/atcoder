@@ -31,6 +31,7 @@
               ps.vector
               ps.containers
               ps.bytestring
+              ps.ghc-vis
             ]))
             pkgs.haskell.packages.ghc984.haskell-language-server
             pkgs.ghcid
