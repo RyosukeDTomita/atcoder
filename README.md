@@ -86,19 +86,20 @@ ghci> :q
 Leaving GHCi.
 ```
 
-\`\`\`shell\`
-
+```shell
 # .hsファイルを読みこんで関数を呼び出す。
 
 ghci hoge.hs
 ghci> solve 1
 1
-
-````
+```
 
 
 ```shell
-ghci
+# 型
 ghci>:t foldl
+# info
+ghci>:i foldl
+# kind
+ghci>:k Int
 ```
-````
