@@ -11,9 +11,9 @@
 -- TLE調査時に有効化する。MRが適用されて単相化された(=共有が効いている)束縛を報告する。
 -- {-# OPTIONS_GHC -Wmonomorphism-restriction #-}
 
-import Debug.Trace (traceShowId)
-import Data.Set qualified as Set
 import Data.List (foldl')
+import Data.Set qualified as Set
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -28,14 +28,13 @@ dbgId x
   | otherwise = x
 
 solve :: Int -> [Int] -> [Int]
-solve n xs = Set.toList $ foldl' go set $ zip [1..] xs
+solve n xs = Set.toList $ foldl' go set $ zip [1 ..] xs
   where
-    set = Set.fromList [1..n]
+    set = Set.fromList [1 .. n]
     go :: Set.Set Int -> (Int, Int) -> Set.Set Int
     go acc (i, x)
       | Set.member i acc = Set.delete x acc
       | otherwise = acc
-
 
 main :: IO ()
 main =

@@ -94,7 +94,6 @@ ghci> solve 1
 1
 ```
 
-
 ```shell
 # 型
 ghci>:t foldl
