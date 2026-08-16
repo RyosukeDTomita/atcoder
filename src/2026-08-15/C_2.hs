@@ -10,8 +10,8 @@
 -- TLE調査時に有効化する。MRが適用されて単相化された(=共有が効いている)束縛を報告する。
 -- {-# OPTIONS_GHC -Wmonomorphism-restriction #-}
 
-import Debug.Trace (traceShowId)
 import Data.List (sort)
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -34,12 +34,12 @@ solve as = go (0, 0, nAs', pAs)
     nAs' = reverse nAs -- 100 msくらい速くなった。上でsortしてあるのを利用する。
     go :: (Int, Int, [Int], [Int]) -> Int
     go (_, !result, [], []) = result
-    go (ai, !result, [], (p: pRest)) = go (p, (result + abs (ai - p)), [], pRest)
-    go (ai, !result, (n: nRest), []) = go (n, (result + abs (ai - n)), nRest, [])
-    go (ai, !result, nList@(n : nRest), pList@(p: pRest)) =
+    go (ai, !result, [], (p : pRest)) = go (p, (result + abs (ai - p)), [], pRest)
+    go (ai, !result, (n : nRest), []) = go (n, (result + abs (ai - n)), nRest, [])
+    go (ai, !result, nList@(n : nRest), pList@(p : pRest)) =
       let nDiff = abs (ai - n)
           pDiff = abs (ai - p)
-        in if nDiff <= pDiff then go (n, result + nDiff, nRest, pList) else go (p, result + pDiff, nList, pRest)
+       in if nDiff <= pDiff then go (n, result + nDiff, nRest, pList) else go (p, result + pDiff, nList, pRest)
 
 main :: IO ()
 main =
