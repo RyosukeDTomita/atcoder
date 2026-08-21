@@ -1,4 +1,4 @@
--- https://algo-method.com/tasks/303
+-- https://algo-method.com/tasks/306
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
@@ -27,24 +27,25 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
--- 問題のゴールは?: マス0からマスN-1のマスに到達する最短秒数を求める。
+-- 問題のゴールは?: マス0からマスN-1に到達する最短秒数を求める。
 -- どんな操作をするか?: マスiへの到達コストdp[i]を小さい添字から順に確定させる
--- その操作をすると何が起きるか?: マスiへは「i-1から1マス(a_i)」か「i-2から2マス(2*a_i)」でしか来ないので、そのminをとればよい
+-- その操作をすると何が起きるか?: マスiへはdp[i-k] + k * a_i (k = 1..M)でしか来ないので、そのminをとればよい
 -- 最終的に満たすべき条件は?: dp[N-1]が答え
-solve :: Int -> [Int] -> Int
-solve n as = snd $ foldl' go (0, arr ! 1) [2 .. n - 1]
+solve :: Int -> Int -> [Int] -> Int
+solve n m as = head $ foldl' go [0] [1 .. n - 1]
   where
     arr = listArray (0, n - 1) as
-    -- 自分のマスを動かすのではなく、各マスに到達するための最小値をもとめる方針にする
-    -- そのためにiに到達できるのはdp[i-2] + 2 * a_iとdp[i-1] + a_iの最小値である。
-    -- dpは再帰的に計算される。
-    go :: (Int, Int) -> Int -> (Int, Int)
-    go (!prev2, !prev1) i = (prev1, min (prev1 + arr ! i) (prev2 + 2 * (arr ! i))) -- prev1は次のfoldのステップで使用するので保持する。
+    -- prevsは新しい順[dp[i-1], dp[i-2], ..., dp[i-M]]。iがM未満のうちは長さiのまま育つのでkの上限判定(take m)は効いていない。
+    go :: [Int] -> Int -> [Int]
+    go prevs i = take m (next : prevs)
+      where
+        -- foldl'はリストのWHNFしか潰さないので、ここでbangを付けないとサンクが積み上がる
+        !next = minimum $ zipWith (\k p -> p + k * arr ! i) [1 ..] prevs -- マスiに到達する全経路の最小コスト
 
 main :: IO ()
 main =
   interact $ \inputs ->
     let ls = lines inputs
-        n = read $ head ls :: Int
-        as = map read . words $ ls !! 1 :: [Int]
-     in show (solve n as) ++ "\n"
+        [n, m] = map read . words $ head ls :: [Int]
+        xs = map read . words $ ls !! 1 :: [Int]
+     in show (solve n m xs) ++ "\n"
