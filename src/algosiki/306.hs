@@ -28,16 +28,13 @@ dbgId x
   | otherwise = x
 
 -- 問題のゴールは?: マス0からマスN-1に到達する最短秒数を求める。
--- どんな操作をするか?: マスiへの到達コストdp[i]を小さい添字から順に確定させる
--- その操作をすると何が起きるか?: マスiへはdp[i-k] + k * a_i (k = 1..M)でしか来ないので、そのminをとればよい
--- 最終的に満たすべき条件は?: dp[N-1]が答え
 solve :: Int -> Int -> [Int] -> Int
-solve n m as = head $ foldl' go [0] [1 .. n - 1]
+solve n m as = head $ foldl' go [0] [1 .. n - 1] -- dp[n-1]が答えになるので最後の畳み込み結果の先頭が答え
   where
     arr = listArray (0, n - 1) as
-    -- prevsは新しい順[dp[i-1], dp[i-2], ..., dp[i-M]]。iがM未満のうちは長さiのまま育つのでkの上限判定(take m)は効いていない。
+    -- prevsは新しい順[dp[i-1], dp[i-2], ..., dp[i-M]]。
     go :: [Int] -> Int -> [Int]
-    go prevs i = take m (next : prevs)
+    go prevs i = take m (next : prevs) -- iがM未満のうちは長さiのまま育つのでkの上限判定(take m)は効いていない。
       where
         -- foldl'はリストのWHNFしか潰さないので、ここでbangを付けないとサンクが積み上がる
         !next = minimum $ zipWith (\k p -> p + k * arr ! i) [1 ..] prevs -- マスiに到達する全経路の最小コスト
