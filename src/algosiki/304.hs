@@ -1,4 +1,4 @@
--- https://algo-method.com/tasks/323
+-- https://algo-method.com/tasks/304
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
@@ -11,8 +11,9 @@
 -- TLE調査時に有効化する。MRが適用されて単相化された(=共有が効いている)束縛を報告する。
 -- {-# OPTIONS_GHC -Wmonomorphism-restriction #-}
 
-import Data.Array
+import Control.Arrow ((>>>))
 import Debug.Trace (traceShowId)
+import Data.Array
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -26,19 +27,20 @@ dbgId x
   | debug = traceShowId x
   | otherwise = x
 
-solve :: Int -> [Int] -> String
-solve n ds = if reach ! n then "Yes" else "No"
+-- n段ある階段を登り切るパターンを求める問題
+-- bit全探索するとTLEする
+-- n段ある階段のうち、i番目に到達する経路を求めれば良さそう
+solve :: Int -> Int
+solve n = arr ! n
   where
-    reach = listArray (0, n) (map f [0 .. n]) -- 各マスに到達できるかのArray
-    -- iマス目に到達できるか。1パターンでもあればOK
-    f :: Int -> Bool
-    f 0 = True
-    f i = or [reach ! (i - d) | d <- ds, d <= i] -- orは[]だとFalse
+    arr = listArray (0, n) $ map pattern [0..n]
+    pattern :: Int -> Int
+    pattern 0 = 0
+    pattern 1 = 1
+    pattern 2 = 2
+    pattern i = arr ! (i - 2) + arr ! (i - 1)
 
 main :: IO ()
 main =
-  interact $ \inputs ->
-    let ls = lines inputs
-        [n, m] = map read . words $ head ls :: [Int] -- [マスの数, サイコロの種類
-        ds = map read . words $ ls !! 1 :: [Int] -- ダイスの目
-     in (solve n ds) ++ "\n"
+  interact $
+    (read :: String -> Int) >>> solve >>> show >>> (++ "\n")
