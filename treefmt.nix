@@ -13,9 +13,13 @@
   programs.ormolu.enable = true;
   programs.ormolu.package = pkgs.haskell.packages.ghc9122.ormolu;
 
-  # treefmt controls mode/idempotence itself; pass only parser options.
-  settings.formatter.ormolu.options = [
-    "--ghc-opt"
-    "-XImportQualifiedPost"
+  # ghcOptsはmoduleが"--ghc-opt -X<ext>"へ展開する。settings.formatter.ormolu.options
+  # に直接書くとmoduleのdefaultと連結されてしまうためこちらで指定する。
+  # PatternSynonymsはdefaultに含まれるが、有効にするとpatternが予約語になり
+  # ローカル関数名patternがparse errorになるため外している。
+  programs.ormolu.ghcOpts = [
+    "ImportQualifiedPost"
+    "BangPatterns"
+    "TypeApplications"
   ];
 }

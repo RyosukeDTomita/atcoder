@@ -12,8 +12,8 @@
 -- {-# OPTIONS_GHC -Wmonomorphism-restriction #-}
 
 import Control.Arrow ((>>>))
-import Debug.Trace (traceShowId)
 import Data.Array
+import Debug.Trace (traceShowId)
 
 -- {-# OPTIONS_GHC -DATCODER #-}
 #ifdef ATCODER
@@ -33,7 +33,7 @@ dbgId x
 solve :: Int -> Int
 solve n = arr ! n
   where
-    arr = listArray (0, n) $ map pattern [0..n]
+    arr = listArray (0, n) $ map pattern [0 .. n]
     pattern :: Int -> Int
     pattern 0 = 0
     pattern 1 = 1
