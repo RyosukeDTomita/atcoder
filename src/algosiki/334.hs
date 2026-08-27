@@ -1,4 +1,4 @@
--- https://algo-method.com/tasks/333
+-- https://algo-method.com/tasks/334
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MonoLocalBinds #-}
@@ -28,27 +28,28 @@ dbgId x
 
 -- 縦横Nマスのゲーム盤の左上から右下を目指す
 -- コマは右 or 下に進む
--- コマがたどる道筋の全パターンを求める
--- 各マスが#なら穴あきマスですすめない。.は通れる
-solve :: Int -> [String] -> Int
-solve n ss = dp ! (n - 1, n - 1)
+-- 各コマにはAijの重みがついている
+-- 右下につくまでの重みの合計の最大値を求める
+solve :: Int -> [[Int]] -> Int
+solve n ass = dp ! (n - 1, n - 1)
   where
-    spaces = listArray ((0, 0), (n - 1, n - 1)) $ concat ss -- マス情報(1次元配列のindexがタプルになっているだけなので Array Int Int Stringであることに注意)
+    a00 = (head . head) ass
+    grid = listArray ((0, 0), (n - 1, n - 1)) $ concat ass
     dp = listArray ((0, 0), (n - 1, n - 1)) $ map cal [0 .. ((n * n) - 1)] -- 各マスを0からn^2-1で表現
-    -- スタートのマスに到達するのは1通り。その後右と下に進むのはそれぞれ1通りずつしか選択肢がない
+    -- スタートのマスに到達するのは1通りでそのコストはa00。
+    -- あるマスに到達するための経路のコストは直前のマスまでのコストの合計の大きい方+そのマスのコスト
     cal :: Int -> Int
-    cal 0 = 1
-    cal i = left + upper
+    cal 0 = a00
+    cal i = max left upper + grid ! (h, w)
       where
         h = i `div` n -- 縦
         w = i `mod` n -- 横
-        upper = if h == 0 || spaces ! (h - 1, w) == '#' then 0 else dp ! (h - 1, w)
-        left = if w == 0 || spaces ! (h, w - 1) == '#' then 0 else dp ! (h, w - 1)
+        upper = if h == 0 then 0 else dp ! (h - 1, w)
+        left = if w == 0 then 0 else dp ! (h, w - 1)
 
 main :: IO ()
-main =
-  interact $ \inputs ->
-    let ls = lines inputs
-        n = (read :: String -> Int) $ head ls
-        ss = drop 1 ls
-     in show (solve n ss) ++ "\n"
+main = interact $ \inputs ->
+  let ls = lines inputs
+      n = read $ head ls :: Int
+      ass = map (map read . words) $ drop 1 ls :: [[Int]]
+   in show (solve n ass) ++ "\n"
