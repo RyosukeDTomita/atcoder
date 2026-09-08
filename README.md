@@ -102,3 +102,22 @@ ghci>:i foldl
 # kind
 ghci>:k Int
 ```
+
+#### hoogle
+
+flakeで`ghcWithHoogle`を使っているため、devShellの`hoogle`はdevShellに入れたパッケージ(base/vector/containers/bytestring等)のローカルDBを参照する。ネットワーク不要。
+
+`.ghci`に`:def`でマクロを定義しているので、ghciからそのまま検索できる。
+
+```shell
+# 名前や型シグネチャで検索
+ghci>:hoogle sortOn
+ghci>:hoogle Ord a => [a] -> [a]
+# 先頭ヒットのドキュメントを表示(:docはGHCi組み込みのため:hdocにしている)
+ghci>:hdoc foldl'
+```
+
+```shell
+# シェルから直接引く場合
+hoogle search --count=15 "sortOn"
+```

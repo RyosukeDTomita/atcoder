@@ -26,3 +26,8 @@ import System.Exit (exitSuccess)
 import Text.Printf (printf)
 import Data.Sequence qualified as Seq
 import GHC.Vis
+
+-- hoogle検索(ghcWithHoogleが生成したローカルDBを引く)
+-- :hoogle map / :hdoc foldl'
+:def hoogle \s -> return $ ":! hoogle search --count=15 \"" ++ s ++ "\""
+:def hdoc \s -> return $ ":! hoogle search --info \"" ++ s ++ "\""

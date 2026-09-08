@@ -27,7 +27,7 @@
           packages = [
             treefmtEval.config.build.wrapper
             pkgs.zsh
-            (pkgs.haskell.packages.ghc984.ghcWithPackages (ps: [
+            (pkgs.haskell.packages.ghc984.ghcWithHoogle (ps: [
               ps.vector
               ps.containers
               ps.bytestring
