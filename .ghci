@@ -2,7 +2,7 @@
 :set -XBangPatterns
 import Data.Foldable (toList)
 import Data.Array
-import Data.Bits (shiftL, testBit, popCount)
+import Data.Bits (shiftL, testBit, popCount, xor)
 import Data.Vector qualified as V
 import Data.Vector (Vector)
 import Data.Vector.Mutable qualified as MV
