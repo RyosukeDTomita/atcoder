@@ -1,5 +1,6 @@
 :set -XOverloadedStrings
 :set -XBangPatterns
+import Control.Applicative (ZipList (..))
 import Data.Foldable (toList)
 import Data.Array
 import Data.Bits (shiftL, testBit, popCount, xor)

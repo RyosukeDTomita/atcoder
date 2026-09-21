@@ -84,14 +84,16 @@ ghci> putStrLn "Hello, World!"
 Hello, World!
 ghci> :q
 Leaving GHCi.
+ghci> :reload
 ```
 
 ```shell
 # .hsファイルを読みこんで関数を呼び出す。
 
-ghci hoge.hs
+ghci> :load hoge.hs
 ghci> solve 1
 1
+ghci> :reload
 ```
 
 ```shell
